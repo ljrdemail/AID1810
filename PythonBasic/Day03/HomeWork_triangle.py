@@ -1,0 +1,5 @@
+kgs=int(input("请输入你需要往后移动的格数！"))
+print(' '*kgs,"   *   ")
+print(' '*kgs,"  ***  ")
+print(' '*kgs," ***** ")
+print(' '*kgs,"*******")
