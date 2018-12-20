@@ -74,7 +74,7 @@ rGroup = re.search(r'(?P<tiger>\w+)\s+(?P<lion>\w+)', "A B C D")
 # print(rGroup.group(2))
 # print(rGroup.group("tiger"))
 # print(rGroup.group("lion"))
-#print(rGroup.groups())
+# print(rGroup.groups())
 print(rGroup.groupdict())
 
 print(rGroup.span()) #其实是第二位因为终值取不到 所以往后推一位3  "A B C D")
