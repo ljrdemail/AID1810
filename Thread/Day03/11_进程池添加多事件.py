@@ -17,8 +17,8 @@ p=Pool(processes=4)
 
 #添加任务
 for i in range(7):
-    p.apply_async(func=haiwang,args=(500,))
-    p.apply_async(func=Trump,args=(1000,))
+    p.apply_async(func=haiwang,args=(i,))
+    p.apply_async(func=Trump,args=(i,))
     time.sleep(1)
 
 #关闭进程池

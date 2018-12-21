@@ -27,6 +27,7 @@ start = time.time()
 # p3 = Process(target=hair, args=("超哥哥",))
 
 
+
 p1 = Process(target=smoke, kwargs={"name": "于谦", "num": 5})
 p2 = Process(target=drink, kwargs={"name": "魏叔叔"})
 p3 = Process(target=hair, kwargs={"name": "超哥哥"})
