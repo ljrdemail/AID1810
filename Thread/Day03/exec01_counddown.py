@@ -12,10 +12,13 @@ class MyCountDown(Process):
         for i in range(self.n, 0, -1):
             print(i)
             time.sleep(1)
-        print("时间到！！")
+
+    def over(self):
+        print("比赛结束!!")
 
     def run(self):
         self.fun1()
+        self.over()
 
 
 if __name__ == "__main__":
