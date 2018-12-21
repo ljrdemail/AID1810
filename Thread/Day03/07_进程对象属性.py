@@ -11,7 +11,7 @@ def timming(n):
 
 
 # 创建进程
-p = Process(target=timming, args=(7,), name="计时器")
+p = Process(target=timming, args=(7,), name="计时器") #只是创建了对象 只有等到start 才开始分配资源执行
 print(p.name)  # 默认 process -1
 # print(p.pid)
 # print(p.is_alive())
