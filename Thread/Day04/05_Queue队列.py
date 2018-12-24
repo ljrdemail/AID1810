@@ -16,7 +16,7 @@ def read():
     if not q.empty():
         while True:
             try:
-                print(q.get(block=False))  # 不阻塞 没有值了就抛出异常 不用等别人再放了 因为是先放完 才开始去
+                print(q.get(block=False))  # 不阻塞 没有值了就抛出异常 不用等别人再放了 因为是先放完 才开始取
                 # 因为就那么多了 不会再放了 如果不这么写就卡死在这里等
             except Exception:
                 print("队列已经空了")

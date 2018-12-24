@@ -13,7 +13,7 @@ def f1(n):
 def f2(n):
     for i in range(1, n + 1):
         pass
-        # 因为已经直到多少次了就不用except catch
+        # 因为已经知道是n次了就不用except catch
         m, n = q.get()
         # 2的n次方
         print(m ** n)
