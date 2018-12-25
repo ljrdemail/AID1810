@@ -1,4 +1,4 @@
-from multiprocessing import Pool, Manager  # 14:40
+from multiprocessing import Pool, Manager
 
 
 # 子进程1 负责放
@@ -19,7 +19,7 @@ def read():
 
 
 if __name__ == "__main__":
-    # 创建管道 进程池中创建管道必须用这个
+    # 创建管道 进程池中创建管道必须用这个 不能直接queue
     q = Manager().Queue()
     pool = Pool()
     # 添加任务，用apply阻塞 先放再取
