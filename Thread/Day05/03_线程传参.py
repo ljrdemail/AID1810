@@ -18,5 +18,5 @@ if __name__ == "__main__":
         t=Thread(target=f1,args=("Tedu-%d" %i,),kwargs={"seconds":2})#混杂用 一般不这么玩
         threads.append(t)
         t.start()
-    for i in threads:
+    for i in threads:#把启动的进程放在列表中 运行完统一关闭
         i.join()

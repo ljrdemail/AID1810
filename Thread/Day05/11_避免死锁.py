@@ -9,16 +9,16 @@ lock2 = Lock()
 # 线程函数1
 def f1():
     # lock1加锁
-    lock1.acquire()
+    lock1.acquire()  # 步骤1
     print("线程1 锁住了lock1")
     #遇到sleep()线程挂起 CPU 时间片到f2  请看f2
     time.sleep(0.1)#sleep为了让时间片到另一个进程去
     # lock2加锁
     #给lock2加锁时候发现 f2 已经对lock2 进行了加锁
     while True: #放在while 下面 等f2 释放所有的锁
-        result = lock2.acquire(timeout=1)
+        result = lock2.acquire(timeout=1)  # 步骤3 发现被f2 步骤2 锁住了 那么就把lock1 解锁 直到f2 释放锁 这里变为True 走下面的步骤
         if result:  # 如果result 为True 说明没死锁 继续走下面的程序  false就是死锁
-            print("线程1 锁住了lock2")
+            print("线程1 锁住了lock2")  # 步骤5
             print("线程1 你好")
 
             # 解锁
@@ -34,14 +34,14 @@ def f1():
 # 线程函数2
 def f2():
     # lock1加锁
-    lock2.acquire()
+    lock2.acquire() # 步骤2
     print("线程2 锁住了lock2")
     #此处遇到sleep() 线程2 挂起 CPU跑去f1
     time.sleep(0.1)#sleep为了让时间片到另一个进程去
     # lock2加锁
     #f2 继续执行 发现 lock1 已经加锁了 阻塞
 
-    lock1.acquire()
+    lock1.acquire() # 步骤4 释放之后获取成功 解锁
     print("线程2 锁住了lock1")
     print("线程2 你好")
 

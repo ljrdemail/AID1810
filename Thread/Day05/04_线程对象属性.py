@@ -9,7 +9,7 @@ def f1():
     print("线程对象t属性测试")
 
     time.sleep(1)
-    print("子线程执行完毕%s" %current_thread().getName())
+    print("子线程执行完毕%s" %current_thread().getName())#通过这种方式能在子进程中打印当前线程的线程名 默认Thread-1
 
 
 if __name__ == "__main__":
