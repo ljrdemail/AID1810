@@ -15,5 +15,5 @@ else:
     print("pid:",pid)
     print("status:", status)
     print("子进程退出了，父进程已经处理完毕，没有僵尸进程 我可以继续执行了")
-    while True:
+    while True: #死循环 确保子进程能处理完
         pass
