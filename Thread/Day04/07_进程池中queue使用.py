@@ -23,10 +23,10 @@ if __name__ == "__main__":
     q = Manager().Queue()
     pool = Pool()
     # 添加任务，用apply阻塞 先放再取
-    pool.apply(func=write)
-    #pool.apply_async(func=write) 如果非要async name 配合timeout
-    pool.apply(func=read)
-    #pool.apply_async(func=read)
+    #pool.apply(func=write)
+    pool.apply_async(func=write)# 如果非要async name 配合timeout
+    #pool.apply(func=read)
+    pool.apply_async(func=read)
     # 关闭进程池
     pool.close()
     pool.join()
