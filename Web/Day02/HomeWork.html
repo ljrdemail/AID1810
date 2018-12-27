@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册表单</title>
+</head>
+<body>
+<h1>增加管理员</h1>
+<form action="register.py" ,method="post" enctype="application/x-www-form-urlencoded">
+    <p>姓名：<input type="text" name="username" placeholder="请输入姓名" maxlength="10"> 10个字符以内</p>
+    <p>密码：<input type="password" name="password" placeholder="请输入密码" maxlength="10"> 10个字符以内</p>
+    <p>性别：<input type="radio" name="sex" value="female">女士&nbsp&nbsp<input type="radio" name="sex" value="male">男士</p>
+    <table>
+        <tr>
+            <td rowspan="2">角色</td>
+            <td><input type="checkbox" name="role" value="super">超集管理员</td>
+            <td rowspan="2">
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp至少选择一个角色
+            </td>
+        </tr>
+        <tr>
+
+            <td><input type="checkbox" name="role" value="bill">账单管理员</td>
+
+        </tr>
+
+    </table>
+    <p>头像:<input type="file"></p>
+    <p><input type="submit" value="保存">&nbsp&nbsp<input type="reset" value="重填"></p>
+
+
+</form>
+
+</body>
+</html>
