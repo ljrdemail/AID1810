@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>from示例</title>
+</head>
+<body>
+<button>表单外</button>
+<form action="login.py" method="get" enctype="application/x-www-form-urlencoded">
+    <!-- uname=zhangsan-->
+    <p>
+        用户姓名：<input type="text" name="uname" placeholder="输入用户名(10个字符以内)" maxlength="10">
+
+
+    </p>
+    <p>
+        用户密码：<input type="password" name="password" placeholder="输入密码(10个字符以内)" maxlength="10">
+
+
+    </p>
+    <p>
+        用户性别：<input type="radio" name="sex" value="male" checked="checked" id="male"> <label for="male">男</label> &nbsp
+        <input type="radio" name="sex" value="female" id="female"><label for="female">女</label>
+    </p>
+    <p>用户爱好：<input type="checkbox" name="hobby" value="study" checked="checked">学习 <input type="checkbox" name="hobby"
+                                                                                          value="music">听音乐</p>
+
+    <input type="hidden" name="userId" value="00001">
+    <p>用户头像：<input type="file" name="userImage"></p>
+
+    <select name="city">
+        <option value="bj">北京</option>
+        <option value="sh">上海</option>
+        <option value=sz selected="selected">深圳</option>
+        <option value="gz">广州</option>
+    </select>
+    <p>个人介绍：<textarea name="uinfo"></textarea></p>
+    <p><input type="submit" value="注册"><input type="reset" value="重填"><input type="button" value="普通按钮"><button>表单内</button></p>
+    <
+
+</form>
+
+</body>
+</html>
