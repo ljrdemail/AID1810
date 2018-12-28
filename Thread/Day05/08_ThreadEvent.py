@@ -25,3 +25,4 @@ if __name__=="__main__":
         print("恭喜，薪资过万！")
     else:
         print("下个班在等你！")
+    
