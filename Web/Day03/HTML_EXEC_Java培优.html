@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Java培优HTML练习</title>
+</head>
+<body>
+<h1 align="center">注册表单</h1>
+<table border="2px" bordercolor="red" cellspacing="0" cellpadding="10" align="center">
+    <tr>
+        <td>用户名：</td>
+        <td><input type="text" name="username" placeholder="请输入用户名"></td>
+    </tr>
+    <tr>
+        <td>密码:</td>
+        <td><input type="password" name="password" placeholder="请输入密码"></td>
+    </tr>
+    <tr>
+        <td>确认密码:</td>
+        <td><input type="password" name="password2" placeholder="请再次输入密码"></td>
+    </tr>
+    <tr>
+        <td>手机：</td>
+        <td><input type="text" value="+86" readonly="readonly" size="3">&nbsp<input type="text" name="phone"
+                                                                                    maxlength="11" size="11"></td>
+    </tr>
+    <tr>
+        <td>昵称：</td>
+        <td><input type="text" name="nickname" placeholder="请输入昵称"></td>
+    </tr>
+    <tr>
+        <td>性别</td>
+        <td><input type="radio" name="sex" checked="checked" id="male"><label for="male">男</label><input type="radio"
+                                                                                                         name="sex"
+                                                                                                         id="female"><label
+                for="female">女</label></td>
+    </tr>
+    <tr>
+        <td>爱好：</td>
+        <td><input type="checkbox" name="hobby" value="basketball"> 篮球&nbsp<input type="checkbox" name="hobby"
+                                                                                  value="football"> 足球&nbsp<input
+                type="checkbox" name="hobby" value="billiardball"> 台球
+        </td>
+    </tr>
+    <tr>
+        <td>出生地：</td>
+        <td><select name="city">
+            <option value="bj">北京</option>
+            <option value="sh">上海</option>
+            <option value=sz selected="selected">深圳</option>
+            <option value="gz">广州</option>
+        </select></td>
+    </tr>
+    <tr>
+        <td>头像：</td>
+        <td><input type="file" name="userImage"></td>
+    </tr>
+    <tr>
+        <td>个人介绍：</td>
+        <td><textarea name="uinfo" cols="30" rows="6"></textarea></td>
+    </tr>
+    <tr>
+        <td>验证码：</td>
+        <td><input type="text" name="authcode"><img src="" alt="验证码"></td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center"><input type="button" value="注册须知"><input type="submit" value="注册"><input type="reset"></td>
+    </tr>
+
+
+</table>
+
+</body>
+</html>
