@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>class选择器</title>
+
+    <style>
+        .c1{
+         color:red;
+         background-color:green;
+         font-size:24px
+
+
+        }
+        <!-- 组合使用  标签+类名-->
+     p.c1{
+       width:200px;
+       height:200px;
+     }
+     .c2{
+     /* 设置边框，取值：宽度 样式 颜色*/
+      border:1px solid blue
+
+     }
+
+
+    </style>
+</head>
+<body>
+<p class="c1">段落</p>
+<span class="c1 c2">span1</span>
+<div class="c1 c2">div1</div>
+<p>段落</p>
+</body>
+</html>
