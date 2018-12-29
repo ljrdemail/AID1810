@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border-top: 5px solid red;
+            border-right: 5px solid green;
+            border-bottom: 5px solid blue;
+            border-left: 5px solid orange;
+
+        }
+
+        h1 {
+
+            width: 0px;
+            height: 0px;
+            /*
+            border-top: 40px solid red;
+            border-right: 40px solid rgba(0,0,0,0);
+            border-bottom: 40px solid transparent;
+            border-left: 40px solid transparent;
+            */
+            /*顺序不能变 先设置透明 后单独设置要显示的*/
+            border:20px solid transparent;
+            border-top:20px solid red
+
+        }
+
+    </style>
+</head>
+<body>
+<div></div>
+
+<h1></h1>
+
+</body>
+</html>
