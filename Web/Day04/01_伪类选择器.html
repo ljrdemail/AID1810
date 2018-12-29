@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>伪类选择器</title>
+    <style>
+        a:link {
+            color: black;
+
+        }
+
+        a:visited {
+            color: red;
+
+        }
+
+        a:hover {
+
+            background-color: orange;
+
+        }
+
+        a:active {
+            font-size: 50px;
+
+        }
+
+        div {
+
+            width: 200px;
+            height: 200px;
+            background-color: red;
+
+
+        }
+
+        div:hover {
+            width: 300px;
+            height: 300px;
+            background-color: green;
+
+        }
+
+        input:focus {
+            /*想、取消轮廓线*/
+            outline: none;
+
+        }
+    </style>
+</head>
+<body>
+
+<a href="http://www.baidu.com">超链接</a>
+<div></div>
+<p>
+    <input type="text" name="">
+
+</p>
+
+</body>
+</html>
