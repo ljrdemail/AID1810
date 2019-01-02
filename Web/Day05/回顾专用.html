@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        h1 {
+            width: 200px;
+            height: 200px;
+            border: 3px solid red;
+            overflow: auto;
+        }
+
+        h2 {
+            width: 0px;
+            height: 0px;
+            border-top: 20px solid red;
+            border-right: 20px solid transparent;
+            border-bottom: 20px solid transparent;
+            border-left: 20px solid transparent;
+        }
+
+        div {
+            width: 300px;
+            height: 150px;
+            /*border-radius: 50%;*/
+            border-radius: 20px;
+            /*border-radius: 20px 30px;*/ /*上下 左右一致*/
+            /*border-radius:20px 30px 50px;*/ /*上20 左右 30 下 50*/
+            border:solid red;
+            box-shadow:10px 10px 5px gray;
+
+
+        }
+
+    </style>
+</head>
+<body>
+<h1>一级标题是块元素，默认宽度与父元素保持一致，可以手动设置宽高，并且独占一行不与其他元素工行</h1>
+<h2></h2>
+<div></div>
+</body>
+</html>
