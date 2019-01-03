@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #nav {
+            width: 990px;
+            /*子元素都浮动，父元素的高度需要手动指定*/
+            height: 50px;
+            margin: 0 auto;
+            background: orange;
+        }
+
+        li {
+            float: left;
+            width: 240px;
+            height: 50px;
+            margin-right: 10px;
+            background: pink;
+            /*内容的水平居中和垂直居中*/
+            text-align: center;
+            line-height: 50px;
+
+
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none; /*取消项目符号*/
+
+        }
+
+        .no-margin {
+            margin: 0;
+
+        }
+
+        #main {
+            width: 990px;
+            /*解决子元素浮动 父元素高度为0 16:20*/
+            /*overflow: hidden;*/
+
+            margin: 20px auto;
+            background: cyan;
+
+
+        }
+
+        .left {
+
+            width: 200px;
+            height: 500px;
+            background: rgba(255, 0, 0, 0.5);
+            float: left;
+        }
+
+        .right {
+            width: 700px;
+            height: 500px;
+            background: rgba(0, 255, 0, .5);
+            float: right;
+
+        }
+
+        #fotter {
+            width: 990px;
+            height: 100px;
+            border: 1px solid red;
+
+        }
+        .clear{
+          clear:both;
+
+        }
+    </style>
+</head>
+<body>
+<div id="nav">
+    <ul>
+        <li>首页</li>
+        <li>新闻</li>
+        <li>热点</li>
+        <li class="no-margin">音乐</li>
+    </ul>
+</div>
+<div id="main">
+    <div class="left"></div>
+    <div class="right"></div>
+    <!-- 下面这个div用来请浮动-->
+    <div class="clear"></div>
+
+</div>
+<div id="fotter"></div>
+</body>
+</html>
