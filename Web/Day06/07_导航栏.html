@@ -14,6 +14,7 @@
 
         li {
             float: left;
+            /*通过这个让竖变横*/
             width: 240px;
             height: 50px;
             margin-right: 10px;
@@ -33,15 +34,16 @@
         }
 
         .no-margin {
+            /*这个是为了让最后一个标签没有右边的margin*/
             margin: 0;
 
         }
 
         #main {
             width: 990px;
-            /*解决子元素浮动 父元素高度为0 16:20*/
+            /*解决子元素浮动 父元素高度为0*/
             /*overflow: hidden;*/
-
+           /*或者写死高度 适用于内容不会变的页面*/
             margin: 20px auto;
             background: cyan;
 
@@ -88,7 +90,7 @@
 <div id="main">
     <div class="left"></div>
     <div class="right"></div>
-    <!-- 下面这个div用来请浮动-->
+    <!-- 下面这个div用来清浮动 即使上面都浮动 我自岿然不动 顶着 高度 防止footer上窜 -->
     <div class="clear"></div>
 
 </div>
