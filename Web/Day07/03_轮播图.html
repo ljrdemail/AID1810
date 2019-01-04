@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #banner {
+            width: 600px;
+            margin: 0 auto;
+            height: 372px; /*图片和banner宽度相同 方便定位*/
+            position: relative;
+        }
+
+        img {
+            width: 600px;
+            height: 372px;
+
+
+        }
+
+        ul {
+            list-style: none;
+            /*float:right;*/
+            /*浮动只能在原始位置向左或向右浮动 列表在图片下方 还是在下方*/
+            position: absolute;
+            /*将列表定位至右下角*/
+            right: 0;
+            bottom: 0;
+            /*去掉间距*/
+            margin: 0;
+            padding: 0;
+
+        }
+
+        li {
+            float: left;
+            width: 30px;
+            height: 30px;
+            background: #eee;
+            margin: 10px;
+            text-align: center;
+            line-height: 30px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="banner">
+    <img src="wxy.jpeg">
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+
+
+    </ul>
+
+</div>
+
+</body>
+</html>
