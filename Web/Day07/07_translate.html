@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+       div{
+           margin:300px auto;
+           width:200px;
+           height:200px;
+           background:red;
+           transition:3s;
+           transform-origin:0px 0px
+           /*transform-origin:200px 0px;*/
+            /*transform-origin:top right;*/
+            /*transform-origin:30%  50%*/
+
+
+
+       }
+        div:hover{
+            /*平移变换*/
+            /*transform:translate(200px)*/; /*等效于translateX*/
+            /*transform:translate(200px,200px)*/
+            /*transform:scale(1.5);!*放大到1.5倍*!*/
+            /*transform:scale(.5)*/
+            /*transform:scale(0)*/
+            /*transform:scale(-1)*/
+            /*transform:scaleX(1.5)*/
+            /*transform:rotate(45deg)*/
+            /*transform:rotateX(45deg)*/
+            /*负数从左上翻到右下*/
+            /*组合变换*/
+            /*transform:translate(100px,100px) scale(1.5) rotate(135deg)*/
+            /*transform:translate(300px,300px) rotate(135deg)*/
+             transform: rotate(135deg) translate(300px,300px)
+        }
+
+    </style>
+</head>
+<body>
+<div>vip</div>
+</body>
+</html>
