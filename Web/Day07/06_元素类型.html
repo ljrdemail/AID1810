@@ -9,7 +9,7 @@
             height: 400px;
             background: pink;
             font-size: 0;
-            /*通过父元素设定字体大小为0  a 中恢复字体为16  解决 因为a 标签换行导致在页面解析为空格导致一行不够放 原理是让换行的空格不显示*/
+            /*通过父元素设定字体大小为0  a 中恢复字体为16  解决 因为a 标签换行 导致在页面解析为空格 导致一行不够放（100*4） 原理是让换行的空格不显示*/
 
         }
 
@@ -20,9 +20,9 @@
             display: inline-block;
             /*通过父元素设定字体大小为0  a 中恢复字体为16  解决 因为a 标签换行导致在页面解析为空格导致一行不够放*/
             font-size: 16px;
-            /*通过浮动 解决 因为a 标签换行导致在页面解析为空格导致一行不够放*/
+            /*通过浮动 解决 紧贴左边的元素 因为a 标签换行导致在页面解析为空格导致一行不够放*/
             /*float:left;*/
-            cursor: default;
+            cursor: default; /*测试修改手指变为普通箭头*/
         }
 
         #d1, #d2 {
@@ -33,6 +33,7 @@
         }
 
         #d1 {
+            /*通过rgb方式修改透明 只有背景色透明 不影响文本*/
             background: rgba(255, 0, 0, 0.5);
             /*margin:50px;*/
             /*visibility:hidden;*/
@@ -44,17 +45,20 @@
 
         #d2 {
             background: green;
+            /*通过opacity 文本也受影响*/
             opacity: 0.5;
         }
 
         #d2 h1 {
             opacity: 0.5;
+            /*更淡 0.25*/
 
         }
 
         input {
             width: 150px;
             height: 50px;
+            /*底部对齐*/
             vertical-align:bottom;
 
         }

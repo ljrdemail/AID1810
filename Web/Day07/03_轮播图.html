@@ -19,11 +19,12 @@
         }
 
         ul {
+            /*去掉标号*/
             list-style: none;
             /*float:right;*/
             /*浮动只能在原始位置向左或向右浮动 列表在图片下方 还是在下方*/
             position: absolute;
-            /*将列表定位至右下角*/
+            /*将列表定位至右下角 此时还是竖着的*/
             right: 0;
             bottom: 0;
             /*去掉间距*/
@@ -33,11 +34,13 @@
         }
 
         li {
+            /*通过float 把列表放平*/
             float: left;
             width: 30px;
             height: 30px;
-            background: #eee;
+            background: #eee;/*白色*/
             margin: 10px;
+            /*水平 垂直对齐*/
             text-align: center;
             line-height: 30px;
         }

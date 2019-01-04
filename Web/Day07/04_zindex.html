@@ -19,6 +19,8 @@
 
             background: green;
             position: relative;
+            /*原来的位置是三个色块垂直排列 relative是相对于原始位置的移动 top -100 向上100像素 left 向右100像素*/
+
             top: -100px;
             left: 100px;
         }
@@ -27,7 +29,8 @@
 
             background: blue;
             position: relative;
-            z-index: 5;
+
+            /*原来的位置是三个色块垂直排列 relative是相对于原始位置的移动 top -200 向上100像素 left 向右200像素*/
             top: -200px;
             left: 200px;
         }
@@ -50,7 +53,7 @@
             top: -300px;
             left: 300px;
             z-index: 1000;
-
+           /*相对于span对不齐是因为h1有默认margin 就算改成10000也没用 子元素永远在上面*/
         }
 
         p {
