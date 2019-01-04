@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #nav {
+            width: 400px;
+            height: 400px;
+            background: pink;
+            font-size: 0;
+            /*通过父元素设定字体大小为0  a 中恢复字体为16  解决 因为a 标签换行导致在页面解析为空格导致一行不够放 原理是让换行的空格不显示*/
+
+        }
+
+        a {
+            width: 100px;
+            height: 50px;
+            background: orange;
+            display: inline-block;
+            /*通过父元素设定字体大小为0  a 中恢复字体为16  解决 因为a 标签换行导致在页面解析为空格导致一行不够放*/
+            font-size: 16px;
+            /*通过浮动 解决 因为a 标签换行导致在页面解析为空格导致一行不够放*/
+            /*float:left;*/
+            cursor: default;
+        }
+
+        #d1, #d2 {
+            width: 200px;
+            height: 200px;
+
+
+        }
+
+        #d1 {
+            background: rgba(255, 0, 0, 0.5);
+            /*margin:50px;*/
+            /*visibility:hidden;*/
+        }
+
+        /*#d1:hover{*/
+        /*display:none;*/
+        /*}*/
+
+        #d2 {
+            background: green;
+            opacity: 0.5;
+        }
+
+        #d2 h1 {
+            opacity: 0.5;
+
+        }
+
+        input {
+            width: 150px;
+            height: 50px;
+            vertical-align:bottom;
+
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="nav">
+    <a href="">首页</a>
+    <!-- 换行会被解析为空格-->
+    <a href="">新闻</a>
+    <a href="">本地</a>
+    <a href="">军事</a>
+
+
+</div>
+
+<div id="d1">第一个div
+    <h1>Hello</h1>
+</div>
+<div id="d2">第二个div
+    <h1>Hello</h1>
+</div>
+<span>span</span>
+<input type="text">
+<input type="submit">
+</body>
+</html>
