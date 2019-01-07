@@ -1,23 +1,26 @@
 /*1 设置默认样式*/
 body, h2, p {
+    /*去掉边框并设定颜色*/
     margin: 0;
     color: #999999;
 
 }
 
 a {
+    /*删除下划线*/
     text-decoration: none;
 }
 
 /* 2 外部容器*/
 #container {
-
+   /*设定宽度并水平居中*/
     width: 990px;
     margin: 0 auto;
 }
 
 /* 顶部标题*/
 h2 {
+    /*取消加粗 并设定上下边距*/
     font-weight: normal;
     border-bottom: 1px solid #ccc;
     padding: 20px 0;
@@ -33,11 +36,13 @@ h2 {
 
 #main .left {
     float: left;
+    /*设定这个是为了让会员注册按钮能基于left来设定偏移*/
     position: relative;
 }
 
 /*右列部分*/
 #main .right {
+    /*让悬浮后靠右 并调整上下左右距离*/
     float: right;
     margin-top: 70px;
     margin-right: 40px;

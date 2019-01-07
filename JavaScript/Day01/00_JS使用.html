@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        //alert("head中嵌套的弹框 页面加载立刻执行 点击后页面继续加载");
+    </script>
+    <script src="index.js" type="text/javascript"></script>
+</head>
+<body>
+
+<!--<h1 onclick="alert('单击显示弹框')">点击</h1>-->
+<h1 onclick="document.write('动态添加！！')">点击</h1>
+<script type="text/javascript">
+    document.write("body中的script实现动态添加 放在代码所在位置 一个h1后");
+</script>
+<h1 onclick="console.log('控制台输出');">再点</h1>
+
+
+</body>
+</html>
+<script type="text/javascript">
+    //alert("html外嵌套的弹框");
+</script>

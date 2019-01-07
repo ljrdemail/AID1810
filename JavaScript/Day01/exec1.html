@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <sctipt src="exec.js" type="text/javascript">
+        <!--这里写的不会执行 因为系统会把外部文件中的内容替换掉这里的东西  而且JS标签也是一种标签所以严格来说 h1 不算第一个 虽然页面上看起来是第一个-->
+    </sctipt>
+</head>
+<body>
+<script type="text/javascript">
+    document.write('<h1>动态添加</h1>')
+</script>
+<input type="button" value="点我" onclick="console.log('第一个JS程序')">
+
+</body>
+</html>
