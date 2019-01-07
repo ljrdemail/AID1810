@@ -36,8 +36,89 @@ h2 {
     position: relative;
 }
 
+/*右列部分*/
 #main .right {
     float: right;
+    margin-top: 70px;
+    margin-right: 40px;
+
+}
+
+.form-line {
+    margin-bottom: 30px;
+
+}
+
+.form-line > p {
+    /*不用后代 因为第三行 div 下面还有P */
+    /*display:inline-block;*/
+    float: left;
+    /*input会有文本环绕效果 紧贴P 通过调margin-right分开*/
+    width: 64px;
+    height: 40px;
+    text-align: right;
+    line-height: 40px;
+    margin-right: 40px;
+
+}
+
+.form-line > .uinput {
+    /*修改元素盒模型计算方式*/
+    box-sizing: border-box;
+    width: 300px;
+    height: 40px;
+    border: 1px solid #cccccc;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 16px;
+    /*文本框默认字体大小为13.3 需要调整成一致*/
+    outline: none;
+}
+
+/*第三行*/
+.form-line > div > p {
+    float: right; /*右浮使得水平排列 因为左边inout可以环绕显示*/
+
+}
+
+.form-line.isSave {
+    width: 18px;
+    height: 18px;
+    /*设定成18 是因为考虑到文本的边框加上也是 18px*/
+    vertical-align: middle; /*比bottom 好点*/
+
+}
+
+.form-line > div > p > a {
+    color: #999999;
+
+}
+
+.form-line .btn {
+    width: 140px;
+    height: 40px;
+    border: 1px solid #64a131;
+    border-radius: 5px;
+
+
+}
+
+.loginBtn {
+    background: #64a131;
+    color: #ffffff;
+    font-size: 20px;
+
+}
+
+.registBtn {
+    /*靠右排*/
+    text-align: center;
+    line-height: 40px;
+    box-sizing: border-box;
+    float: right;
+    color: #64a131;
+    background: #fff;
+
 }
 
 .left a {
@@ -48,8 +129,8 @@ h2 {
     height: 45px;
     text-align: center;
     line-height: 45px;
-    border: 1px solid #64a131;+
-    border-radius: 5px;
+    border: 1px solid #64a131;
++ border-radius: 5 px;
     color: #64a131;
     font-size: 20px;
 

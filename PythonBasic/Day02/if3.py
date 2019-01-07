@@ -4,7 +4,7 @@ x = input("请输入需要判断的数：")
 
 xnum = int(x)
 
-if (xnum % 2):
+if (xnum % 2): #(xnum % 2 ==1  走这一句
     print("是奇数")
 else :
 #else: #else 子句当上述所有所有的条件都不符合的时候走else
