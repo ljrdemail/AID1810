@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var r1 = 10 + 10;//20
+        var r2 = 10 + "10";//1010
+        var r3 = 154 + "8" + 5//1585
+        var r4 = 15 + 5 + "8"//208
+        var r5 = "15" + true//15true
+        console.log(r5)
+        var r6 = true + 8 + "15" //915
+        console.log(r6)
+        var r7 = "abc" + undefined
+        console.log(r7)//abcundefined
+        var r8 = "abc" + null
+        console.log(r8)//abcnull
+
+        var res1 = 10 + true//11
+        var res2 = 10 + "true"//10true
+
+        var res3 = 10 + undefined;
+        console.log(res3)//NaN 因为undefined 转不了数字 所以 NaN (not a number) NaN 与任意数据类型做数学运算时 都是NaN
+        var res4 = 10 + null;
+        console.log(res4)//10  null转换为number 时 转换为0 不影响运算
+
+        var res5 = true + true
+        console.log(res5)//2
+
+        var res6 = true + false
+        console.log(res6)//1
+
+        // 强制类型转换
+        var a = 100;
+        var a1 = a.toString();
+        console.log(a, typeof a)
+        console.log(a1, typeof a1)
+
+        console.log(Number(35.5))//35.5
+        console.log(Number(true))//1
+        console.log(Number("100"))//100
+        console.log(Number("abc"))//NaN
+        console.log(Number("100abc"))//NaN
+
+        console.log(parseInt(35.5))//35 到小数点之后停止解析因为不是数字返回结果35
+        console.log(parseInt("35.5a"))//35 因为到小数点之后停止解析返回结果35
+        console.log(parseInt("a123"))//NaN 第一位就转换失败
+        console.log(parseInt("1a23"))//1
+
+        console.log(parseFloat(35.5))//35.5
+        console.log(parseFloat("35.5a"))//35.5 第一个非数字 小数点停止解析并返回
+        console.log(parseFloat("35.5.63"))//35.5 只认第一个小数点 后面的小数点不认
+        
+        console.log("10" - 5)//5
+        console.log("10a" - 5) ////NaN -5 =NaN
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
