@@ -50,6 +50,7 @@ h2 {
 }
 
 .form-line {
+    /*设定两行之间的空隙 不要margin-top也设设了也是取大的*/
     margin-bottom: 30px;
 
 }
@@ -61,14 +62,16 @@ h2 {
     /*input会有文本环绕效果 紧贴P 通过调margin-right分开*/
     width: 64px;
     height: 40px;
+    /*右对齐*/
     text-align: right;
     line-height: 40px;
+    /*和输入框分开*/
     margin-right: 40px;
 
 }
 
 .form-line > .uinput {
-    /*修改元素盒模型计算方式*/
+    /*修改元素盒模型计算方式 让总体高度就是40px 使得和P大小一致*/
     box-sizing: border-box;
     width: 300px;
     height: 40px;
@@ -86,10 +89,10 @@ h2 {
 
 }
 
-.form-line.isSave {
+.form-line .isSave {
     width: 18px;
     height: 18px;
-    /*设定成18 是因为考虑到文本的边框加上也是 18px*/
+    /*设定成18 是因为考虑到链接的加上边框也是 18px 好看一点*/
     vertical-align: middle; /*比bottom 好点*/
 
 }
@@ -119,7 +122,9 @@ h2 {
     /*靠右排*/
     text-align: center;
     line-height: 40px;
+    /*使得整体宽度保持在40px跟登录一致 因为有1像素的边框 加边框是为了模拟按钮*/
     box-sizing: border-box;
+    /*因为是通过链接模拟的按钮 需要悬浮起来设定宽高*/
     float: right;
     color: #64a131;
     background: #fff;
