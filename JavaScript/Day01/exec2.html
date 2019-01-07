@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script>
-        var r=5;
-        const PI=3.14
-        alert("圆的周长为"+2*PI*r)
-        alert("圆的面积为:"+PI*r*r)
+        var r=10;
+        const PI=3.14;
+         //保留小数位toFixed(2)
+        var len=(2*PI*r).toFixed(2)
+        var area=(PI*r*r).toFixed(2)
+        console.log("圆的周长为"+len)
+        console.log("圆的面积为:"+area)
+
 
     </script>
 </head>
