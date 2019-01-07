@@ -6,23 +6,23 @@
     <script>
         var s = "hello"
         var ch = s.charCodeAt(1)
-        console.log(ch)
+        console.log(ch)//101
         var s1 = "张三"
         var cc = s1.charCodeAt(0)
-        console.log(cc)
-        console.log(cc.toString(16))//5f20
+        console.log(cc)// 24352 10进制
+        console.log(cc.toString(16))//5f20 16进制
         var s2 = "\u5f20"
-        console.log(s2)
+        console.log(s2) //张
         // var s3="a"+"b"
         // console.log(s3)
         var s3 = "\u4e00"
         var s4 = "\u9fa5"
         console.log(s3, s4)//一 龥 yu 4声
-        console.log(s4, typeof s4)
+        console.log(s4, typeof s4) //string
         var a = 100;
-        console.log(a, typeof a);
+        console.log(a, typeof a);//number
         var b = true;
-        console.log(b, typeof b)
+        console.log(b, typeof b)//boolean
 
 
     </script>

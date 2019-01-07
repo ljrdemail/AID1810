@@ -41,7 +41,7 @@
         console.log(Number(true))//1
         console.log(Number("100"))//100
         console.log(Number("abc"))//NaN
-        console.log(Number("100abc"))//NaN
+        console.log(Number("100abc"))//NaN 混搭不行
 
         console.log(parseInt(35.5))//35 到小数点之后停止解析因为不是数字返回结果35
         console.log(parseInt("35.5a"))//35 因为到小数点之后停止解析返回结果35
@@ -51,7 +51,7 @@
         console.log(parseFloat(35.5))//35.5
         console.log(parseFloat("35.5a"))//35.5 第一个非数字 小数点停止解析并返回
         console.log(parseFloat("35.5.63"))//35.5 只认第一个小数点 后面的小数点不认
-        
+
         console.log("10" - 5)//5
         console.log("10a" - 5) ////NaN -5 =NaN
 
