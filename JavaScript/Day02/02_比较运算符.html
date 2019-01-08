@@ -11,13 +11,13 @@
         var r3 = 10 > "5a";//10 >NaN False NaN跟任意类型比较都是False
         console.log(r3)
         var r4 = "10" > "2"
-        console.log(r4)//相同类型比较 不会转number 比较unicode 码 1<2 所以False
+        console.log(r4)//字符串类型比较 不会转number 比较unicode 码 1<2 所以False
         var r5 = "131" > "13"
         console.log(r5)//比较ASCII 有总比没有好
-        var r6 = 10 > true
+        var r6 = 10 > true //true=1
         var r9 = "10" > true//转换为10 >1 //true
-        var r10 = 10 > "true"//false  10>NaN  NaN
-        var r11 = "10" > "true"//比较ASCII编码 False
+        var r10 = 10 > "true"//false  10>NaN  NaN与任何数一起做数学运算都是NaN
+        var r11 = "10" > "true"//比较ASCII编码 1<'t' False
         console.log(r6, r9, r10, r11)
 
         var r12 = 10 > 5 > 2 //false
