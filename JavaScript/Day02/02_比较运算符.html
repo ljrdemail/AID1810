@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var r1 = 10 > 5//true
+        var r2 = "10" > 5//true 自动转换为10 true
+        var r6 = "15" > 5//true
+        console.log(r1, r2)
+        var r3 = 10 > "5a";//10 >NaN False NaN跟任意类型比较都是False
+        console.log(r3)
+        var r4 = "10" > "2"
+        console.log(r4)//相同类型比较 不会转number 比较unicode 码 1<2 所以False
+        var r5 = "131" > "13"
+        console.log(r5)//比较ASCII 有总比没有好
+        var r6 = 10 > true
+        var r9 = "10" > true//转换为10 >1 //true
+        var r10 = 10 > "true"//false  10>NaN  NaN
+        var r11 = "10" > "true"//比较ASCII编码 False
+        console.log(r6, r9, r10, r11)
+
+        var r12 = 10 > 5 > 2 //false
+        // 10>5 true =1
+        //1>2 //false
+        console.log(r12)
+
+        var a5 = 5;
+        a7 = 1 < a5 < 10;
+        //1<5 true=1
+        //1<10 true
+        console.log(a7) //所以不用连续比较 而用逻辑运算符 and  or
+        console.log(a5 > 1 && a5 < 10)
+        console.log("10" > 5 && "10" > "2") //true && false =false
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
