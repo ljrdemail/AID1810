@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var year = prompt("请输入年份:")
+        var month = prompt("请输入月份:")
+        var day = parseInt(prompt("请输入日期:"))
+
+        if (month == 1) {
+            console.log(day)
+        }
+        if (month == 2) {
+            console.log(31 + day);
+        }
+        if (month == 3 && (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)) {
+            console.log(31 + 29 + day);
+        } else if (month == 3 && !(year % 4 == 0 && year % 100 != 0 || year % 400 == 0)) {
+            console.log(31 + 28 + day);
+        }
+        if (month == 4 && (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)) {
+            console.log(31 + 29 + 31 + day);
+        } else if (month == 4 && !(year % 4 == 0 && year % 100 != 0 || year % 400 == 0)) {
+            console.log(31 + 28 + 31 + day);
+        }
+        if (month == 5 && (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)) {
+            console.log(31 + 29 + 31 + 30 + day);
+        } else if (month == 5 && !(year % 4 == 0 && year % 100 != 0 || year % 400 == 0)) {
+            console.log(31 + 28 + 31 + 30 + day);
+        }
+        if (month == 6 && (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)) {
+            console.log(31 + 29 + 31 + 30 + 31 + day);
+        } else if (month == 6 && !(year % 4 == 0 && year % 100 != 0 || year % 400 == 0)) {
+            console.log(31 + 28 + 31 + 30 + 31 + day);
+        }
+        if (month == 7 && (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)) {
+            console.log(31 + 29 + 31 + 30 + 31 + 30 + day);
+        } else if (month == 7 && !(year % 4 == 0 && year % 100 != 0 || year % 400 == 0)) {
+            console.log(31 + 28 + 31 + 30 + 31 + 30 + day);
+        }
+        if (month == 8 && (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)) {
+            console.log(31 + 29 + 31 + 30 + 31 + 30 + 31 + day);
+        } else if (month == 8 && !(year % 4 == 0 && year % 100 != 0 || year % 400 == 0)) {
+            console.log(31 + 28 + 31 + 30 + 31 + 30 + 31 + day);
+        }
+        if (month == 9 && (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)) {
+            console.log(31 + 29 + 31 + 30 + 31 + 30 + 31 + 31 + day);
+        } else if (month == 9 && !(year % 4 == 0 && year % 100 != 0 || year % 400 == 0)) {
+            console.log(31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + day);
+        }
+        if (month == 10 && (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)) {
+            console.log(31 + 29 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + day);
+        } else if (month == 10 && !(year % 4 == 0 && year % 100 != 0 || year % 400 == 0)) {
+            console.log(31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + day);
+        }
+        if (month == 11 && (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)) {
+            console.log(31 + 29 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + day);
+        } else if (month == 11 && !(year % 4 == 0 && year % 100 != 0 || year % 400 == 0)) {
+            console.log(31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + day);
+        }
+        if (month == 12 && (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)) {
+            console.log(31 + 29 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + day);
+        } else if (month == 12 && !(year % 4 == 0 && year % 100 != 0 || year % 400 == 0)) {
+            console.log(31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + day);
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
