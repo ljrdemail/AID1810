@@ -7,7 +7,8 @@
         var height = prompt("请输入身高（m）：")
         var weight = prompt("请输入体重(kg)：")
         bmi = (weight / (height * height)).toFixed(2)
-        var fat = bmi > 23.9 ? "肥胖" : bmi > 18.9 ? "正常" : "偏瘦"
+        console.log(bmi)
+        var fat = bmi >= 23.9 ? "肥胖" : bmi >= 18.5 ? "健康" : "偏瘦"
         console.log(fat)
 
     </script>
