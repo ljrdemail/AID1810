@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //声明无参数无返回值的函数
+        function f1() {
+            console.log("无参无返回值")
+        }
+
+        f1();
+
+        //有参数 但是无返回至
+        function f2(a) {//形式参数
+            console.log(a)
+            console.log(arguments)
+        }
+
+        f2(2)//实参 函数调用时将实参赋值诶形参，参与函数体的运算
+        //f2()//可以不传参 打印的时候undefined
+        //f2(20, 30)//形参和实参可以不匹配 打印20 可以借助函数内部的arguments 查看实际参数 必须在函数内部调用 是函数的一个属性
+
+        //有参数 有返回值
+        function f3(a, b) {
+            return a + b;
+        }
+
+        var sum = f3(3, 5)
+        console.log(sum)
+
+        function f4(a, b) {
+            return a, b//返回b return 只能返回一个值 不能返回多个 如果要返回多个 数组或者拼接成字符串之后拿到解析
+            console.log(a, b)//return 之后的语句不走 一般return写在函数的末尾 或控制函数体的执行 意思是通过return 结束函数体运行 类似break功能
+            //比如每隔一秒打印i 到了5 就退出 可以用break 也可以用return 
+        }
+
+        var r1 = f4(30, 40)
+        console.log(r1) //返回40
+    </script>
+</head>
+<body>
+
+</body>
+</html>
