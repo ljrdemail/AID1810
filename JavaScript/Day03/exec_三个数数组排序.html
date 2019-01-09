@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var arr = [5, 7, 1]
+        if (arr[0] > arr[1]) {
+            var temp = arr[0];
+            arr[0] = arr[1];
+            arr[1] = temp;
+        }
+        if (arr[0] > arr[2]) {
+            var temp = arr[0];
+            arr[0] = arr[2];
+            arr[2] = temp;
+
+        }
+        if (arr[1] > arr[2]) {
+            var temp = arr[1];
+            arr[1] = arr[2];
+            arr[2] = temp;
+
+        }
+        for (var i in arr) {
+            console.log(arr[i])
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

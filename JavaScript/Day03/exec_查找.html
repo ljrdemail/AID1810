@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        index = 0
+        var arr1 = new Array()
+
+        while (true) {
+
+            var input = prompt("请输入需要保存的数据:")
+            if (input == "exit") {
+                break;
+            }
+
+            arr1[index] = input;
+            index++
+            // console.log(arr1[index])
+
+
+        }
+        var find = prompt("请输入要查找的")
+        var flag = false;
+        for (var index in arr1) {
+            if (find == arr1[index]) {
+                flag = true;
+
+                break;
+            }
+
+
+        }
+        if (flag) {
+            console.log("找到了")
+        } else {
+            console.log(-1)
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
