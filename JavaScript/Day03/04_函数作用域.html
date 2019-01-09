@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var a = 100;
+
+        function f1(c) {
+            console.log("f1中访问a:", a);
+            console.log("f1中访问形参c:", c);
+            var m = "abc"// 带了var 就是局部变量
+            n = "qwe"//函数中不用 var 定义的是全局变量
+
+        }
+
+        console.log(a)
+        //console.log(c) //不能访问局部变量
+        f1(5)
+        //console.log(m)
+        console.log(n)
+    </script>
+</head>
+<body>
+
+</body>
+</html>
