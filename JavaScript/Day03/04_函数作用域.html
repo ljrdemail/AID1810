@@ -7,20 +7,20 @@
         var a = 100;
 
         function f1(c) {
-            console.log("f1中访问a:", a);
-            console.log("f1中访问形参c:", c);
+            console.log("f1中访问a:", a);//100
+            console.log("f1中访问形参c:", c);//传入的实参或undefined
             var m = "abc"// 带了var 就是局部变量
             n = "qwe"//函数中不用 var 定义的是全局变量
 
         }
 
-        console.log(a)
+        console.log(a)//100
         //console.log(c) //不能访问局部变量
         f1(5)
-        //console.log(m)
-        console.log(n)
+        //console.log(m)//不能访问局部变量
+        console.log(n)//qwe
 
-        var Uuname="张三"
+        var uname="张三"
         function fn(){
             var uname="lisi";
             console.log(uname)//lisi 就近法则

@@ -14,12 +14,12 @@
         //有参数 但是无返回至
         function f2(a) {//形式参数
             console.log(a)
-            console.log(arguments)
+            console.log(arguments) //arguments参数用于打印传入的实参
         }
 
         f2(2)//实参 函数调用时将实参赋值诶形参，参与函数体的运算
         //f2()//可以不传参 打印的时候undefined
-        //f2(20, 30)//形参和实参可以不匹配 打印20 可以借助函数内部的arguments 查看实际参数 必须在函数内部调用 是函数的一个属性
+        //f2(20, 30)//形参和实参数可以不匹配 打印20 可以借助函数内部的arguments 查看实际参数 必须在函数内部调用 是函数的一个属性
 
         //有参数 有返回值
         function f3(a, b) {
@@ -42,7 +42,7 @@
         var fn = function (a) {//fn 指向 保存函数的内存空间地址 你打印就是打印内存空间中的函数定义 跟Python中对函数的保存一致
             alert("匿名函数")
         };
-        //console.log(fn)
+        //console.log(fn) //打印内存空间的内容
        // fn(2)//调用之
         //匿名函数自执行
         (function (a,b) {

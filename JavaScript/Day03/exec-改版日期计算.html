@@ -11,7 +11,7 @@
 
         var a = 1
         var sum = 0;
-        while (a <= month - 1) {
+        while (a <= month - 1) {//先计算当前月之前月的累计日
             switch (a) {
 
                 case 1:
@@ -42,7 +42,7 @@
             a++;
 
         }
-        console.log(sum + day);
+        console.log(sum + day);//累计不满一个月的day
 
 
     </script>

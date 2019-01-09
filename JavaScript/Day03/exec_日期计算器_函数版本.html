@@ -55,7 +55,7 @@
             for (i = 1900; i <= year - 1; i++) {
                 sum += 365
 
-                if (i % 4 == 0 && i % 100 != 0 || i % 400 == 0) {
+                if (isrun(year)) {
                     sum++;
                 }
 
