@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var shushu = prompt("请输入要判断的数：")
+        if (shushu < 2) {
+            console.log("不是素数")
+        }
+        var flag = true;
+        for (i = 2; i < shushu; i++) {
+            if (shushu % i == 0) {
+                flag = false;
+                break;
+            }
+        }
+        if (flag) {
+            console.log("是素数")
+        } else {
+            console.log("不是素数")
+        }
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
