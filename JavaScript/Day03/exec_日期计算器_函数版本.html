@@ -3,10 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-<script>
-        var year = prompt("请输入年份:")
-        var month = prompt("请输入月份:")
-        var day = parseInt(prompt("请输入日期:"))
+    <script>
+
+        function input() {
+            year = prompt("请输入年份:") //不带 var 变为全局变量
+            month = prompt("请输入月份:")
+            day = parseInt(prompt("请输入日期:"))
+            output()
+
+        }
+
+        function output() {
+            xingqi = getSum() % 7
+
+            switch (xingqi) {
+                case 0:
+                    console.log("星期天");
+                    break;
+                case 1:
+                    console.log("星期一");
+                    break;
+                case 2:
+                    console.log("星期二");
+                    break;
+                case 3:
+                    console.log("星期三");
+                    break;
+                case 4:
+                    console.log("星期四");
+                    break;
+                case 5:
+                    console.log("星期五");
+                    break;
+                case 6:
+                    console.log("星期六");
+                    break;
+            }
+
+        }
 
         function isrun(year) {
 
@@ -63,35 +97,10 @@
             return sum
         }
 
-        xingqi = getSum() % 7
-
-        switch (xingqi) {
-            case 0:
-                console.log("星期天");
-                break;
-            case 1:
-                console.log("星期一");
-                break;
-            case 2:
-                console.log("星期二");
-                break;
-            case 3:
-                console.log("星期三");
-                break;
-            case 4:
-                console.log("星期四");
-                break;
-            case 5:
-                console.log("星期五");
-                break;
-            case 6:
-                console.log("星期六");
-                break;
-        }
 
     </script>
 </head>
 <body>
-
+<button onclick="input()">点我</button>
 </body>
 </html>
