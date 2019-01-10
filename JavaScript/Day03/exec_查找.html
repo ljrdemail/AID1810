@@ -23,17 +23,18 @@
         }
         var find = prompt("请输入要查找的")
         var flag = false;
+        var i=0;
         for (var index in arr1) {
             if (find == arr1[index]) {
                 flag = true;
-
+                i=parseInt(index)+1
                 break;
             }
 
 
         }
         if (flag) {
-            console.log("找到了")
+            console.log("找到了","为第",i,"个")
         } else {
             console.log(-1)
         }

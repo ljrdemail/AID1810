@@ -7,3 +7,4 @@ while (i < long - 1):
     i += 1
 if (long > 1):
     print("#" * long)
+
