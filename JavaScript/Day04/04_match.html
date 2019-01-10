@@ -6,15 +6,15 @@
     <script>
         var str = "上知乎，搜知乎，问知乎，答知乎";
         var r1 = str.match("知乎")
-        console.log(r1);
+        console.log(r1);//只接输入要匹配的 第一个匹配的
         //使用正则表达式实现匹配
         var reg1 = /知乎/g
         var r2 = str.match(reg1)
-        console.log(r2)
-        console.log(r2.length)//数组长度  匹配了多少个
+        console.log(r2)//找出所有知乎
+        console.log(r2.length)//数组长度  匹配了多少个 4
         var nstr = str.replace(reg1, "达内")
         console.log(nstr)
-        console.log(str)//不受影响
+        console.log(str)//原字符串不受影响
 
     </script>
 </head>

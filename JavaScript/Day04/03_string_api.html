@@ -6,30 +6,30 @@
     <script>
 
         var s1 = "hello"
-        var c1 = s1.charAt(2)//l 如果不给下取标为第一个字符
-        var code1 = s1.charCodeAt(2)//108 如果不给取下标为第一个字符
+        var c1 = s1.charAt(2)//l  返回该索引的字符 如果不给参数下取标为第一个字符
+        var code1 = s1.charCodeAt(2)//108  返回该索引字符的UNICODE 如果不给取下标为第一个字符
         console.log(c1, code1)
 
         var s2 = "hello world"
-        r1 = s2.indexOf('ll')
+        r1 = s2.indexOf('ll')//2
         console.log(r1);
-        var r2 = s2.indexOf("l")//只返回第一个复合条件的index
+        var r2 = s2.indexOf("l")// 2 只返回第一个复合条件的index
         console.log(r2);
         var r3 = s2.indexOf('l', 5)//9
         console.log(r3);
 
         var r4 = s2.lastIndexOf('l');
-        console.log(r4)
-        var r5 = s2.lastIndexOf('l', 5);//从第五个开始从后往前 5 不是倒数index=5  是正数index=5
+        console.log(r4)//9
+        var r5 = s2.lastIndexOf('l', 5);//3 从第五个开始从后往前 5 不是倒数index=5  是正数index=5
         console.log(r5)
 
         //截取字符串
         var s3 = "abcde";
         var r7 = s3.substring(1, 3);
-        console.log(r7)
+        console.log(r7) //bc 3 取不到为开区间
 
         var r8 = s3.substring(2);
-        console.log(r8)
+        console.log(r8)//cde 从index 为2 开始取到结尾
 
         //分割字符串
         var s4 = "2012-12-12"

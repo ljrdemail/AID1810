@@ -8,12 +8,13 @@
         var num = prompt("请输入10进制的数：")
         var arr = []
         while (num != 0) {
-            //取余 arr.ushift() 也可以 就不用reverse了
-            arr.push(num % 2)
+
+            //arr.push(num % 2)
+            arr.unshift(num % 2)  //取余 arr.unshift() 也可以 就不用reverse了
             //重新设置被除数 参与下一次循环
             num = parseInt(num / 2)
         }
-        arr.reverse()
+        //arr.reverse()
         console.log(arr.reverse().join(""))
 
     </script>
