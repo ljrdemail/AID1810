@@ -6,7 +6,11 @@
     <script>
         var IDcard = prompt("请输入身份证号")
         var birthday = IDcard.substring(6, 14)
-        console.log(birthday)
+        // console.log(birthday)
+        year = birthday.substring(0, 4)
+        month = birthday.substring(4, 6)
+        day = birthday.substring(6, 9)
+        console.log(year, month, day)
 
     </script>
 </head>
