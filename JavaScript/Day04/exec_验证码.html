@@ -11,7 +11,7 @@
             arr.push(charset[rindex])
         }
         console.log(arr)
-        var userin = prompt("请输入验证码:" + arr.join(""))
+        var userin = prompt("请输入验证码(不区分大小写):" + arr.join(""))
         if (userin.toUpperCase() == arr.join("").toString().toUpperCase()) {
             alert("输入正确!")
         } else {
