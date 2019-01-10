@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var arr = []
+        var num = prompt("请输入10进制的数：")
+        var arr = []
+        while (num != 0) {
+            //取余 arr.ushift() 也可以 就不用reverse了
+            arr.push(num % 2)
+            //重新设置被除数 参与下一次循环
+            num = parseInt(num / 2)
+        }
+        arr.reverse()
+        console.log(arr.reverse().join(""))
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
