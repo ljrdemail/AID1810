@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var arr = [1, 2, 3, 4, 5, 6]
+        console.log(arr.length)
+        //arr.length=0;//清空数组元素
+        //console.log(arr)
+        var r1 = arr.toString()
+        console.log(r1, typeof r1) //就是把方括号变为双引号
+
+        //join()
+        var r2 = arr.join();// 不给还是默认的 ,
+        var r3 = arr.join("-")//指定每个元素之间的连接符
+        console.log(r2, r3)
+
+        //reverse
+        var arr4 = arr.reverse()
+        console.log(arr, arr4) //原始数组也会改变
+
+        //sort
+        var arr5 = [12, 1, 5, 50, 60, 6, 0]
+        var arr6 = arr5.sort()
+        console.log(arr6, arr5)
+
+        //自定义排序算法
+        function sortASC(a, b) {
+            return a - b;
+        }
+
+
+        var arr7 = arr5.sort(sortASC)
+        console.log(arr7, arr5)
+
+        //降序
+        function sortDESC(a, b) {
+            return b - a;
+        }
+
+        //传入降序
+        var arr8 = arr5.sort(sortDESC)//返回新数组长度
+        console.log(arr8, arr5)
+
+        //push &pop
+        var a5l = arr5.push("Hello", "World")// 返回被删除的最后的元素
+        console.log(a5l, arr5)
+
+        var a5d = arr5.pop()
+        console.log(a5d, arr5)
+
+        // unshift() shift
+        var a5l2 = arr5.unshift("a", "b") //返回新数组长度
+        console.log(a5l2, arr5)
+
+        var a5d2 = arr5.shift() // 返回被删除的最后的元素
+        console.log(a5d2, arr5)
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
