@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var str = "上知乎，搜知乎，问知乎，答知乎";
+        var r1 = str.match("知乎")
+        console.log(r1);
+        //使用正则表达式实现匹配
+        var reg1 = /知乎/g
+        var r2 = str.match(reg1)
+        console.log(r2)
+        console.log(r2.length)//数组长度  匹配了多少个
+        var nstr = str.replace(reg1, "达内")
+        console.log(nstr)
+        console.log(str)//不受影响
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

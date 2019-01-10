@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //1 创建正则表达式
+        var reg1 = /知乎/g;
+        var reg2 = /^\d{6}/gi;
+        var reg3 = new RegExp("知乎", "ig")
+        var reg4 = new RegExp("\\d{6}", "g")// 要转义
+        var reg5 = new RegExp("^\d{6}", "g")//变为匹配d{6}
+        console.log(reg1, reg2, reg3, reg4, reg5)
+
+        var str = "hello1234567890;"
+        console.log(reg4.lastIndex)
+        var reres = reg4.test(str)//调用第一次 之后lastindex到了11
+        //hello1234567890
+        //012345678901 到了7 从7 开始匹配不符合正则表达式 7890 4 位 不符合 false  下标移动到末尾了 从0 开始找
+        //想要重复用 指针归位
+        reg4.lastIndex = 0
+
+        console.log(reres)
+        console.log(reg4.lastIndex)//从11后继续匹配导致false
+
+        var reres2 = reg4.test(str)//调用第二次
+        console.log(reres2)
+        reg4.lastIndex = 0
+        console.log(reg4.lastIndex)//越界之后变回0
+        var reres3 = reg4.test(str)//调用第三次 变回true
+        console.log(reres3)
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
