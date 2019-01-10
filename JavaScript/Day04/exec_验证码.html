@@ -12,7 +12,7 @@
         }
         console.log(arr)
         var userin = prompt("请输入验证码:" + arr.join(""))
-        if (userin == arr.join("").toString()) {
+        if (userin.toUpperCase() == arr.join("").toString().toUpperCase()) {
             alert("输入正确!")
         } else {
             alert("输入错误！")
