@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        function getAuthCode(arr, time) {
+
+            var charset = arr
+            var arr = []
+            for (i = 0; i < time; i++) {
+                var rindex = parseInt(Math.random() * charset.length)
+                arr.push(charset[rindex])
+            }
+
+            return arr.join("").toString()
+
+
+        }
+
+        function validate() {
+
+            var res = getAuthCode([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 'a', 't', 'u', 'v', 'w', 'x', 'y', 'z'], 5)
+            var userin = prompt("请输入验证码(不区分大小写):" + res)
+            if (userin.toUpperCase() == res.toUpperCase()) {
+                alert("输入正确!")
+            } else {
+                alert("输入错误！")
+            }
+
+        }
+
+
+    </script>
+</head>
+<body>
+<button onclick="validate()">
+
+    验证
+
+</button>
+
+</body>
+</html>
