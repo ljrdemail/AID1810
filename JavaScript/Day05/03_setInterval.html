@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function startInterval() {
+            var i = 10;
+            setInterval(function () {
+
+                if (i < 0) {
+                    clearInterval(1)
+                    return
+                }
+                console.log(i);
+                i--;
+            }, 1000)
+
+        }
+
+    </script>
+</head>
+<body>
+<button onclick="startInterval()">开始倒计时</button>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        function startTimeout() {
+
+            timer = setTimeout(function () {
+                alert("超时调用")
+            }, 3000)
+
+        }
+
+        function stopTimeOut() {
+            //停止超时调用
+            clearTimeout(timer)
+
+        }
+
+    </script>
+</head>
+<body>
+<button onclick="startTimeout()">开始超时调用</button>
+<button onclick="stopTimeOut()">关闭超时调用</button>
+</body>
+</html>

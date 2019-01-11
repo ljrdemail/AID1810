@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function starttimmer() {
+
+            timmmer = setInterval(function () {
+                var date1 = new Date()
+                console.log(date1)
+
+            }, 1000)
+
+        }
+
+        function stoptimmer() {
+            clearInterval(timmmer)
+        }
+
+        function closewindow() {
+            var cf = confirm("确认关闭？")
+
+
+            if (cf) {
+                var to = setTimeout(function () {
+                    stoptimmer()
+                    window.close()
+                }, 3000)
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+<button onclick="starttimmer()">开始时钟</button>
+<button onclick="closewindow()">结束时钟</button>
+
+</body>
+</html>
