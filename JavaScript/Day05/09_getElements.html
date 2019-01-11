@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+<p class="c1">段落标签1</p>
+<p id="p1">段落标签2</p>
+<p>段落标签3</p>
+<p>段落标签4</p>
+<p class="c1">段落标签5</p>
+<input type="text" name="uname">
+<input type="radio" name="gender" value="male"> 男
+<input type="radio" name="gender" value="female"> 女
+<button onclick="show()">获取文本框内容</button>
+<script>
+    //根据标签名取元素
+    var divelems = document.getElementsByTagName("p")
+    console.log(divelems)
+    console.log(divelems[0])
+    //放在head中按理是找不到P的 但是Chrome会优化 能找到 但是IE找不到
+
+    //根据类型取元素
+    var calsselem = document.getElementsByClassName("c1")
+    console.log(calsselem)
+    console.log(calsselem[0])
+    calsselem[0].innerHTML = "<strong>动态修改标签内容</strong>"
+    console.log(calsselem[1])
+    calsselem[1].innerText = "<strong>动态修改标签内容</strong>"// innerText不能解析标签strong 按照文本原样显示在界面
+
+    //根据id属性值获取元素结点
+    var idelem = document.getElementById("p1")//不是elements 因为id唯一
+    console.log(idelem)
+    idelem.innerHTML = "根据ID取元素，动态修改内容"
+
+    //根据name属性获取元素
+    var nameelems = document.getElementsByName("gender")//不是elements 因为id唯一
+    console.log(nameelems)
+
+    function show() {
+        var input = document.getElementsByName("uname")[0]//即使只有一个也是数组要用index访问
+        console.log(input.value)
+
+
+    }
+
+
+</script>
+</body>
+</html>
