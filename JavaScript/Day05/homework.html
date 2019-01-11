@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .c1 {
+            color: green;
+
+        }
+
+        .c2 {
+            color: red;
+
+        }
+
+
+    </style>
+
+    <script>
+        function checklen() {
+
+            var len = document.getElementsByTagName("input")[0].value.length
+            if (len >= 6 && len <= 18) {
+                document.getElementById("d1").innerHTML = "输入正确!"
+                document.getElementById("d1").setAttribute("class", "c1")
+
+            } else {
+                document.getElementById("d1").innerHTML = "输入错误!"
+                document.getElementById("d1").setAttribute("class", "c2")
+            }
+        }
+
+
+    </script>
+
+</head>
+<body>
+<input type="text" name="uname" placeholder="请输入用户名,长度在6-18位之间" size="23">
+<div id="d1"></div>
+<button onclick="checklen()">点我</button>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        #d1 {
+            color: red;
+
+
+        }
+
+
+        .c2 {
+            background-color: green;
+            border: solid blue;
+        }
+
+        .c1 {
+            background-color: orange;
+
+        }
+    </style>
+</head>
+<body>
+<h1>一级标题</h1>
+<p>段落标题</p>
+<script>
+    var h1 = document.getElementsByTagName('h1')[0];
+    var p = document.getElementsByTagName("p")[0];
+    h1.setAttribute('id', 'd1')
+    h1.setAttribute("class", "c1")
+    console.log(h1.getAttribute("id"))//d1
+    console.log(p.getAttribute("id"))//null
+    p.setAttribute("class", "c1 c2")//中间用空格隔开
+    p.setAttribute("class", "c1")//改为单一属性
+
+    //不能写两次  c2会覆盖c1
+    // p.setAttribute("class","c1")
+    // p.setAttribute("class","c2")
+    p.removeAttribute("class")
+    p.className = "c1 c2"//如果样式冲突按后来的写的 不是这里的  c1 c2 谁先写 是上面谁放在前面 c2 放前面 这里 c1 在前 还是c2
+    // p.className = "c1"//改为单一属性
+    // p.className = null//清空属性
+
+</script>
+</body>
+</html>
