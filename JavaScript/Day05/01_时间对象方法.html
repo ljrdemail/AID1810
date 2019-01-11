@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //1 创建日期对象
+        var date1 = new Date()
+        var date2 = new Date("1981-09-07 12:30:30")
+        var date3 = new Date("2019-01-13 12:30:30")
+
+        var year = date1.getFullYear()
+        var month = date1.getMonth() + 1//month  1 月为0  从0 开始 类似于 星期天从0 开始 0~11 手动+1
+        var day = date1.getDate()//日期
+        var dof = date1.getDay()//星期
+        var hour = date1.getHours()
+        var minute = date1.getMinutes()
+        var sec = date1.getSeconds()
+
+        var year2 = date2.getFullYear()
+        var month2 = date2.getMonth() + 1//month  1 月为0  从0 开始 类似于 星期天从0 开始 0~11 手动+1
+        var day2 = date2.getDate()//日期
+        var dof2 = date2.getDay()//星期
+        var hour2 = date2.getHours()
+        var minute2 = date2.getMinutes()
+        var sec2 = date2.getSeconds()
+
+        console.log(year, month, day, dof, hour, minute, sec)
+        console.log(year2, month2, day2, dof2, hour2, minute2, sec2)
+
+        var dow7 = date3.getDay()
+        console.log(dow7)//星期天是 0
+
+        //3 转换日期显示格式
+        var str1=date1.toLocaleString()//转换本地格式输出 包含日期时间
+        var str2=date1.toLocaleDateString()//只要日期
+        var str3=date1.toLocaleTimeString()//只要时间
+        console.log(str1,str2,str3)
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
