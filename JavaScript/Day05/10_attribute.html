@@ -7,8 +7,6 @@
     <style>
         #d1 {
             color: red;
-
-
         }
 
 
@@ -19,7 +17,6 @@
 
         .c1 {
             background-color: orange;
-
         }
     </style>
 </head>
@@ -32,15 +29,15 @@
     h1.setAttribute('id', 'd1')
     h1.setAttribute("class", "c1")
     console.log(h1.getAttribute("id"))//d1
-    console.log(p.getAttribute("id"))//null
+    console.log(p.getAttribute("id"))//null 因为没有设定id
     p.setAttribute("class", "c1 c2")//中间用空格隔开
     p.setAttribute("class", "c1")//改为单一属性
 
-    //不能写两次  c2会覆盖c1
+    //不能写两次来设定  因为c2会覆盖c1
     // p.setAttribute("class","c1")
     // p.setAttribute("class","c2")
     p.removeAttribute("class")
-    p.className = "c1 c2"//如果样式冲突按后来的写的 不是这里的  c1 c2 谁先写 是上面谁放在前面 c2 放前面 这里 c1 在前 还是c2
+    p.className = "c1 c2"//如果样式冲突按后来的写的 不是取决于这里的 c1 c2 谁先写 取决于style谁放在前面 c2 放前面 即使这里c1 在前 还是按c2
     // p.className = "c1"//改为单一属性
     // p.className = null//清空属性
 

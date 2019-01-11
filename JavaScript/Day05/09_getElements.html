@@ -21,13 +21,13 @@
     var divelems = document.getElementsByTagName("p")
     console.log(divelems)
     console.log(divelems[0])
-    //放在head中按理是找不到P的 但是Chrome会优化 能找到 但是IE找不到
+    //放在head中按理是找不到P的 但是Chrome会优化 能找到 但是IE找不到 所以为了兼容放在 元素下面让元素成功加载
 
     //根据类型取元素
     var calsselem = document.getElementsByClassName("c1")
     console.log(calsselem)
     console.log(calsselem[0])
-    calsselem[0].innerHTML = "<strong>动态修改标签内容</strong>"
+    calsselem[0].innerHTML = "<strong>动态修改标签内容</strong>"// 能够解析标签
     console.log(calsselem[1])
     calsselem[1].innerText = "<strong>动态修改标签内容</strong>"// innerText不能解析标签strong 按照文本原样显示在界面
 
@@ -37,7 +37,7 @@
     idelem.innerHTML = "根据ID取元素，动态修改内容"
 
     //根据name属性获取元素
-    var nameelems = document.getElementsByName("gender")//不是elements 因为id唯一
+    var nameelems = document.getElementsByName("gender")//
     console.log(nameelems)
 
     function show() {

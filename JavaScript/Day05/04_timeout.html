@@ -7,7 +7,7 @@
     <script>
         function startTimeout() {
 
-            timer = setTimeout(function () {
+            timer = setTimeout(function () {//去掉var 变为全局变量 方便clearTimeout用
                 alert("超时调用")
             }, 3000)
 
