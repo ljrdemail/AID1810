@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button ondblclick="alert('双击666')">双击</button>
+<h1>一级标题</h1>
+<p>段落标签</p>
+<script>
+    //封装函数获取元素结点
+    function $(tagName) {
+        //获取元素结点
+        var elem = document.getElementsByTagName(tagName)[0];
+        return elem;
+    }
+
+    var h1 = $('h1')
+    h1.onclick = function () {
+        alert("h1被点击")
+
+    }
+    //事件传递
+    var p = $('p');
+    p.addEventListener('click', function () {
+        alert("p元素被点击")
+    }, true);
+
+    document.body.addEventListener('click', function () {
+        alert("body被点击")
+    }, true)
+
+      document.addEventListener('click', function () {
+        alert("document被点击")
+    }, true)
+
+</script>
+</body>
+</html>
