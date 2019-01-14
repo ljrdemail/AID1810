@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        h1 {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+
+        }
+
+    </style>
+    <script>
+        window.onload = function () {
+            //等待窗口加载完毕自动执行
+            // var h1 = document.getElementsByTagName('h1')[0];
+            // console.log(h1);
+            // h1.onmouseover = function () {
+            //     console.log("鼠标移入")
+            //
+            // }
+            // h1.onmousemove = function () {
+            //     console.log("鼠标移动")
+            //
+            // }
+            // h1.onmouseout = function () {
+            //     console.log("鼠标移出")
+            //
+            // }
+
+            //键盘事件
+            // window.onkeydown = function () {
+            //     console.log("onkeydown")
+            //
+            // }
+            // window.onkeypress = function () {
+            //     console.log("onkeypress")
+            //
+            // }
+            // window.onkeyup = function () {
+            //     console.log("onkeyup")
+            //
+            // }
+            //
+            var input = document.getElementsByTagName("input")[0];
+            var form = document.getElementsByTagName("form")[0]
+            input.onfocus = function () {
+                console.log("获取焦点")
+            }
+            input.onblur = function () {
+                console.log("失去焦点")
+                // console.log(input.value)
+                //console.log(this.value)//this 指的是函数或方法的调用者
+            }
+
+            //监听输入内容
+            // input.oninput=function(){
+            //     console.log(this.value)
+            //
+            // }
+            //监听两次输入的值的改变，只有前后输入框输入的值不一样才会触发
+            input.onchange = function () {
+                console.log(this.value)
+
+            }
+            form.onsubmit = function () {
+                //允许接收布尔值，表示是否可以提交数据
+               
+                if (input.value.length == 0) {
+                    //不允许发送
+                    return false;
+                }
+
+                return true;
+            }
+        }
+    </script>
+</head>
+<body>
+<h1>一级标题</h1>
+<form action="login.py" method="">
+    <input type="text" name="uname"/>
+    <input type="submit"/>
+</form>
+</body>
+</html>
