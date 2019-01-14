@@ -18,16 +18,16 @@
     var div = document.getElementById("box")
     var h1 = document.getElementsByTagName("h1")[0];
     //元素结点的层次属性
-    // console.log(h1.parentNode)
-    // console.log(div.childNodes)
-    // console.log(div.children)
+    // console.log(h1.parentNode)//div
+    //console.log(div.childNodes)// 所有子元素包括text(回车)
+     console.log(div.children)//元素子元素 strong h1 strong
     //元素兄弟结点
-    console.log(h1.nextSibling)
-    console.log(h1.previousSibling)
-    console.log(h1.nextElementSibling)
-    console.log(h1.previousElementSibling)
+    console.log(h1.nextSibling)//普通文本 不算文本结点
+    console.log(h1.previousSibling)//普通文本 不算文本结点
+    console.log(h1.nextElementSibling)//strong
+    console.log(h1.previousElementSibling)//strong
     //属性结点
-    console.log(h1.attributes)
+    console.log(h1.attributes)//id  class style
 
 
 

@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script>
-        window.onload = function () {//他本省也可以传入事件对象 但是没啥意义  一般具体元素的时间才拿时间对象
+        window.onload = function () {//他本省也可以传入事件对象 但是没啥意义  一般具体元素的才用的到
             var h1 = document.getElementsByTagName('h1')[0]
-            h1.style.width="200px"
-             h1.style.height="200px"
-             h1.style.background="red"
+            h1.style.width = "200px"
+            h1.style.height = "200px"
+            h1.style.background = "red"
 
             h1.onclick = function (event) {
                 console.log(event)
@@ -16,16 +16,16 @@
                 console.log(event.clientX, event.clientY)
                 console.log(event.screenX, event.screenY)
             }
-           window.onkeydown=function(event){
-               console.log("onkeydown",event.which,event.key)//a A  which 都是65
+            window.onkeydown = function (event) {
+                console.log("onkeydown", event.which, event.key)//a A  which 都是65
 
 
-           }
-            window.onkeypress=function(event){
-               console.log("onkeypress",event.which,event.key)//a A  which 都是65
+            }
+            window.onkeypress = function (event) {
+                console.log("onkeypress", event.which, event.key)//a A  which 一个是65 一个是97
 
 
-           }
+            }
         }
 
     </script>

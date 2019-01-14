@@ -10,7 +10,7 @@
 <p>段落标签</p>
 <script>
     //封装函数获取元素结点
-    function $(tagName) {
+    function $(tagName) {//函数名就叫$ 向jQuery 学习
         //获取元素结点
         var elem = document.getElementsByTagName(tagName)[0];
         return elem;
@@ -34,7 +34,8 @@
       document.addEventListener('click', function () {
         alert("document被点击")
     }, true)
-
+//false p -body -document
+//true  document -body -p
 </script>
 </body>
 </html>

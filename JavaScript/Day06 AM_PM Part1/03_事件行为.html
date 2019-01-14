@@ -13,7 +13,7 @@
 
     </style>
     <script>
-        window.onload = function () {
+        window.onload = function () {//用于需要等页面加载完之后，才能执行的脚本 因为涉及到页面元素的操作
             //等待窗口加载完毕自动执行
             // var h1 = document.getElementsByTagName('h1')[0];
             // console.log(h1);
@@ -43,7 +43,7 @@
             //     console.log("onkeyup")
             //
             // }
-            //
+            //keydown 所有按钮有反馈 keypress 只能是普通字符
             var input = document.getElementsByTagName("input")[0];
             var form = document.getElementsByTagName("form")[0]
             input.onfocus = function () {
@@ -52,7 +52,7 @@
             input.onblur = function () {
                 console.log("失去焦点")
                 // console.log(input.value)
-                //console.log(this.value)//this 指的是函数或方法的调用者
+                //console.log(this.value)//this 谁调用就是指代谁 这里是input 因为它点出来的
             }
 
             //监听输入内容
@@ -65,10 +65,10 @@
                 console.log(this.value)
 
             }
-            form.onsubmit = function () {
+            form.onsubmit = function () {//由form 来触发
                 //允许接收布尔值，表示是否可以提交数据
 
-                if (input.value.length == 0) {
+                if (input.value.length == 0) {//检查输入框是否输入
                     //不允许发送
                     return false;
                 }
