@@ -4,15 +4,32 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="../jquery-3.3.1.js"></script>
-    <script>
-        $("p").prop("id", "p1")
-        $("p").prop("class", "c1")
-        $("p").removeAttr("class")
-     
+    <style>
+        #d1 {
+            color: red;
+        }
 
-    </script>
+        .c1 {
+            background-color: green;
+        }
+
+        .c2 {
+
+            font-size: 16px;
+        }
+
+    </style>
+
 </head>
 <body>
 <p>一级标题</p>
+<script>
+    $("p").prop("id", "d1")
+    // $("p").attr("class", "c1")
+    // $("p").attr("class", "c2")//覆盖c1 背景色没了
+    $("p").attr("class", "c1 c2")//只有class 可以设定多个value  用空格隔开
+    $("p").removeAttr("class")
+    $("p").removeAttr("id")
+</script>
 </body>
 </html>
