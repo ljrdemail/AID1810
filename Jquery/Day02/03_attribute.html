@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.3.1.js"></script>
+</head>
+<body>
+<p class="c1" id="d1">窗前明月光</p>
+<p class="c2">疑是地上霜</p>
+<p class="c12s">天王盖地虎</p>
+<p>宝塔镇河妖</p>
+<p class="c1">窗前明月光</p>
+<p class="c2">疑是地上霜</p>
+<p class="c1" id="d2">天王盖地虎</p>
+<p>宝塔镇河妖</p>
+
+
+<script>
+    $("[class]").css("color", "red");// 带有class属性的
+    $("[class='c1']").css("background", "orange")// class属性为c1的
+    $("[id^=d]").css("border", "1px solid black")// 以d开头
+    $("[class$=1]").css("color", "green")// 以1结尾
+    $("[class*=2]").css("background", "pink")// class属性包含2
+    $("[class!=c1]").css("color", "blue")//body 匹配出来 所有都是32  因为继承  改成摄影字体颜色//最后一个p  因为class为空 也符合!=c1
+
+
+
+</script>
+</body>
+</html>

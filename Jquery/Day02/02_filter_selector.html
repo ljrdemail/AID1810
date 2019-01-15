@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.3.1.js"></script>
+</head>
+<body>
+<p class="c1">窗前明月光</p>
+<p class="c2">疑是地上霜</p>
+<p class="c1">天王盖地虎</p>
+<p>宝塔镇河妖</p>
+<p class="c1">窗前明月光</p>
+<p class="c2">疑是地上霜</p>
+<p class="c1">天王盖地虎</p>
+<p>宝塔镇河妖</p>
+<button onclick="odd()">:odd</button>
+<button onclick="even()">:even</button>
+<button onclick="eq()">:eq</button>
+<button onclick="gt()">:gt</button>
+<button onclick="lt()">:lt</button>
+<button onclick="not()">:not</button>
+<script>
+    function odd() {
+        console.log("odd")
+        $("p:odd").css("color", "red");
+
+    }
+
+    function even() {
+        console.log("even")
+        $("p:even").css("color", "green");
+
+    }
+
+    function eq() {
+        console.log("eq")
+        $("p:eq(4)").css("background", "red");
+
+    }
+
+    function lt() {
+        console.log("lt")
+        $("p:lt(4)").css("background", "orange");
+
+    }
+
+    function gt() {
+        console.log("gt")
+        $("p:gt(4)").css("background", "green");
+
+    }
+
+    function not() {
+        console.log("nor")
+        // $("p:not(.c1)").css("color", "orange/**/");
+        // $(":not(p)").css("border","1px solid blue")//button body html
+        $(":not(p,body,html)").css("border", "1px solid blue")//button
+
+    }
+
+
+</script>
+
+</body>
+</html>

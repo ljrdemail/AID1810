@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.3.1.js"></script>
+</head>
+<body>
+<p>第一个</p>
+<div id="box">
+    <h1>"名诗"两首</h1>
+    <p class="c1">窗前明月光</p>
+    <p class="c2">疑是地上霜</p>
+    <p class="c1">天王盖地虎</p>
+    <p>宝塔镇河妖</p>
+</div>
+<p>最后一个</p>
+<script>
+    $("p").css("font-size", "32px")
+    $("#box").css("background", "orange")
+    $(".c1").css("font-weight", "bold")
+    $("h1,.c1").css("background", "pink")
+    $("h1+p")//窗前明月光
+    $("h1+.c1")//窗前明月光
+    $("h1+.c2").css("color", "blue")//不是紧紧相邻所以设置失败
+    $("h1~.c1").css("color", "green")
+    $("h1~.c2").css("color", "red")//这个就可以了
+
+    //头尾元素
+    $("p:first").css("border", "1px solid red")
+    $("p:last").css("border", "1px solid green")
+
+</script>
+</body>
+</html>

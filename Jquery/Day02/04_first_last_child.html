@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.3.1.js"></script>
+</head>
+<body>
+<ul>
+
+    <li>大师兄</li>
+    <li>二师兄</li>
+    <li>沙师弟</li>
+
+</ul>
+
+<ul>
+
+    <li>大师兄</li>
+    <li>二师兄</li>
+    <li>沙师弟</li>
+
+</ul>
+<input type="radio" value="" checked="checked">
+<script>
+    $("li:first").css("border", "1px solid black")
+    $("li:first-child").css("text-align", "center")
+    $("li:last").css("border", "1px solid gray")
+    $("li:last-child").css("text-align", "right")
+    //nth-child(n)
+    $("li:nth-child(1)").css("color", "red") //n 指的是第几个子元素 不是下标 从1 开始 大师兄变红
+    console.log($("input").prop("checked"))//true
+    console.log($("input").attr("checked"))//checked
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.3.1.js"></script>
+</head>
+<body>
+<h1 id="d1">一级标题</h1>
+<h1 id="d2">一级标题</h1>
+<script>
+    console.log($("h1"));
+    // $("h1").innerHTML=""//不会报错 也不起作用 因为给元素添加一个不存在的方法 因为 jQuery没有innerhtml
+    // $("h1").setAttribute("class","c1")//报错 没有setattribute //9.38
+    $("h1").html("动态修改") //不带参数是获取 设置参数是设定值
+
+
+
+</script>
+
+</body>
+</html>
