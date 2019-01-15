@@ -19,11 +19,11 @@
     $("p").css("font-size", "32px")
     $("#box").css("background", "orange")
     $(".c1").css("font-weight", "bold")
-    $("h1,.c1").css("background", "pink")
-    $("h1+p")//窗前明月光
+    $("h1,.c1").css("background", "pink")//群组选择器
+    $("h1+p")//窗前明月光 相邻兄弟选择器
     $("h1+.c1")//窗前明月光
     $("h1+.c2").css("color", "blue")//不是紧紧相邻所以设置失败
-    $("h1~.c1").css("color", "green")
+    $("h1~.c1").css("color", "green")//通用选择器 h1后面所有的c1都复合
     $("h1~.c2").css("color", "red")//这个就可以了
 
     //头尾元素

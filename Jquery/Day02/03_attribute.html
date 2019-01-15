@@ -19,10 +19,10 @@
 <script>
     $("[class]").css("color", "red");// 带有class属性的
     $("[class='c1']").css("background", "orange")// class属性为c1的
-    $("[id^=d]").css("border", "1px solid black")// 以d开头
-    $("[class$=1]").css("color", "green")// 以1结尾
+    $("[id^=d]").css("border", "1px solid black")// id以d开头
+    $("[class$=1]").css("color", "green")// clsss以1结尾
     $("[class*=2]").css("background", "pink")// class属性包含2
-    $("[class!=c1]").css("color", "blue")//body 匹配出来 所有都是32  因为继承  改成摄影字体颜色//最后一个p  因为class为空 也符合!=c1
+    $("[class!=c1]").css("color", "blue")//body 会被匹配出来  如果设定字体大小为32  因为继承body  下所有字体都是32  改成设定字体颜色 只有有文字的才体现//另外最后一个p  因为class为空 也符合!=c1
 
 
 

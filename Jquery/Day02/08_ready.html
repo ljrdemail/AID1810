@@ -11,7 +11,7 @@
         // window.onload = function () {
         //     alert("second onload")
         // }
-        // window.onload = function () {//只能识别最后一个onload
+        // window.onload = function () {//只能识别最后一个onload third onload
         //     alert("third onload")
         // }
         $(document).ready(function () {
@@ -37,7 +37,7 @@
                 //this.html("被点了"); //this 是原生对象不能调用jqyery方法
                 $(this).html("被点了");//转换为jquery对象就可以啦
                 console.log(evt);
-                console.log(evt.target);
+                console.log(evt.target);//div 谁产生的操作
                 console.log(evt.offsetX, evt.offsetY);
             })
         })

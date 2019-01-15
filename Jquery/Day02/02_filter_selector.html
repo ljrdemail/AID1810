@@ -53,9 +53,9 @@
 
     function not() {
         console.log("nor")
-        // $("p:not(.c1)").css("color", "orange/**/");
-        // $(":not(p)").css("border","1px solid blue")//button body html
-        $(":not(p,body,html)").css("border", "1px solid blue")//button
+        // $("p:not(.c1)").css("color", "orange/**/");//匹配类名不是c1的p元素
+        // $(":not(p)").css("border","1px solid blue")//button body html//在文档中匹配除p元素外其余所有元素
+        $(":not(p,body,html)").css("border", "1px solid blue")//button 除了 p  body html
 
     }
 

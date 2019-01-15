@@ -14,10 +14,11 @@
     var $p2 = $("<p id='d3' style='color:green'>动态创建p2</p>")
     var $p3 = $("<p id='d4' style='color:green'>动态创建p3</p>")
     //添加
-    $("body").prepend($h1);
+    $("body").prepend($h1);//作为第一个子元素添加到$obj中
     $("body").append($p)
 
-    $h1.after($p2)// 页面没有新增P  因为相同的元素不能用两次 你想要两个创建两个p
+    //$h1.after($p)// 页面没有新增P  因为相同的元素不能用两次 你想要两个创建两个p
+    $h1.after($p2)
     $h1.before($p3)
 
     $p2.remove()

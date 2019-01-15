@@ -15,19 +15,19 @@
     <p>段落</p>
 </div>
 <script>
-    console.log($("span").parent())
-    // console.log($("span").parents())
-    console.log($("span").parents("#box"))
-    console.log($("#box").children())//h1 span
+    console.log($("span").parent())//div 单一父元素
+    console.log($("span").parents())//h1, div#box, body, html
+    console.log($("span").parents("#box"))//指定按个父元素
+    console.log($("#box").children())//p, h1, span, p
     console.log($("#box").children("span"))//span
-    console.log($("#box").find('span'))//空参数 查找失败 有参数查找出直接子元素和间接子元素
-    console.log($("h1").next())
+    console.log($("#box").find('span'))//空参数 查找失败  有参数查找出直接子元素和间接子元素 span, span
+    console.log($("h1").next())//span
 
-    console.log($("span").prev('p'))//找不着 因为只往前找一个 找不到拉到
+    console.log($("span").prev('p'))//找不着 因为只往前找一个 中间隔着h1 所以找不到拉到
     console.log($("span").next('p'))//找得到 因为就在下面
 
     console.log($("h1").siblings())//获取所有的兄弟元素 不管前后
-    console.log($("h1").siblings("p"))//获取所有P 的兄弟元素 不管前后
+    console.log($("h1").siblings("p"))//获取所有的P 的兄弟元素 不管前后
 
 
 </script>

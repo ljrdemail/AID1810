@@ -24,7 +24,7 @@
 <button onclick="toggle()">切换</button>
 <script>
     $("h1").attr("class", "c1 c2")
-    //类选择器
+    //类选择器 class可以调用多次的
     $("p").addClass("c1")
     $("p").addClass("c2")
     //链式调用
@@ -38,7 +38,7 @@
     //行内样式
     console.log($("h1").css("width"))//读取
     $("h1").css("width", "200px").css("height", "200px")
-
+    //JSON格式
     $("p").css({
         "width": "200px",
         "height": "200px",
