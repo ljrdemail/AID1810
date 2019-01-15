@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.3.1.js"></script>
+    <style>
+        .c1 {
+            background: green;
+        }
+
+        .c2 {
+            color: red;
+        }
+
+
+    </style>
+</head>
+<body>
+<h1>一级标题</h1>
+<p>段落</p>
+<h2>二级标题</h2>
+<strong>strong文本</strong>
+<button onclick="toggle()">切换</button>
+<script>
+    $("h1").attr("class", "c1 c2")
+    //类选择器
+    $("p").addClass("c1")
+    $("p").addClass("c2")
+    //链式调用
+    $("h2").addClass("c1").addClass("c2").html("链式修改")
+
+    function toggle() {
+        $("strong").toggleClass("c1")//没有c1属性就添加 有c1 就删除该属性 实现样式的切换 有则删除，无则添加
+
+    }
+
+    //行内样式
+    console.log($("h1").css("width"))//读取
+    $("h1").css("width", "200px").css("height", "200px")
+
+    $("p").css({
+        "width": "200px",
+        "height": "200px",
+        "color": "blue",
+        "text-align": "center",
+        "line-height": "200px",
+        "background": "orange",
+    })
+
+</script>
+
+</body>
+</html>
