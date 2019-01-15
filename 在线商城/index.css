@@ -1,0 +1,63 @@
+/*清除默认样式*/
+
+body, h1, h2, h3, h4, h5, h6, p, ul, ol {
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/*页面基础样式*/
+
+body {
+    font: 12px "微软雅黑", "黑体";
+    color: #9a9a9a;
+
+}
+
+a {
+    text-decoration: none;
+    color: #9a9a9a;
+}
+
+a:hover {
+
+    color: #64a131
+}
+
+/*页面的整体宽度和居中效果*/
+#container {
+
+    width: 990px;
+    margin: 0 auto;
+}
+
+#nav {
+    background: #eee;
+    height: 30px;
+
+}
+
+/*右侧导航*/
+.leftNav {
+    list-style: none;
+    float: right;
+
+
+}
+
+li {
+    float: right;
+    margin-right: 10px;
+    text-align: center;
+    line-height: 30px;
+  
+
+}
+
+.rightNav {
+    list-style: none;
+    float: left;
+
+
+}
