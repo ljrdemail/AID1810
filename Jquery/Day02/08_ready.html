@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.3.1.js"></script>
+    <script>
+        // window.onload = function () {
+        //     alert("first onload")
+        // }
+        // window.onload = function () {
+        //     alert("second onload")
+        // }
+        // window.onload = function () {//只能识别最后一个onload
+        //     alert("third onload")
+        // }
+        $(document).ready(function () {
+            // alert("first onload")
+
+        })
+        $().ready(function () {
+            // alert("second onload")
+        })
+        $(function () {
+            // alert("third onload")
+            $("h1").on("click", function () {
+                alert("h1被点击")
+            })
+            $("p").bind("click", function () {
+                alert("p被点击")
+
+            })
+            $("button").click(function (evt) {
+
+                //alert("button被点击")
+                console.log(this); //this 是原生对象
+                //this.html("被点了"); //this 是原生对象不能调用jqyery方法
+                $(this).html("被点了");//转换为jquery对象就可以啦
+                console.log(evt);
+                console.log(evt.target);
+                console.log(evt.offsetX, evt.offsetY);
+            })
+        })
+
+
+    </script>
+</head>
+<body>
+<h1>标题</h1>
+<p>段落</p>
+<button>点击</button>
+</body>
+</html>
