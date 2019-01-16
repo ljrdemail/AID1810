@@ -36,28 +36,89 @@ a:hover {
     background: #eee;
     height: 30px;
 
+
 }
 
 /*右侧导航*/
-.leftNav {
-    list-style: none;
+#nav .rightNav {
     float: right;
-
-
 }
 
-li {
-    float: right;
-    margin-right: 10px;
-    text-align: center;
-    line-height: 30px;
-
-
-}
-
-.rightNav {
-    list-style: none;
+#nav .rightNav > li {
+    /*不用kine-height 是因为border 也会同步变长*/
+    margin-top: 7px;
     float: left;
 
+    border-right: 1px solid black; /*通过边框模拟导航项之间的分隔符，只能通过边距调整垂直显示位置 不能显示line-height*/
+    text-align: center;
+    padding: 0 10px;
+}
+
+#nav .rightNav > li.lastiten { /*要拷贝是因为组合优先级由于单写 class*/
+    padding-right: 0; /*不能取消所有边距 因为要跟前面的留 20px*/
+    margin-right: 0; /*靠边*/
+    border: none;
+
+
+}
+
+#nav .leftNav {
+
+    float: left;
+    line-height: 30px;
+
+}
+
+#nav .leftNav > li {
+    float: left;
+    text-align: center;
+    padding-left: 10px;
+
+
+}
+
+/*三角标*/
+#nav .leftNav > li > i {
+
+    display: inline-block;
+    width: 0;
+    height: 0; /* 清掉宽度是为了 做成三角形 否则梯形*/
+    border: 6px solid transparent;
+    border-top: 6px solid black;
+    /*调整位置 下移*/
+    position: relative;
+    top: 5px;
+
+}
+
+#banner {
+    /*调整上下边距 产生空行*/
+    margin: 15px 0;
+
+
+}
+
+#banner img {
+    width: 990px;
+    height: 207px;
+    /*设定宽度是为了不管放什么图片都卡死宽度 保持页面*/
+
+
+}
+
+#commend {
+    font-size: 0px; /*去掉换行产生的空行*/
+    height: 112px;/*设定宽度是为了不管放什么图片都卡死宽度 保持页面*/
+
+}
+
+#commend img {
+
+    width: 240px;
+    margin-right: 10px;
+}
+
+#commend .lastImg {
+    margin: 0
 
 }
