@@ -171,18 +171,21 @@ a:hover {
 }
 
 #main .item > p {
+    /*调上下宽度*/
     margin: 5px 0;
     color: #555;
 
 }
 
 #main .item > span {
+    /*调左边距*/
     margin-left: 10px;
 }
 
 #main .no-margin {
-
+   /*把每一行最后一个图片的10 px margin去掉要不放不下*/
     margin: 0;
+    /*190*5+10*4=990*/
 
 }
 
