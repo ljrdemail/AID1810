@@ -127,14 +127,14 @@ a:hover {
 
 /*主体*/
 #main {
-
+    /*产生间隔*/
     margin: 25px 0;
 }
 
 #main > .goodsType {
     border-top: 1px solid #ccc;
-    pedding-top: 15px;
-    pedding-bottom: 10px;
+    padding-top: 15px;
+    padding-bottom: 10px;
 
 }
 
