@@ -41,17 +41,19 @@ a:hover {
 
 /*右侧导航*/
 #nav .rightNav {
+    /*整体右浮，文字左浮*/
     float: right;
 }
 
 #nav .rightNav > li {
-    /*不用kine-height 是因为border 也会同步变长*/
+    /*不用kine-height 是因为border 也会同步变长 改用margin top来调相较于ul的上边距*/
     margin-top: 7px;
+    /*整体右浮，文字左浮*/
     float: left;
 
     border-right: 1px solid black; /*通过边框模拟导航项之间的分隔符，只能通过边距调整垂直显示位置 不能显示line-height*/
     text-align: center;
-    padding: 0 10px;
+    padding: 0 10px;/*调整和边框之间的距离*/
 }
 
 #nav .rightNav > li.lastiten { /*要拷贝是因为组合优先级由于单写 class*/
@@ -63,7 +65,7 @@ a:hover {
 }
 
 #nav .leftNav {
-
+/*整体左浮，文字左浮*/
     float: left;
     line-height: 30px;
 
@@ -72,7 +74,7 @@ a:hover {
 #nav .leftNav > li {
     float: left;
     text-align: center;
-    padding-left: 10px;
+    padding-left: 10px;/*调整和左边的距离*/
 
 
 }
@@ -107,13 +109,13 @@ a:hover {
 }
 
 #commend {
-    font-size: 0px; /*去掉换行产生的空行*/
+    font-size: 0px; /*去掉a换行产生的空行 如果没有别的文字适用此法 要不然还要单独恢复字体大小*/
     height: 112px; /*设定宽度是为了不管放什么图片都卡死宽度 保持页面*/
 
 }
 
 #commend img {
-
+   /*240*4+10*3=990*/
     width: 240px;
     margin-right: 10px;
 }
