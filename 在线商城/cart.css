@@ -142,7 +142,7 @@ a:hover {
 
 }
 
-#main .check-box {/*11:40*/
+#main .check-box { /*11:40*/
     width: 132px;
 
 }
@@ -160,29 +160,80 @@ a:hover {
 
 #main .count {
     width: 80px;
-     text-align: center;
+    text-align: center;
 
 }
 
 #main .sum {
     width: 140px;
-     text-align: center;
+    text-align: center;
 
 }
 
 #main .action {
     width: 85px;
-     text-align: center;
+    text-align: center;
 
 }
 
-#main #checkAll{
+#main #checkAll {
 
     vertical-align: middle;
 }
 
 /*商品记录*/
-#main .g-item p{
 
-    float:left;
+#main .g-item {
+    border-top: 2px solid #999;
+    border-bottom: 1px solid #999;
+    padding: 10px 0;
+    margin-top: 25px;
+    /*清除浮动*/
+    overflow: hidden;
+}
+
+
+#main .g-item p {
+
+    float: left;
+}
+
+#main .g-item img {
+    width: 80px;
+    height: 80px;
+
+}
+
+/*#main .g-item  .check-box>input {*/
+#main .check-box [name=check] {
+    vertical-align: top;
+}
+
+/*数量*/
+#main .count a { /*14:13*/
+
+    float: left;
+    width: 16px;
+    height: 18px;
+    text-align: center;
+    line-height: 18px;
+    border: 1px solid #cacbcb;
+    padding:1px 0; /*为了和input对齐*/
+
+}
+
+#main .count input {
+
+   float:left;
+    width:42px;
+    height:18px;
+    border-left:0px;
+    border-right:0px;
+    text-align: center;
+    border-top:1px solid #cacbcb;
+    border-bottom:1px solid #cacbcb;
+    padding:1px;
+    font-size:12px;
+
+
 }
