@@ -99,7 +99,7 @@ $(document).ready(function () {
             //截取和转换
             var priceNum = parseFloat(priceStr.substr(1))
             price += priceNum
-           
+
 
 
         })
