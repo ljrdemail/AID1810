@@ -129,58 +129,5 @@ a:hover {
     margin: 25px 0;
 }
 
-#main > .goodsType {
-    border-top: 1px solid #ccc;
-    pedding-top: 15px;
-    pedding-bottom: 10px;
 
-}
-
-#main > .goodsType > p > a {
-    float: right;
-    color: #000;
-}
-
-/*商品信息展示*/
-#main .goodsType {
-    /*解决子元素全部浮动，父元素高度为0*/
-    overflow: hidden;
-}
-
-#main .item {
-    width: 190px;
-    margin-right: 10px;
-    float: left; /*整个模块左浮*/
-    margin-bottom: 10px; /*每行之间有空隙*/
-
-}
-
-#main .item > img {
-    width: 190px;
-    height: 190px;
-
-}
-
-#main .item > a {
-    /*购物车右浮*/
-    float: right;
-    margin: 6px 0;
-
-}
-
-#main .item > p {
-    margin: 5px 0;
-    color: #555;
-
-}
-
-#main .item > span {
-    margin-left: 10px;
-}
-
-#main .no-margin {
-
-    margin: 0;
-
-}
 
