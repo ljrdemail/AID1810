@@ -127,6 +127,8 @@ a:hover {
 #main {
 
     margin: 25px 0;
+    /*避免遮挡 结算栏*/
+    padding-bottom: 50px;
 }
 
 #main .title {
@@ -218,22 +220,69 @@ a:hover {
     text-align: center;
     line-height: 18px;
     border: 1px solid #cacbcb;
-    padding:1px 0; /*为了和input对齐*/
+    padding: 1px 0; /*为了和input对齐*/
 
 }
 
 #main .count input {
 
-   float:left;
-    width:42px;
-    height:18px;
-    border-left:0px;
-    border-right:0px;
+    float: left;
+    width: 42px;
+    height: 18px;
+    border-left: 0px;
+    border-right: 0px;
     text-align: center;
-    border-top:1px solid #cacbcb;
-    border-bottom:1px solid #cacbcb;
-    padding:1px;
-    font-size:12px;
+    border-top: 1px solid #cacbcb;
+    border-bottom: 1px solid #cacbcb;
+    padding: 1px;
+    font-size: 12px;
 
 
+}
+
+/*底部工具栏*/
+
+#cart-toolbar {
+    position: fixed;
+    bottom: 0;
+    height: 50px;
+    line-height: 50px;
+    /* 文档脱流之后 不再具有默认宽度 根据内容决定 所以要手动设定*/
+    width: 990px;
+    background: #fff;
+
+}
+
+#cart-toolbar .right-toolbar {
+    float: right;
+
+}
+
+#cart-toolbar p {
+    float: left;
+
+}
+
+#cart-toolbar span {
+    font-weight: bold;
+    color: #e4393c;
+    font-size: 16px;
+    margin: 0 10px;
+
+}
+
+#cart-toolbar .submit-btn {
+    width: 80px;
+    height: 50px;
+    text-align: center;
+    font-weigh: bold;
+    background-color: #e4393c;
+    color: #fff;
+    font-size:20px;
+
+}
+
+#cart-toolbar .submit-price{
+
+    margin:0 10px;
 }

@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="cart.css">
+    <script src="./jquery-3.3.1.js"></script>
+    <!-- 如果你要在外部文件中用jquery 引入的时候jquery 在前面-->
+    <script src="cart.js"></script>
 </head>
 <body>
 <div id="container">
@@ -82,7 +85,6 @@
         <!--下方商品记录-->
         <div class="content">
             <div class="g-item">
-
                 <p class="check-box">
                     <input type="checkbox" name="check" id="check1">
                     <img src="./images/深情厚意.jpg">
@@ -98,7 +100,6 @@
             </div>
 
             <div class="g-item">
-
                 <p class="check-box">
                     <input type="checkbox" name="check" id="check2">
                     <img src="./images/深情厚意.jpg">
@@ -114,7 +115,6 @@
             </div>
 
             <div class="g-item">
-
                 <p class="check-box">
                     <input type="checkbox" name="check" id="check">
                     <img src="./images/深情厚意.jpg">
@@ -128,14 +128,19 @@
                 </p>
                 <p class="action">移除</p>
             </div>
-
-
-
+        </div>
+    </div>
+    <!-- 底部-->
+    <div id="cart-toolbar">
+        <div class="right-toolbar">
+            <p class="submit-count">
+                已选择<span></span>件商品
+            </p>
+            <p class="submit-price">共计：<span></span></p>
+            <p class="submit-btn">去结算</p>
         </div>
 
     </div>
-    <!-- 底部-->
-    <div id="footer"></div>
 
 
 </div>
