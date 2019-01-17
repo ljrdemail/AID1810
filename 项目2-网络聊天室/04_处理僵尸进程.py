@@ -15,7 +15,7 @@ if pid < 0:
 if pid == 0:
     pid2 = os.fork()
     if (pid2 == 0):
-        os.exot("创建二级子进程失败")
+        os.exit("关闭二级子进程")
     if (pid2 == 0):
         fun2()
     else:
