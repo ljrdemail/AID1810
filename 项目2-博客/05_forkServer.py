@@ -35,7 +35,7 @@ while True:
         pid2 = os.fork()
         if pid2 == 0:
             # 创建二级子进程 与客户端交互
-            # server.close()  # 11:25 不关闭也可以
+            # server.close()  # 不关闭也可以 关了是为了节省资源 client创建之后server  就没用了 可以关了
             clientHandler(client, addr)
             os._exit(0)  # 关掉二级子进程 是因为handler会是死循环 只要走到这一步代表client已经断开连接
         else:

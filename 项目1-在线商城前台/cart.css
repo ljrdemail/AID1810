@@ -274,7 +274,7 @@ a:hover {
     font-weight: bold;
     color: #e4393c;
     font-size: 16px;
-    margin: 0 10px;
+    margin: 0 10px;/*调整商品数量和两边文字的间隔*/
 
 }
 
@@ -290,6 +290,6 @@ a:hover {
 }
 
 #cart-toolbar .submit-price{
-
+/*调整商品金额和两边文字的间隔*/
     margin:0 10px;
 }
