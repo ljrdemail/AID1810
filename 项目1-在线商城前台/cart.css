@@ -217,19 +217,19 @@ a:hover {
 
 /*数量*/
 #main .count a { /*14:13*/
-
+   /*需要浮起来是因为 变为块元素可以调整宽高*/
     float: left;
     width: 16px;
     height: 18px;
     text-align: center;
-    line-height: 18px;
+    line-height: 18px;/*和行高设为一致*/
     border: 1px solid #cacbcb;
     padding: 1px 0; /*为了和input对齐*/
 
 }
 
 #main .count input {
-
+/*需要浮起来是因为 变为块元素可以调整宽高*/
     float: left;
     width: 42px;
     height: 18px;
@@ -239,7 +239,7 @@ a:hover {
     border-top: 1px solid #cacbcb;
     border-bottom: 1px solid #cacbcb;
     padding: 1px;
-    font-size: 12px;
+    font-size: 12px;/*确保字体和整个网页一致 默认 13.3*/
 
 
 }
@@ -247,22 +247,25 @@ a:hover {
 /*底部工具栏*/
 
 #cart-toolbar {
+    /*固定在底部 bottom 0*/
     position: fixed;
     bottom: 0;
     height: 50px;
-    line-height: 50px;
-    /* 文档脱流之后 不再具有默认宽度 根据内容决定 所以要手动设定*/
+    line-height: 50px;/*居中对齐*/
+    /* 文档脱流之后 不再具有默认宽度 而是根据内容决定 所以要手动设定*/
     width: 990px;
     background: #fff;
 
 }
 
 #cart-toolbar .right-toolbar {
+    /*靠右浮动*/
     float: right;
 
 }
 
 #cart-toolbar p {
+    /*文字浮起向左排*/
     float: left;
 
 }
