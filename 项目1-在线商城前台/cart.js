@@ -70,9 +70,9 @@ $(document).ready(function () {
     $(".count input").blur(function () {
         var value = $(this).val()
         var priceStr = $(this).parent().prev().html()
-        var price = priceStr.substring(1)
+        var price = priceStr.substring(1)/*去掉人民币符号*/
         var sum = price * value
-        $(this).parent().next().html("<b>&yen;" + sum + "</b>")
+        $(this).parent().next().html("<b>&yen;" + sum + "</b>")/*加回人民币符号*/
         countItem();
 
     })
