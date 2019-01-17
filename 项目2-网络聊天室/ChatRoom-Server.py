@@ -19,16 +19,42 @@ def doLogin(server, user, name, addr):
     print(user)
 
 
+def doChat(server, content, user, name):
+    msg = name + "说：" + content
+    for u in user:
+        if (u != name):
+            server.sendto(msg.encode(), user[u])
+
+
+def doQuit(server, name, user):
+    # 通知其他成员
+    message = name + "退出了聊天室！"
+    for u in user:
+        if (u != name):
+            server.sendto(message.encode(), user[u])
+        else:
+            # 给退出者本人发消息
+            server.sendto(b'EXIT', user[name])
+    # 从存储结构中删除
+    del user[name]
+
+
 def doRequest(server):
     user = {}
     # 收消息
     while True:
         message, addr = server.recvfrom(1024)
         # [L,"金毛狮王"]
-        meglist = message.decode().split(" ")
+        meglist = message.decode().split(" ")  # 默认是空白作为分隔符
         print(meglist)
         if (meglist[0] == "L"):
             doLogin(server, user, meglist[1], addr)
+        if (meglist[0] == "C"):
+            content = ' '.join(meglist[2:])
+            # 发给其他所有成员
+            doChat(server, content, user, meglist[1])
+        if (meglist[0] == "Q"):
+            doQuit(server,meglist[1],user)
 
 
 def main(clientHandler=None):

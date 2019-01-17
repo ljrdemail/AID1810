@@ -5,26 +5,40 @@ from socket import *
 
 # 创建套接字函数
 
-def sendMsg():
-    pass
+def sendMsg(client,name,addr):
+    #子进程发消息给服务端 服务端 再进行转发 除他自己
+    while True:
+        content=input("请发言(quit退出):\n")
+        print("\n")
+        if(content=="quit"):
+            message="Q "+name
+            client.sendto(message.encode(),addr)
+            sys.exit("退出聊天室")#子进程退出
+
+        #包装消息
+        message="C %s %s" %(name,content)
+        client.sendto(message.encode(),addr)
 
 
 def recvMsg(client):
     while True:
         message,addr=client.recvfrom(1024)
+        if (message.decode() == "EXIT"):
+            sys.exit("成功退出！")
         print(message.decode())
+
 
 
 def main():
     client = socket(AF_INET, SOCK_DGRAM)
     client.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
-    ip = input("请输入IP：")
-    port = input("请输入端口：")
-    address = (ip, int(port))
-    # if len(sys.argv)<3:
-    #     print('参数错误')
-    #     return
-    # ADDRESS=(sys.argv[1],int(sys.argv[2]))
+    # ip = input("请输入IP：")
+    # port = input("请输入端口：")
+    # address = (ip, int(port))
+    if len(sys.argv)<3:
+        print('参数错误')
+        return
+    address=(sys.argv[1],int(sys.argv[2]))
     print(address)
 
     # 发消息
@@ -46,7 +60,7 @@ def main():
         sys.exit("创建进程失败")
         # 子进程发消息
     elif pid == 0:
-        sendMsg()
+        sendMsg(client,name, addr)
     else:
         # 父进程收消息
         recvMsg(client)
