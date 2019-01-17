@@ -140,17 +140,19 @@ a:hover {
 
 #main .title > p {
     float: left;
+    /*水平居中*/
     line-height: 32px;
 
 }
 
-#main .check-box { /*11:40*/
+#main .check-box {
     width: 132px;
 
 }
 
 #main .goods {
     width: 378px;
+    /*默认左对齐*/
 
 }
 
@@ -186,21 +188,22 @@ a:hover {
 /*商品记录*/
 
 #main .g-item {
-    border-top: 2px solid #999;
-    border-bottom: 1px solid #999;
-    padding: 10px 0;
-    margin-top: 25px;
-    /*清除浮动*/
+    border-top: 2px solid #999; /*上下边框*/
+    border-bottom: 1px solid #999;/*上下边框*/
+    padding: 10px 0;/*边框和图片间距*/
+    margin-top: 25px;/*内容和标题间距*/
+    /*清除浮动 因为p 要上浮*/
     overflow: hidden;
 }
 
 
 #main .g-item p {
-
+/*内容左浮*/
     float: left;
 }
 
 #main .g-item img {
+    /*定死宽度*/
     width: 80px;
     height: 80px;
 
@@ -208,6 +211,7 @@ a:hover {
 
 /*#main .g-item  .check-box>input {*/
 #main .check-box [name=check] {
+    /*选择框上对齐*/
     vertical-align: top;
 }
 
