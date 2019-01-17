@@ -61,7 +61,7 @@ $(document).ready(function () {
         } else {
             var res = confirm("确定要移除？")
             if (res) {
-                //略
+                $(this).parents(".g-item").remove()
             }
         }
 
