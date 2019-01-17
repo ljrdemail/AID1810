@@ -3,23 +3,20 @@ from socket import *
 
 
 # 创建网络连接
-def doLogin(server,user,name,addr):
+def doLogin(server, user, name, addr):
     # 进入到聊天室请求处理函数
-    if (name in user) or name=="管理员":
-         server.sendto("该用户已经存在".encode(),addr)
-         return
-    #名字不存在发送OK给客户端
-    server.sendto("OK".encode(),addr)
-    #通知其他人 这人已经登录
-    message="欢迎"+name+"进入聊天室！"
+    print(name in user)
+    if (name in user) or name == "管理员":
+        server.sendto("该用户已经存在".encode(), addr)
+        return
+    # 名字不存在发送OK给客户端
+    server.sendto("OK".encode(), addr)
+    # 通知其他人 这人已经登录
+    message = '欢迎 %s 进入聊天室' % name
     for u in user:
-        server.sendTo(message.encode(),user[u])
-        user[name]=addr
-        print(user)
-
-
-
-
+        server.sendto(message.encode(), user[u])
+    user[name] = addr
+    print(user)
 
 
 def doRequest(server):
@@ -31,7 +28,7 @@ def doRequest(server):
         meglist = message.decode().split(" ")
         print(meglist)
         if (meglist[0] == "L"):
-            doLogin(server,user,meglist[1],addr)
+            doLogin(server, user, meglist[1], addr)
 
 
 def main(clientHandler=None):
@@ -47,7 +44,8 @@ def main(clientHandler=None):
         return
     if pid == 0:
         # 子进程负责喊话
-        print('负责管理员喊话的进程')
+        # print('负责管理员喊话的进程')
+        pass
 
     else:
         # 父进程负责处理客户端的请求
