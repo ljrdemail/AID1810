@@ -18,9 +18,9 @@
 # a = 0
 # b = 1  # 当前fibonacci 数
 # while len(L) < 40:
-#     L.append(b)
-#     # 再求下个数fibonacci数
-#     a, b = b, a + b
+    # L.append(b)
+    # # 再求下个数fibonacci数
+    # a, b = b, a + b
 
 #     # next_fibo = a + b
 #     # a = b
