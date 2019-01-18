@@ -65,9 +65,19 @@ def doQuery(client, username):
             continue
 
 
+def doHistory(client, username):
+    message = "H %s" % username
+    client.send(message.encode())
+    record = client.recv(1024).decode()
 
-def doHistory():
-    pass
+    if (record == "nodata"):
+        print("无此人的历史记录数据")
+        return
+    else:
+        arr = record.split("$")
+
+        for i in range(0, len(arr) - 1):
+            print("\t".join(arr[i].split(",")))
 
 
 def doTwoLogin(client, username):
@@ -85,7 +95,7 @@ def doTwoLogin(client, username):
         elif cmd == '1':
             doQuery(client, username)
         elif cmd == '2':
-            doHistory(client)
+            doHistory(client, username)
         elif cmd == '3':
             # 终止此循环 回到一级子界面，嵌套循环
             break;  # 回到调用他的doLogin  然后跳到  调用他的 main 这个又是个死循环 就回到一级子界面了

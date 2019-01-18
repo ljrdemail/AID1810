@@ -57,10 +57,25 @@ def doQuery(client, db, usename, word):
         db.rollback()
     if r:
         client.send(r[0][0].encode())
-        
+
 
     else:
         client.send("nodata".encode())
+
+
+def doHistory(client, db, username):
+    sel = "select username,word,time from history where username=%s"
+    cursor = db.cursor()
+    cursor.execute(sel, [username])
+    r = cursor.fetchall()
+    message=""
+    if not r:
+        client.send("nodata".encode())
+    else:
+        for m in r:
+            message +=  m[0]+"," + m[1]+"," + m[2] + "$"
+        print(message)
+        client.send(message.encode())
 
 
 def doRequest(client, db):
@@ -77,6 +92,8 @@ def doRequest(client, db):
             sys.exit(0)
         elif msgList[0] == "Q":
             doQuery(client, db, msgList[1], msgList[2])
+        elif msgList[0] == "H":
+            doHistory(client, db, msgList[1])
 
 
 def main():
