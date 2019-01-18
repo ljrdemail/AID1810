@@ -1,16 +1,39 @@
 import os
-from socket import *
 import sys
+from socket import *
 
 import pymysql
 
 
-def doRequest(client):
+def doRegist(client, db, username, password):
+    # 判断user表中是否有此用户
+    print(password)
+    cursor = db.cursor()
+    sel = 'select password from user where username=%s'
+    cursor.execute(sel, [username])
+    # r结果为元组 用户不存在为空元组 否则为非空元组
+    r = cursor.fetchall()
+    if r:
+        client.send("EXITS".encode())
+        return
+    else:
+        sel2 = "insert into user(username,password) values (%s,%s)"
+        try:
+            cursor.execute(sel2, [username, password])
+            db.commit()
+            client.send("OK".encode())
+        except Exception as e:
+            db.rollback()
+            client.send("FAIL".encode())
 
+
+def doRequest(client, db):
     while True:
-        message = client.recv(1024)
-        print(message.decode())
-        client.send("服务端收到".encode())
+        message = client.recv(1024).decode()
+        msgList = message.split(" ")
+        if msgList[0] == "R":
+            # 处理注册函数
+            doRegist(client,db, msgList[1], msgList[2])
 
 
 def main():
@@ -38,11 +61,12 @@ def main():
             print("创建进程失败")
         elif pid == 0:
             # 子进程负责和客户端交互
-            doRequest(client)
+            doRequest(client, db)
             sys.exit('客户端退出')
         else:
             # 父进程继续等待下一个客户端连接
             continue
+
 
 if __name__ == "__main__":
     main()

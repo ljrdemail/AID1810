@@ -1,14 +1,15 @@
+import getpass
 import string
 import sys
+from hashlib import sha1
 from socket import *
 
 
 def doRegist(client):
-
     while True:
         allChars = string.punctuation + string.whitespace
-        username = input("\033[请输入注册的用户名：\033[0m")
-        falg = 0
+        username = input("请输入注册的用户名:")
+        flag = 0
         for i in username:
             if (i in allChars):
                 print("用户名中不能含有特殊字符!!!")
@@ -17,10 +18,33 @@ def doRegist(client):
         if flag:
             continue;
 
-
         # 输入密码
-        # password1 = input("请输入密码！")
-        # password2 = input("请再次输入密码")
+        # getpass.getpass()
+        password1 = getpass.getpass("请输入密码!")
+        password2 = getpass.getpass("请再次输入密码!")
+        # 判断两次密码是否一致
+        if password1 == password2:
+            # 创建sha1对象
+            s = sha1()
+            s.update(password1.encode())
+            password = s.hexdigest()
+
+        else:
+            print("两次密码不一致")
+            continue
+
+        # 向服务端发送用户信息
+        message = 'R %s %s' % (username, password)
+        client.send(message.encode())
+        # 等服务器反馈
+        data = client.recv(1024).decode()
+        if data == 'OK':
+            print("注册成功!")
+        elif data == "EXISTS":
+            print("该用户已经存在！")
+        else:
+            print("注册失败！")
+        return  #跳转一级界面 回到调用方
 
 
 def doLogin(client):
