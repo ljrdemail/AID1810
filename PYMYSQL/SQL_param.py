@@ -9,7 +9,7 @@ sname = input("请输入诗人的姓名：")
 sscore = input("请输入诗人的分数：")
 
 #ins = "insert into t1 values (%s,%s,%s)"
-ins = "insert into t1 values ('%s','%s','%s')" %(sid,sname,sscore) #这种方式不推荐
+ins = "insert into t1 values ('%s','%s','%s')" %(sid,sname,sscore) #这种方式不推荐 而且万一字段中由" ' 就会报SQL错误 因为视为结束标志
 #L = [sid, sname, sscore]
 
 try:
