@@ -44,15 +44,63 @@ def doRegist(client):
             print("该用户已经存在！")
         else:
             print("注册失败！")
-        return  #跳转一级界面 回到调用方
+        return  # 跳转一级界面 回到调用方
+
+
+def doQuery():
+    pass
+
+
+def doHistory():
+    pass
+
+
+def doTwoLogin(client):
+    while True:
+        prompt = '''
+        ==================二级子界面 ==================
+        -------1 查询  2 历史记录  3 注销--------------
+        =================================================
+        请选择(1,2,3)
+        '''
+        cmd = input(prompt)
+        if cmd not in ['1', '2', '3']:
+            print("输入错误，必须为（1,2,3）")
+            continue
+        elif cmd == '1':
+            doQuery()
+        elif cmd == '2':
+            doHistory()
+        elif cmd == '3':
+            # 终止此循环 回到一级子界面，嵌套循环
+            break;  # 回到调用他的doLogin  然后跳到  调用他的 main 这个又是个死循环 就回到一级子界面了
 
 
 def doLogin(client):
-    pass
+    username = input("请输入用户名:")
+    password = getpass.getpass("请输入密码：")
+    # 加密三部曲
+    s = sha1()
+    s.update(password.encode())
+    password = s.hexdigest()
+    # 包装消息
+    message = 'L %s %s' % (username, password)
+    client.send(message.encode())
+    # 接收服务端反馈结果
+    data = client.recv(1024).decode()
+    if data == 'OK':
+        print('登录成功')
+        # 进入二级子界面函数
+        doTwoLogin(client)
+    elif data == "NAMEERROR":
+        print("用户名错误")
+    else:
+        print("密码错误")
 
 
 def doExit(client):
-    pass
+    client.send('E'.encode())
+    sys.exit("客户端退出")
 
 
 def main():

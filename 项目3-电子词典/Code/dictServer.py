@@ -7,7 +7,7 @@ import pymysql
 
 def doRegist(client, db, username, password):
     # 判断user表中是否有此用户
-    print(password)
+
     cursor = db.cursor()
     sel = 'select password from user where username=%s'
     cursor.execute(sel, [username])
@@ -27,13 +27,31 @@ def doRegist(client, db, username, password):
             client.send("FAIL".encode())
 
 
+def doLogin(client, db, username, password):
+    sel = 'select password from user where username=%s'
+    cursor = db.cursor()
+    cursor.execute(sel, [username])
+    r = cursor.fetchall()
+    if not r:
+        client.send("NAMEERROR".encode())
+
+    elif r[0][0] == password:
+        client.send("OK".encode())
+    else:
+        client.send("PWDERROR".encode())
+
+
 def doRequest(client, db):
     while True:
         message = client.recv(1024).decode()
         msgList = message.split(" ")
         if msgList[0] == "R":
             # 处理注册函数
-            doRegist(client,db, msgList[1], msgList[2])
+            doRegist(client, db, msgList[1], msgList[2])
+        elif msgList[0] == "L":
+            doLogin(client, db, msgList[1], msgList[2])
+        elif msgList[0] == "E":
+            sys.exit(0)
 
 
 def main():
