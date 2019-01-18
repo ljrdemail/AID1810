@@ -1,4 +1,5 @@
 import os;
+import time
 
 
 def fun2():
@@ -8,18 +9,16 @@ def fun2():
 def fun1():
     print("父进程在执行")
 
-
 pid = os.fork();
 if pid < 0:
     os.exit("创建进程失败")
 if pid == 0:
     pid2 = os.fork()
     if (pid2 == 0):
-        os.exit("关闭二级子进程")
-    if (pid2 == 0):
         fun2()
     else:
-        os.exit("关闭一级子进程")
+        os._exit("关闭一级子进程")
 else:
     pid, status = os.wait()
     fun1()
+    time.sleep(30)

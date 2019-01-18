@@ -1,13 +1,15 @@
 from socket import *
+import  sys
 
 #创建TCP套接字
 client=socket(AF_INET,SOCK_STREAM)
-ip=input("请输入IP：")
-port=input("请输入端口：")
-address=(ip,int(port))
 
 
-client.connect(address)
+HOST = sys.argv[1]
+PORT = int(sys.argv[2])
+ADDRESS = (HOST,PORT)
+
+client.connect(ADDRESS)
 
 while  True :
      content=input("你想说：")

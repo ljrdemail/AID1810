@@ -9,6 +9,5 @@ if pid < 0:
 if pid == 0:
     print("新进程")
     time.sleep(1000)#避免僵尸进程
-
 else:
     print("父进程")
