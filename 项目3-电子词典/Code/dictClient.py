@@ -47,15 +47,30 @@ def doRegist(client):
         return  # 跳转一级界面 回到调用方
 
 
-def doQuery():
-    pass
+def doQuery(client, username):
+    while True:
+        word = input("请输入你要查询的单词以##号结束：")
+        if word == "##":
+            break;
+            return
+        message = "Q %s %s" % (username, word)
+
+        client.send(message.encode())
+        interpret = client.recv(1024).decode()
+
+        if interpret != "nodata":
+            print("这个词的解释是:%s" % interpret)
+        else:
+            print("查无此单词")
+            continue
+
 
 
 def doHistory():
     pass
 
 
-def doTwoLogin(client):
+def doTwoLogin(client, username):
     while True:
         prompt = '''
         ==================二级子界面 ==================
@@ -68,9 +83,9 @@ def doTwoLogin(client):
             print("输入错误，必须为（1,2,3）")
             continue
         elif cmd == '1':
-            doQuery()
+            doQuery(client, username)
         elif cmd == '2':
-            doHistory()
+            doHistory(client)
         elif cmd == '3':
             # 终止此循环 回到一级子界面，嵌套循环
             break;  # 回到调用他的doLogin  然后跳到  调用他的 main 这个又是个死循环 就回到一级子界面了
@@ -91,7 +106,7 @@ def doLogin(client):
     if data == 'OK':
         print('登录成功')
         # 进入二级子界面函数
-        doTwoLogin(client)
+        doTwoLogin(client, username)
     elif data == "NAMEERROR":
         print("用户名错误")
     else:

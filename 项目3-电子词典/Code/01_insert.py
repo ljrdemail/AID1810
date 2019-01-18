@@ -1,6 +1,6 @@
 import pymysql
 
-db = pymysql.connect("127.0.0.1", "root", "root", 'dict', charset="utf8")
+db = pymysql.connect("127.0.0.1", "root", "123456", 'dict', charset="utf8")
 curs = db.cursor()
 i = 1
 with open("dict.txt", 'r') as f:

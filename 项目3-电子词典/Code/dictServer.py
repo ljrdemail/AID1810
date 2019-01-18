@@ -1,5 +1,6 @@
 import os
 import sys
+import time
 from socket import *
 
 import pymysql
@@ -41,10 +42,32 @@ def doLogin(client, db, username, password):
         client.send("PWDERROR".encode())
 
 
+def doQuery(client, db, usename, word):
+    sel = "select interpret from words where word=%s"
+    sel2 = "insert into history(username,word,time) values(%s,%s,%s)"
+    cursor = db.cursor()
+    cursor.execute(sel, [word])
+    r = cursor.fetchall()
+
+    cursor2 = db.cursor()
+    try:
+        cursor2.execute(sel2, [usename, word, time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())])
+        db.commit()
+    except Exception as e:
+        db.rollback()
+    if r:
+        client.send(r[0][0].encode())
+        
+
+    else:
+        client.send("nodata".encode())
+
+
 def doRequest(client, db):
     while True:
         message = client.recv(1024).decode()
         msgList = message.split(" ")
+
         if msgList[0] == "R":
             # 处理注册函数
             doRegist(client, db, msgList[1], msgList[2])
@@ -52,6 +75,8 @@ def doRequest(client, db):
             doLogin(client, db, msgList[1], msgList[2])
         elif msgList[0] == "E":
             sys.exit(0)
+        elif msgList[0] == "Q":
+            doQuery(client, db, msgList[1], msgList[2])
 
 
 def main():
