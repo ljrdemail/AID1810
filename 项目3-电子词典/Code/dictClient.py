@@ -5,8 +5,10 @@ from hashlib import sha1
 from socket import *
 
 
+# 注册函数
 def doRegist(client):
     while True:
+        # 所有特殊字符 只要是用户名中含有这些特殊字符就不给注册
         allChars = string.punctuation + string.whitespace
         username = input("\033[31m请输入注册用户名:\033[0m")
         flag = 0
@@ -16,6 +18,7 @@ def doRegist(client):
                 flag = 1
                 break;
         if flag:
+            # 如果有特殊字符 回到循环继续重新输入
             continue;
 
         # 输入密码
@@ -24,13 +27,14 @@ def doRegist(client):
         password2 = getpass.getpass("请再次输入密码!")
         # 判断两次密码是否一致
         if password1 == password2:
-            # 创建sha1对象
+            # 创建sha1对象 并加密
             s = sha1()
             s.update(password1.encode())
             password = s.hexdigest()
 
         else:
             print("两次密码不一致")
+            # 密码不一致 回到循环重新输入用户名和密码
             continue
 
         # 向服务端发送用户信息
@@ -44,6 +48,7 @@ def doRegist(client):
             print("该用户已经存在！")
         else:
             print("注册失败！")
+            # 服务器端     except Exception as e: 时候回报失败
         return  # 跳转一级界面 回到调用方
 
 
@@ -80,6 +85,7 @@ def doHistory(client, username):
             print("\t".join(arr[i].split(",")))
 
 
+# 二级子界面函
 def doTwoLogin(client, username):
     while True:
         prompt = '''
@@ -89,6 +95,7 @@ def doTwoLogin(client, username):
                请选择(1/2/3):\033[0m'''
         try:
             cmd = input(prompt)
+            # 处理ctrl+c异常 退回到一级子界面
         except KeyboardInterrupt:
             break;
         if cmd not in ['1', '2', '3']:
@@ -100,31 +107,35 @@ def doTwoLogin(client, username):
             doHistory(client, username)
         elif cmd == '3':
             # 终止此循环 回到一级子界面，嵌套循环
-            break;  # 回到调用他的doLogin  然后跳到  调用他的 main 这个又是个死循环 就回到一级子界面了
+            break;  # 回到调用他的doLogin  然后跳到调用doLogin的main 回到while 打印一级子界面了
 
 
+# 登录函数
 def doLogin(client):
     username = input("请输入用户名:")
     password = getpass.getpass("请输入密码：")
-    # 加密三部曲
+    # 给密码加密(三步走)
     s = sha1()
     s.update(password.encode())
     password = s.hexdigest()
-    # 包装消息
+    # 包装消息并发送给服务端 注意空格不可少 因为用空格split
     message = 'L %s %s' % (username, password)
     client.send(message.encode())
-    # 接收服务端反馈结果
+    # 接收服务端反馈结果 注意decode
     data = client.recv(1024).decode()
     if data == 'OK':
         print('登录成功')
         # 进入二级子界面函数
         doTwoLogin(client, username)
     elif data == "NAMEERROR":
-        print("用户名错误")
+        # 用户名不存在
+        print("用户不存在")
     else:
-        print("密码错误")
+        # 用户名正确密码错误
+        print("用户名或密码错误")
 
 
+# 客户端退出函数
 def doExit(client):
     client.send('E'.encode())
     sys.exit("客户端退出")
@@ -137,7 +148,6 @@ def main():
         print('参数错误')
         return
     ADDRESS = (sys.argv[1], int(sys.argv[2]))
-
     # 创建UDP套接字
     client = socket()
     try:
@@ -147,7 +157,7 @@ def main():
         print(e)
         return
 
-    # 进入一级菜单
+    # 客户端连接成功,进入一级界面
     while True:
         prompt = '''
         \033[31m**********一级界面***********
@@ -157,17 +167,21 @@ def main():
         '''
         try:
             cmd = input(prompt)
+            # 处理异常 退出客户端
         except KeyboardInterrupt:
             doExit(client)
         if cmd.isdigit() and cmd in ['1', '2', '3']:
             if cmd == '1':
+                # 注册函数
                 doRegist(client)
             elif cmd == '2':
+                # 登录函数
                 doLogin(client)
             else:
+                # 退出函数
                 doExit(client)
         else:
-            print("输入有误，请重新输入（1,2,3）！")
+            print("输入有误,请输入(1/2/3)!")
 
 
 if __name__ == "__main__":
