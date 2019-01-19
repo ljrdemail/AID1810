@@ -28,11 +28,11 @@ def recvMsg(client):
         try:
          message, addr = client.recvfrom(1024)
         except KeyboardInterrupt:
-            sys.exit("退出聊天室") #因为公用终端 子进程挂了 这边也受到影响
+            sys.exit("退出聊天室") #因为公用终端 子进程挂了 这边也受到影响 所以一起挂
         # 父进程退出
         if (message.decode() == "EXIT"):
             sys.exit("成功退出！")
-            # 因为print()覆盖了之前的input()界面 在这里再次输出一次
+            # 因为中间弹出的消息（说了 离开 进入） 把请发言顶上去了  收完消息之后在这里再次输出一次让客户输入 让有提示框
         print(message.decode() + "\n请发言(quit退出):", end='')
 
     # 创建套接字函数

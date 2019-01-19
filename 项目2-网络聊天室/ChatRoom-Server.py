@@ -80,9 +80,9 @@ def main(clientHandler=None):
         # print('负责管理员喊话的进程')
         content = input("管理员消息:")
         # 对消息进行封装
-        message = 'C 管理员 ' + content
+        message = 'C 管理员 ' + content #空格不能少
         # 父进程在监听，把消息发送给父进程
-        server.sendto(message.encode(), ("127.0.0.1", 9999))
+        server.sendto(message.encode(), ("127.0.0.1", 9999)) #发给父进程让它调用Chat的处理逻辑 父进程区分不了是客户端还是子进程发来的 只要发往这个端口就处理
 
     else:
         # 父进程负责处理客户端的请求
