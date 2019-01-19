@@ -8,6 +8,7 @@
 <body>
 <script>
     var div2 = document.createElement("div")
+    var text=document.createTextNode("hello")
     div2.id = "box"
     div2.innerHTML = "动态创建div"
     console.log(div2)
@@ -23,6 +24,7 @@
     document.body.insertBefore(h1, div2)
     //document.body.appendChild(h1)//结点不能重复使用 你想要前后都有h1 要两份h1
     document.body.appendChild(h2)
+    document.body.appendChild(text)
 
     //移除
     document.body.removeChild(div2)
