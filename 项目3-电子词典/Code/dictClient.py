@@ -8,7 +8,7 @@ from socket import *
 def doRegist(client):
     while True:
         allChars = string.punctuation + string.whitespace
-        username = input("请输入注册的用户名:")
+        username = input("\033[31m请输入注册用户名:\033[0m")
         flag = 0
         for i in username:
             if (i in allChars):
@@ -83,10 +83,10 @@ def doHistory(client, username):
 def doTwoLogin(client, username):
     while True:
         prompt = '''
-        ==================二级子界面 ==================
-        -------1 查询  2 历史记录  3 注销--------------
-        =================================================
-        请选择(1,2,3)
+       \033[32m===========二级子界面============
+        --- 1.查词  2.历史记录  3.注销 ---
+        ===============================
+        请选择(1/2/3):\033[0m
         '''
         cmd = input(prompt)
         if cmd not in ['1', '2', '3']:
@@ -147,10 +147,10 @@ def main():
     # 进入一级菜单
     while True:
         prompt = '''
-        ***********一级界面***********
-        --- 1.注册  2 登录   3 退出---
-        *******************************
-        请选择（1/2/3）      
+        \033[31m**********一级界面***********
+        --- 1.注册  2.登录  3.退出 ---
+        ****************************
+        请选择(1/2/3):\033[0m     
         '''
         cmd = input(prompt)
         if cmd.isdigit() and cmd in ['1', '2', '3']:
