@@ -87,8 +87,10 @@ def doTwoLogin(client, username):
                --- 1.查词  2.历史记录  3.注销 ---
                ===============================
                请选择(1/2/3):\033[0m'''
-
-        cmd = input(prompt)
+        try:
+            cmd = input(prompt)
+        except KeyboardInterrupt:
+            break;
         if cmd not in ['1', '2', '3']:
             print("输入错误，必须为（1,2,3）")
             continue
@@ -128,7 +130,9 @@ def doExit(client):
     sys.exit("客户端退出")
 
 
+# 创建网络连接
 def main():
+    # 获取命令行参数
     if len(sys.argv) < 3:
         print('参数错误')
         return
@@ -137,9 +141,8 @@ def main():
     # 创建UDP套接字
     client = socket()
     try:
+        # 连接服务器
         client.connect(ADDRESS)
-    except KeyboardInterrupt:
-        print("欢迎再次使用！")
     except Exception as e:
         print(e)
         return
@@ -152,7 +155,10 @@ def main():
         ****************************
         请选择(1/2/3):\033[0m     
         '''
-        cmd = input(prompt)
+        try:
+            cmd = input(prompt)
+        except KeyboardInterrupt:
+            doExit(client)
         if cmd.isdigit() and cmd in ['1', '2', '3']:
             if cmd == '1':
                 doRegist(client)
