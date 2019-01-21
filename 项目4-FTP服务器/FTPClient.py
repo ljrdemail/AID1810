@@ -1,6 +1,9 @@
 # 具体功能的实现
 import sys
+import time
 from socket import *
+
+
 
 
 class FtpClient(object):
@@ -38,7 +41,7 @@ class Ftpclient(object):
         # 接收服务端反馈
         data = self.client.recv(1024).decode()
         if data == "OK":
-            f = open("D:\\AID1810\\项目4-FTP服务器\\ftpRecv\\"+filename, 'wb')
+            f = open(filename, 'wb')
             while True:
                 data = self.client.recv(1024)
                 if data == b"##":
@@ -50,7 +53,29 @@ class Ftpclient(object):
             print(data)
 
     def doPut(self):
-        pass
+        filename = input("请输入要上传的文件：")
+        # 用户输入可能为绝对路径或相对路径，按/进行切割
+        # filename=filename.split("/")[-1] Linux
+        filename2 = filename.split("\\")[-1]  # 16:13
+        try:
+            f = open(filename, 'rb')
+        except:
+            print("没这个文件")
+            return
+        message = "P " + filename2
+        self.client.send(message.encode())
+        data = self.client.recv(1024)
+        if data == b'OK':
+            # 读文件 发送数据
+            while True:
+                data = f.read(1024)
+                if not data:
+                    time.sleep(0.1)
+                    self.client.send(b'##')
+                    break
+                self.client.send(data)
+            f.close()
+            print("%s 上传完成" %filename2)
 
     def doExit(self):
         self.client.send("Q".encode()
