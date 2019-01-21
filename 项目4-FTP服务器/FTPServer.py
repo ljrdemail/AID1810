@@ -17,6 +17,7 @@ filDir = "D:\\AID1810\\项目4-FTP服务器\\ftpFile\\"
 def doRequest(client):
     # 接收客户端的各种请求
     while True:
+        # 创建对象,每个客户端都要单独的对象处理功能
         serverObj = FtpServer(client)
         # 接收客户端发过来的包装好的请求
         message = client.recv(1024).decode()
@@ -26,7 +27,7 @@ def doRequest(client):
         elif msgList[0] == 'G':
             serverObj.doGet(msgList[-1])  # 用-1 是为了避免用户输入了空格之后 再输入文件名
         elif msgList[0] == 'P':
-            serverObj.doPut(msgList[1])
+            serverObj.doPut(msgList[-1]) # 用-1 是为了避免用户输入了空格之后 再输入文件名
         elif msgList[0] == 'Q':
             serverObj.doExit()
 
@@ -45,11 +46,12 @@ class FtpServer(object):
             self.client.send('文件库为空'.encode())
         else:
             self.client.send(b'OK')
-            time.sleep(0.1)  # 防止粘包 OK 和内容
+            time.sleep(0.1)  # 防止粘包 OK 和内容之间
+
             # 发送文件名到客户端
             for file in fileList:
                 # 判断是否为普通文件 排除文件夹和隐藏文件
-                if os.path.isfile(filDir + file) and file[0] != '.':
+                if os.path.isfile(filDir + file) and file[0] != '.': # 不为隐藏文件
                     self.client.send(file.encode())
                     time.sleep(0.1)  # 防止粘包 内容和##
             self.client.send("##".encode())
@@ -63,7 +65,7 @@ class FtpServer(object):
 
         # 文件夹正常打开
         self.client.send("OK".encode())
-        time.sleep(0.1)  # 防止粘包
+        time.sleep(0.1)  # 防止粘包 OK 和内容之间
         while True:
             data = f.read(1024)
             if not data:
@@ -72,8 +74,10 @@ class FtpServer(object):
                 break
             else:
                 self.client.send(data)
+                # 发送完成后关闭文件
         f.close()
 
+    # 处理上传请求
     def doPut(self, filename):
         try:
             f = open(filDir + filename, 'wb')
@@ -81,6 +85,7 @@ class FtpServer(object):
             self.client.send("上传失败".encode())
             return
         self.client.send("OK".encode())
+        # 接收
         while True:
             data = self.client.recv(1024)
             if data == "##".encode():
@@ -94,7 +99,7 @@ class FtpServer(object):
 
 # 创建网络连接
 def main():
-    server = socket()
+    server = socket(AF_INET, SOCK_STREAM)
     # 设定端口复用
     server.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
     server.bind(ADDRESS)
@@ -111,7 +116,9 @@ def main():
         except Exception  as e:
             print(e)
             continue
+            # 创建线程,来处理客户端
         t = Thread(target=doRequest(client), args=(client,))
+        # 设置为守护线程
         t.setDaemon(True)  # 主线程挂了 子线程 一起挂  因为主线程就是服务器线程 服务器退出后 子线程（客户端） 也没有必要留着了 所以 可以设定为守护线程 避免阻塞问题
         t.start()
 
