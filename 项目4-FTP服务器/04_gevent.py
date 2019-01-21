@@ -20,5 +20,5 @@ def f2():
 # 创建协程对象
 g1 = gevent.spawn(f1, 10, 20)
 g2 = gevent.spawn(f2)
-# 启动并阻塞等待回收协程
+# 启动等待所有协程并在执行完毕之后回收协程 阻塞函数
 gevent.joinall([g1, g2])
