@@ -1,6 +1,5 @@
 import gevent
 from gevent import monkey
-
 # 必须放在socket之前导入 因为执行脚本 修改阻塞行为
 monkey.patch_socket()
 from socket import *
