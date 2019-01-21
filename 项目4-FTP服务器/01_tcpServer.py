@@ -33,4 +33,5 @@ while True:
     # 客户端连接过来了 创建线程 client 一定要传
     t = Thread(target=handler, args=(client,))
     t.setDaemon(True)  # 主线程挂了 子线程 一起挂  因为主线程就是服务器线程 服务器退出后 子线程（客户端） 也没有必要留着了 所以 可以设定为守护线程 避免阻塞问题
+    #不能用join 因为不能等子线程 父进程要不听接收连接 不能等
     t.start()
