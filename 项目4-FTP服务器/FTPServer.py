@@ -24,7 +24,7 @@ def doRequest(client):
         if msgList[0] == 'L':
             serverObj.doList()
         elif msgList[0] == 'G':
-            serverObj.doGet()
+            serverObj.doGet(msgList[-1])  # 用-1 是为了避免用户输入了空格之后 再输入文件名
         elif msgList[0] == 'P':
             serverObj.doPut()
         elif msgList[0] == 'Q':
@@ -54,8 +54,25 @@ class FtpServer(object):
                     time.sleep(0.1)  # 防止粘包 内容和##
             self.client.send("##".encode())
 
-    def doGet(self):
-        pass
+    def doGet(self, filename):
+        try:
+            f = open(filDir+filename, 'rb')
+        except:
+            self.client.send('文件不存在'.encode())
+            return
+
+        # 文件夹正常打开
+        self.client.send("OK".encode())
+        time.sleep(0.1)  # 防止粘包
+        while True:
+            data = f.read(1024)
+            if not data:
+                time.sleep(0.1) #15:56
+                self.client.send("##".encode())
+                break
+            else:
+                self.client.send(data)
+        f.close()
 
     def doPut(self):
         pass

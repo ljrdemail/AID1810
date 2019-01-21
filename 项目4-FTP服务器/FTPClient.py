@@ -30,8 +30,24 @@ class Ftpclient(object):
         else:
             print(data)
 
+    # 下载函数(收数据，写文件)
     def doGet(self):
-        pass
+        filename = input("请输入要下载的文件名：")
+        message = "G %s" % filename
+        self.client.send(message.encode())
+        # 接收服务端反馈
+        data = self.client.recv(1024).decode()
+        if data == "OK":
+            f = open("D:\\AID1810\\项目4-FTP服务器\\ftpRecv\\"+filename, 'wb')
+            while True:
+                data = self.client.recv(1024)
+                if data == b"##":
+                    break
+                f.write(data)
+            f.close()
+            print("%s 下载完成" % filename)
+        else:
+            print(data)
 
     def doPut(self):
         pass
