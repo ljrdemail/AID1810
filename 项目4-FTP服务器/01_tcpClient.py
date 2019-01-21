@@ -15,10 +15,11 @@ while True:
     client.send(str.encode())
 
     print("消息已经发送")
-    # data = client.recv(1024).decode()
-    # print(data)
+    data = client.recv(1024).decode()
+    print(data)
     if (str == "exit"):
         break
+
     ##关闭连接
 client.close()
 print("客户端已关闭！")

@@ -6,7 +6,7 @@ from socketserver import *
 # 创建服务器类,TCP+多进程并发
 # Python支持多继承,
 class Server(TCPServer, ForkingMixIn):
-    pass
+    pass #只需要继承不需要写东西
 
 
 # 创建处理请求的类,继承 StreamRequestHandler
@@ -18,6 +18,7 @@ class Handler(StreamRequestHandler):
         while True:
             # 属性:self.request 客户端的套接字
             data = self.request.recv(1024)
+            print("客户端说：%s" %data.decode())
             if not data:
                 break;
             print(data.decode())
@@ -25,7 +26,7 @@ class Handler(StreamRequestHandler):
 
 
 # 创建服务器对象,第二个参数指定由哪个类处理客户端请求
-server = Server(('0.0.0.0', 8888), Handler)
+server = Server(('0.0.0.0',8888),Handler)
 
 # 启动
 server.serve_forever()

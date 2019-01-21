@@ -67,7 +67,7 @@ class FtpServer(object):
         while True:
             data = f.read(1024)
             if not data:
-                time.sleep(0.1)  # 15:56
+                time.sleep(0.1)  # 消息和##之间有可能粘包
                 self.client.send("##".encode())
                 break
             else:
