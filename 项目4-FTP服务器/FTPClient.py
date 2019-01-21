@@ -56,7 +56,7 @@ class Ftpclient(object):
         filename = input("请输入要上传的文件：")
         # 用户输入可能为绝对路径或相对路径，按/进行切割
         # filename=filename.split("/")[-1] Linux
-        filename2 = filename.split("\\")[-1]  # 16:13
+        filename2 = filename.split("\\")[-1]  # 16:13  最后还是文件名
         try:
             f = open(filename, 'rb')
         except:
