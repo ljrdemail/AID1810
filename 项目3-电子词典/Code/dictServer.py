@@ -41,46 +41,95 @@ def doLogin(client, db, username, password):
     if not r:
         client.send("NAMEERROR".encode())
     elif r[0][0] == password:
-        #密码正确 可以登录
+        # 密码正确 可以登录
         client.send("OK".encode())
     else:
-        #密码错误发送密码错误
+        # 密码错误发送密码错误
         client.send("PWDERROR".encode())
 
 
-def doQuery(client, db, usename, word):
-    sel = "select interpret from words where word=%s"
-    sel2 = "insert into history(username,word,time) values(%s,%s,%s)"
+# 把查询记录插入到history表函数
+def doInsHistory(db, usename, word):
     cursor = db.cursor()
-    cursor.execute(sel, [word])
-    r = cursor.fetchall()
-
-    cursor2 = db.cursor()
+    ins = "insert into history(username,word,time) values(%s,%s,%s)"
+    Time = time.ctime()
     try:
-        cursor2.execute(sel2, [usename, word, time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())])
+        cursor.execute(ins, [usename, word, Time])
         db.commit()
     except Exception as e:
+        print(e)
         db.rollback()
-    if r:
-        client.send(r[0][0].encode())
 
 
+def doQuery(client, db, usename, word):
+    # 我的版本
+    # sel = "select interpret from words where word=%s"
+    # sel2 = "insert into history(username,word,time) values(%s,%s,%s)"
+    # cursor = db.cursor()
+    # cursor.execute(sel, [word])
+    # r = cursor.fetchall()
+    #
+    # cursor2 = db.cursor()
+    # try:
+    #     cursor2.execute(sel2, [usename, word, time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())])
+    #     db.commit()
+    # except Exception as e:
+    #     db.rollback()
+    # if r:
+    #     client.send(r[0][0].encode())
+    #
+    #
+    # else:
+    #     client.send("nodata".encode())
+
+    # 老师的版本
+    cursor = db.cursor()
+    sel = "select interpret from words where word=%s"
+    cursor.execute(sel, [word])
+    # 获取查询结果
+    result = cursor.fetchall()
+    if not result:
+        client.send("FAIL".encode())
+        # 老师的版本如果查不到不记录到历史记录表
     else:
-        client.send("nodata".encode())
+        # 单词解释
+        client.send(result[0][0].encode())
+        # 把查询记录插入到history表中
+        doInsHistory(db, usename, word)
 
 
 def doHistory(client, db, username):
-    sel = "select username,word,time from history where username=%s"
+    # 我的版本
+    # sel = "select username,word,time from history where username=%s"
+    # cursor = db.cursor()
+    # cursor.execute(sel, [username])
+    # r = cursor.fetchall()
+    # message = ""
+    # if not r:
+    #     client.send("nodata".encode())
+    # else:
+    #     for m in r:
+    #         message += m[0] + "," + m[1] + "," + m[2] + "$"
+    #     client.send(message.encode())
+
+    # 老师版本
     cursor = db.cursor()
+    sel = "select * from history where username=%s"
     cursor.execute(sel, [username])
-    r = cursor.fetchall()
-    message = ""
-    if not r:
-        client.send("nodata".encode())
+    result = cursor.fetchall()
+    # esult:((1,hello,nihao),(),(),())
+    if not result:
+        client.send("FAIL".encode())
     else:
-        for m in r:
-            message += m[0] + "," + m[1] + "," + m[2] + "$"
-        client.send(message.encode())
+        client.send("OK".encode())
+        time.sleep(0.1)  # 放置占包 避免OK 和后面的数据黏在一起 区分不开
+        # 把result中的记录发给客户端
+        for r in result:
+            message = '%s %s %s' % (r[1], r[2], r[3])
+            client.send(message.encode())
+            time.sleep(0.1)  # 避免记录最后 和##分不开
+            # 你的版本是通过整体发过去 在客户端解析所以不会有占包问题
+        client.send("##".encode())
 
 
 # 处理客户端请求函数

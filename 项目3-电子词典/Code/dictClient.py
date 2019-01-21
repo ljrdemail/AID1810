@@ -22,7 +22,7 @@ def doRegist(client):
             continue;
 
         # 输入密码
-        # getpass.getpass()
+        # getpass.getpass() 让输入的时候不显示明文
         password1 = getpass.getpass("请输入密码!")
         password2 = getpass.getpass("请再次输入密码!")
         # 判断两次密码是否一致
@@ -53,36 +53,68 @@ def doRegist(client):
 
 
 def doQuery(client, username):
+    # 我的版本
+    # while True:
+    #     word = input("请输入你要查询的单词以##号结束：")
+    #     if word == "##":
+    #         break;
+    #         return
+    #     message = "Q %s %s" % (username, word)
+    #
+    #     client.send(message.encode())
+    #     interpret = client.recv(1024).decode()
+    #
+    #     if interpret != "nodata":
+    #         print("这个词的解释是:%s" % interpret)
+    #     else:
+    #         print("查无此单词")
+    #         continue
+
+    # 老师的版本
     while True:
-        word = input("请输入你要查询的单词以##号结束：")
+        word = input("请输入你要查询的单词（##号退出）:")
         if word == "##":
-            break;
-            return
+            break
+        # 包装消息
         message = "Q %s %s" % (username, word)
-
         client.send(message.encode())
-        interpret = client.recv(1024).decode()
-
-        if interpret != "nodata":
-            print("这个词的解释是:%s" % interpret)
+        # 等到服务器返回
+        data = client.recv(1024).decode()
+        if data == "FAIL":
+            print("词库中没有该单词！")
         else:
-            print("查无此单词")
-            continue
+            print("单词解释：", data)  # 否则直接打印单词解释
 
 
 def doHistory(client, username):
+    # 我的版本
+    # message = "H %s" % username
+    # client.send(message.encode())
+    # record = client.recv(1024).decode()
+    #
+    # if (record == "nodata"):
+    #     print("无此人的历史记录数据")
+    #     return
+    # else:
+    #     arr = record.split("$")
+    #
+    #     for i in range(0, len(arr) - 1):
+    #         print("\t".join(arr[i].split(",")))
+    # 老师版本
+    # 包装消息 发送username 因为根据用户名查询记录
     message = "H %s" % username
     client.send(message.encode())
-    record = client.recv(1024).decode()
-
-    if (record == "nodata"):
-        print("无此人的历史记录数据")
-        return
+    # 等服务端反馈
+    data = client.recv(1024).decode()
+    if data == "OK":
+        # 在服务端控制发送数量，此处循环接收
+        while True:
+            data = client.recv(1024).decode()
+            if data == '##':
+                break
+            print(data)
     else:
-        arr = record.split("$")
-
-        for i in range(0, len(arr) - 1):
-            print("\t".join(arr[i].split(",")))
+        print("\033[32m没有历史记录！\033[0m")
 
 
 # 二级子界面函
