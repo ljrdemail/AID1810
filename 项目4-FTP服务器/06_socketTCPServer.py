@@ -13,7 +13,7 @@ class Server(TCPServer, ForkingMixIn):
 class Handler(StreamRequestHandler):
     # 重写handle方法
     def handle(self):
-        # client_address 属性 客户端地址
+        # client_address 属性 客户端地址 导入socketserver之后 这些属性都已经有了 不需要我们 按照之前的步骤自己创建了 什么 bind  listen  accept 都帮你搞好了 你只需要accept 之后处理了
         print(self.client_address, "连接过来")
         while True:
             # 属性:self.request 客户端的套接字
@@ -22,7 +22,7 @@ class Handler(StreamRequestHandler):
             if not data:
                 break;
             print(data.decode())
-            self.request.send("服务器收到".encode())
+            self.request.send("服务器收到".encode())#sself.request 就是套接字
 
 
 # 创建服务器对象,第二个参数指定由哪个类处理客户端请求

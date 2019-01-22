@@ -9,7 +9,7 @@ g = fun()
 
 while True:
     try:
-        print(next(g))
+        print(next(g)) #没调用一次 就拿下一个值
         print('*' * 20)
     except StopIteration:
         break;
