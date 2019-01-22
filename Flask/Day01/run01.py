@@ -24,13 +24,15 @@ def show(name):  # 要和尖括号中的名字一致
 
 
 # 声明带两个参数的路由
-@app.route('/show/<name>/<age>')
+@app.route('/show/<name>/<int:age>')
 def showview(name, age):
     print("name的数据类型为%s" % type(name))
     print("age的数据类型为%s" % type(age))
     # print(int(age))
-    return '姓名:%s,年龄：%s' % (name, age)
+    return '姓名:%s,年龄：%d' % (name, age)
 #传进来都视为str 你需要当成int 自己赚
+
+
 
 
 if __name__ == "__main__":
