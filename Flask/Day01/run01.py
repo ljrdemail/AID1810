@@ -8,13 +8,29 @@ app = Flask(__name__)
 # @app.route("/") FLASK中的路由定义，主要匹配用户的访问路径 ‘/’表示的是整个网站的根路径
 # def index() 表示匹配上访问路径之后路的处理程序 也就是Java中的action 也就是MTV 中的 V MVC的C  视图处理函数必须要有返回值 这个例子中的返回值是字符串 表示要响应给客户端浏览器的内容 也就是spring 里面的mapping
 @app.route('/')  # Flask(__name__)返回值叫啥 @后就叫啥
-def index():#不是强制/的必须叫 index 名字随便 是根据route 决定
+def index():  # 不是强制/的必须叫 index 名字随便 是根据route 决定
     return "This is my First flask demo"
 
 
 @app.route('/abc')  # 必须要有/
 def abc():
     return "This is abc application"
+
+
+# 声明一个带参数的理由
+@app.route("/show/<name>")
+def show(name):  # 要和尖括号中的名字一致
+    return ("<h1>传递过来的名字是:%s</h1>" % name)
+
+
+# 声明带两个参数的路由
+@app.route('/show/<name>/<age>')
+def showview(name, age):
+    print("name的数据类型为%s" % type(name))
+    print("age的数据类型为%s" % type(age))
+    # print(int(age))
+    return '姓名:%s,年龄：%s' % (name, age)
+#传进来都视为str 你需要当成int 自己赚
 
 
 if __name__ == "__main__":
