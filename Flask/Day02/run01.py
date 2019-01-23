@@ -61,6 +61,11 @@ def macro_view():
     return render_template("Day02_06_marco.html", params=locals())
 
 
+# 熟悉静态文件的使用
+@app.route('/06-static')
+def static_view():
+    return render_template("Day02_07_static.html")
+
 
 class Person(object):
     name = None;
