@@ -7,7 +7,7 @@
 <body>
 <h2>姓名：{{name}}</h2>
 <h2>年龄：{{age}}</h2>
-<h2>性别：{{gender}}</h2> <!--如果后台没传过来不会报错 空而已-->
+<h2>性别：{{gender|default('my_variable is not defined')}}</h2> <!--如果后台没传过来不会报错 空而已-->
 
 <h2>歌名：&lt&lt{{songname}}&gt&gt</h2>
 <h2>作词：{{zuoci}}</h2>
