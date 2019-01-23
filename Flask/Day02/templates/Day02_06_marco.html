@@ -15,8 +15,9 @@
 {{showP(name)}}
 {%endfor%}
 
+<h1>以下是调用宏的内容</h1>
+{%import 'Day02_macro.html' as macro%}
 <ul>
-    {%import 'Day02_macro.html' as macro%}
     {{macro.showList(params.list)}}
 </ul>
 
