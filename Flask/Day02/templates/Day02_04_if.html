@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>姓名:{{params.name}}</h2>
+<h2>年龄:{{params.age}}</h2>
+<h2>段位:{% if params.age<=30 %}{{params.name}}是<b>年轻人</b>
+    {% elif 30< params.age <=60 %}{{params.name}}是<b>中年人</b>
+    {% else %}{{params.name}}是<b>老年人</b>
+    {%endif%}
+</h2>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .red {
+            background: red
+
+        }
+
+        .yellow {
+            background: green
+        }
+
+        .first {
+            background: yellow;
+
+        }
+
+        .last {
+            background: blue;
+
+        }
+
+        .middle {
+            background: pink;
+        }
+
+    </style>
+</head>
+<body>
+<ul>家人:{% for family in params.list %}
+    <li {% if loop.index%2==1 %}
+        class="red"
+        {% else%} class="yellow"
+        {%endif%}
+    ><h2>{{family}}</h2></li>
+    {%endfor%}
+</ul>
+
+<ul>KEYS:{% for name in params.dict.keys() %}
+    <li>{{name}}</li>
+    {%endfor%}
+</ul>
+
+<ul>VALUES:{% for value in params.dict.values() %}
+    <li
+            {%if loop.first%}
+            class="first"
+            {%elif loop.last%}
+            class="last"
+            {%else%}
+            class="middle"
+            {%endif%}
+
+    >{{value}}
+    </li>
+    {%endfor%}
+</ul>
+
+<ul>ITEMS:{% for key,value in params.dict.items() %}
+    <li>{{key}}:{{value}}</li>
+    {%endfor%}
+</ul>
+
+</body>
+</html>

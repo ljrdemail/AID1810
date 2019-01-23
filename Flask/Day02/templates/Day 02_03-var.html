@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<h2>姓名:{{params.name}}</h2>
+<h2>姓名首字母大写:{{params.name|capitalize}}</h2>
+<h2>年龄:{{params.age|abs}}</h2>
+<h2>爱好:{{params.tup}}</h2>
+<h2>爱好3:{{params.tup[2]}}</h2>
+<h2>爱好3通过点取值:{{params.tup.2}}</h2>
+<h2>女神:{{params.list}}</h2>
+<h2>女神2:{{params.list[1]}}</h2>
+<h2>女神2通过点取值:{{params.list.1}}</h2>
+<h2>关系:{{params.dict}}</h2>
+<h2>字典中的LEG:{{params.dict["LEG"]}}</h2>
+<h2>字典中的LEG通过点取值:{{params.dict.LEG}}</h2>
+<h2>对象:{{params.person}}</h2>
+<h2>对象:{{params.person.name}}</h2>
+<h2>对象:{{params.person.say()}}</h2>
+
+
+</body>
+</html>
