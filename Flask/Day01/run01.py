@@ -68,7 +68,7 @@ def url():
 @app.route("/temp")
 def temp():
     # 渲染01-template.html模板文件到客户端浏览器
-    html = render_template("01-template.html")  # 会自动在templates目录里面去找 需要放在和代码目录同级
+    html = render_template("Day01-template.html")  # 会自动在templates目录里面去找 需要放在和代码目录同级
     print(html)
     return html  # 返回整个页面 让客户的浏览器自己解析去
 
