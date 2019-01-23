@@ -54,6 +54,14 @@ def for_view():
     return render_template("Day02_05_for.html", params=locals())
 
 
+# 熟悉宏的声明和使用
+@app.route("/05-marco")
+def macro_view():
+    list = ["李昮", "潘华", "李幼兰", "黄翠英", "李嘉睿", "潘仁晓", "潘仁娟"]
+    return render_template("Day02_06_marco.html", params=locals())
+
+
+
 class Person(object):
     name = None;
 

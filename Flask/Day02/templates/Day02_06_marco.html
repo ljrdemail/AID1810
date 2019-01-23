@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{%macro showP(str)%}
+<p style="background-color: orange;">
+    {{str}}
+</p>
+{%endmacro%}
+
+{%for name in params.list%}
+{{showP(name)}}
+{%endfor%}
+
+<ul>
+    {%import 'Day02_macro.html' as macro%}
+    {{macro.showList(params.list)}}
+</ul>
+
+
+</body>
+</html>

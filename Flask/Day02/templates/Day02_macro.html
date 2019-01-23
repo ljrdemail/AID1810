@@ -1,0 +1,12 @@
+{%macro showList(list)%}
+{% for i in list%}
+<li {%if loop.index%2==0 %}
+    style="background-color: greenyellow" ;
+    {%else%}
+    style="background-color: orange" ;
+    {%endif%}
+>{{i}}
+
+</li>
+{%endfor%}
+{%endmacro%}
