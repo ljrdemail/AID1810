@@ -1,6 +1,5 @@
 <!doctype html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <title>首页_个人博客</title>
@@ -12,6 +11,8 @@
     <script src="/static/js/jquery.easyfader.min.js"></script>
     <script src="/static/js/scrollReveal.js"></script>
     <script src="/static/js/common.js"></script>
+    {%block style%}
+    {%endblock%}
 </head>
 
 <body>
@@ -64,10 +65,12 @@
     </div>
     <!--mnav end-->
 
-
 </header>
+{%block pagebg%}
+{%endblock%}
 <article>
     <!--banner begin-->
+    {%block t_nav%}
     <div class="picsbox">
         <div class="banner">
             <div id="banner" class="fader">
@@ -98,7 +101,10 @@
             </a></li>
         </div>
     </div>
+    {% endblock %}
     <div class="blank"></div>
+
+
     <!--blogsbox begin-->
     <div class="blogsbox">
         <div class="blogs" data-scroll-reveal="enter bottom over 1s">
