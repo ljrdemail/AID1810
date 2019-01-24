@@ -8,7 +8,7 @@ def say_hello():
 
 
 v = say_hello()
-print('v=', v) #每返回返回None 类似Java中的void
+print('v=', v)  # 没返回返回None 类似Java中的void
 
 v2 = say_hello()
 print(id(v))
