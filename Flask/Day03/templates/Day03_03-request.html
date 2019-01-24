@@ -24,6 +24,12 @@
 <h2>url:{{params.url}}</h2>
 <h2>refer:{{params.refer}}</h2>
 <h2>headers:{{params.header}}</h2>
+<!--
+        服务器端:referer = request.headers.get('Referer','/')
+        返回:
+          1.从哪个地址来的,则返回到哪个地址取
+          2.手动输入地址进来的,则返回到首页
+       -->
 <h2><a href="{{params.referer}}">返回</a></h2>
 
 
