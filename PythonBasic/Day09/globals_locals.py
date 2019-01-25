@@ -8,7 +8,7 @@ def fn(c, d):
   #  print(locals())
    # print(globals())
     print(a, b, c, d, e)
-    print(c) #优先打局部变量
+    print(c)  # 优先输出局部变量
     print("全局的C",globals()['c'])
 
 
