@@ -43,7 +43,7 @@ def register():
         password2 = generate_password_hash(password)
         print(username, email, url, password, password2)
         # 测试加密字符串和原始字符串是否相同
-        # password2 从注册时候保存在数据库中的拿出来 password 输入的 就可比对
+        # 加密后的字符串从注册时候保存在数据库中拿出来 rawpassword 从界面传入，并比对
         print(check_password_hash(password2, password))
         return "接收数据成功"
 
