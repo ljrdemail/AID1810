@@ -63,14 +63,15 @@ def release_view():
     else:
         blogtitle = request.form.get("blogtitle")
         blogtype = request.form.getlist("blogtype")
-        blogimg = request.files.get("blogimg")
         blogcontent = request.form.get("blogcontent")
         print(blogtitle, blogtype, blogcontent)
+        blogimg = request.files.get("blogimg")
         if blogimg != None:
             basedir = os.path.dirname(__file__)
             ftime = datetime.datetime.now().strftime("%Y%m%d%H%M%S%f")
             houzhui = blogimg.filename.split(".")[-1]
             filename = ftime + "." + houzhui
+            print(filename)
             uploaddir = os.path.join(basedir, "static", "upload", filename)
             blogimg.save(uploaddir)
     return "上传成功！"
