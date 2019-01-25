@@ -68,14 +68,27 @@ def release_view():
         blogimg = request.files.get("blogimg")
         if blogimg != None:
             basedir = os.path.dirname(__file__)
-            ftime = datetime.datetime.now().strftime("%Y%m%d%H%M%S%f")
-            houzhui = blogimg.filename.split(".")[-1]
-            filename = ftime + "." + houzhui
-            print(filename)
-            uploaddir = os.path.join(basedir, "static", "upload", filename)
+            # ftime = datetime.datetime.now().strftime("%Y%m%d%H%M%S%f")
+            # houzhui = blogimg.filename.split(".")[-1]
+            # filename = ftime + "." + houzhui
+            filename = generateFileName(blogimg)
+            print("生成文件名：", filename)
+            # uploaddir = os.path.join(basedir, "static", "upload", filename)
+            uploaddir = os.path.join(basedir, "static/upload", filename)  # 也可以
             blogimg.save(uploaddir)
     return "上传成功！"
 
+
+# 根据时间和原文件的扩展名生成新的文件名称
+# 参数filename 原文件名称
+# 返回值 新生成的文件名
+def generateFileName(picture):
+    # 获取事件字符串
+    ftime = datetime.datetime.now().strftime("%Y%m%d%H%M%S%f")
+    houzhui = picture.filename.split(".")[-1]  # -1 避免如果第一个是空格 所以不用1
+    # 拼成新文件名
+    filename = ftime + "." + houzhui
+    return filename
 
 if __name__ == "__main__":
     app.run(debug=True)
