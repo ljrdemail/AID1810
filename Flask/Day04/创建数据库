@@ -1,0 +1,4 @@
+drop database if EXISTS flask;
+create database flask  default charset utf8 collate utf8_general_ci; -- 表示编码格式，此编码格式对字母大小写不敏感，不严格区分大小写，与这个对应的有个
+-- show databases;
+
