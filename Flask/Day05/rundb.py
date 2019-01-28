@@ -36,7 +36,7 @@ class Student(db.Model):
 
 
 class Teacer(db.Model):
-    __table__name = "teacher"
+    __table__name = "teacher"  # 如果省略按照类名首字母小写创建表名
     id = db.Column(db.Integer, primary_key=True)
     tname = db.Column(db.String(30), nullable=False)
     tage = db.Column(db.Integer, nullable=False)
