@@ -105,7 +105,7 @@ def add_views():
   # 2.将Users的对象通过db.session.add()保存回DB
   db.session.add(user)
   # 3.手动提交操作回数据库
-  # db.session.commit()
+  db.session.commit()
   return "<h1>提交数据成功!</h1>"
 
 
