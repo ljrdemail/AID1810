@@ -31,6 +31,7 @@ class Users(db.Model):
 @app.route("/04-register", methods=["GET", "POST"])
 def register_views():
     method = request.method
+    # 判断是get请求还是post请求
     if method == "GET":
         return render_template("Day05_01-register.html")
     else:
@@ -40,13 +41,14 @@ def register_views():
         username = request.form['username']
         age = request.form['age']
         email = request.form['email']
+        # 2.封装Users的对象
         user = Users()
         user.username = username
         user.age = age
         user.email = email
         try:
             db.session.add(user)
-            db.session.commit()  # 9.55
+            # db.session.commit()  如果没有这一句要到整个函数执行完之后才报错 因为是提交的时候报的错 不会走Exception 但是如果加了这一句 add完之后立刻提交 会报错并被捕捉到
 
         except  Exception as ex:
             print(ex)
@@ -62,6 +64,8 @@ def register_views():
                 return "<h2>您的权限不够，请联系管理员....</h2>"
 
 
+# localhsot:5000/05-queryall
+# 目的:作业,查询,并将结果显示在模板上
 @app.route("/05-queryall")
 def queryall_views():
     users = db.session.query(Users).all()

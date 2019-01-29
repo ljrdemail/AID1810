@@ -47,9 +47,26 @@ def searchUser():
     if method == "GET":
         return render_template("Day05_03-SerchView.html", users=users)
     if method == "POST":
-        tiaojian = request.form.get("tiaojian")
+        # 接收前端传递过来的kw参数,如果没有则为''
+        keywords = request.form.get("keywords")
+        print("keywords is " + keywords)
         users = db.session.query(Users).filter(
-            or_(Users.username.like("%" + tiaojian + "%"), Users.email.like("%" + tiaojian + "%"))).all()
+            or_(Users.username.like("%" + keywords + "%"), Users.email.like("%" + keywords + "%"))).all()
+
+        # 如果kw为空的话,则查询Users中所有数据
+        # 如果kw非空的话,则按照条件筛选(username或email中包含kw的就筛选出来)
+        # if kw:
+        #     # 非空
+        #     users = db.session.query(Users).filter(
+        #         or_(
+        #             Users.username.like("%" + kw + "%"),
+        #             Users.email.like("%" + kw + "%")
+        #         )
+        #     ).all()
+        # else:
+        #     # 为空
+        #     users = db.session.query(Users).all()
+
         return render_template("Day05_03-SerchView.html", users=users)
 
 
