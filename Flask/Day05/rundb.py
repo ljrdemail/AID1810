@@ -19,7 +19,7 @@ db = SQLAlchemy(app)
 manager = Manager(app)
 # 创建Migrate对象,并指定关联的app和db
 migrate = Migrate(app, db)
-# 这句话不是对于 因为  MigrateCommand MigrateCommand要用migrate
+
 # 为manager增加命令,允许做数据库的迁移操作
 # 为manager绑定一个叫 db 的子命令,该子命令执行操作由MigrateCommand来提供
 # migrate = Migrate(app, db) 不能省因为 MigrateCommand 需要用到
