@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
 from flask_sqlalchemy import SQLAlchemy
@@ -55,7 +55,9 @@ def register_views():
             status = 0
         finally:
             if status == 1:
-                return "<a href='#'>查看所有</a>"
+                # return "<a href='#'>查看所有</a>"
+                # 通过重定向的手段跳转的到queryall 的页面
+                return redirect("/05-queryall")
             else:
                 return "<h2>您的权限不够，请联系管理员....</h2>"
 

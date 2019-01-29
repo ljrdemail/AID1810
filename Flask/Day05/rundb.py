@@ -12,14 +12,14 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 # 设置程序的启动模式为调试模式
 app.config['DEBUG'] = True
-# 创建db
+# 创建db对象
 db = SQLAlchemy(app)
 
 # 创建Manager对象并指定要管理哪个应用(app)
 manager = Manager(app)
 # 创建Migrate对象,并指定关联的app和db
 migrate = Migrate(app, db)
-# 这句话不能删除 因为  MigrateCommand MigrateCommand要用
+# 这句话不是对于 因为  MigrateCommand MigrateCommand要用migrate
 # 为manager增加命令,允许做数据库的迁移操作
 # 为manager绑定一个叫 db 的子命令,该子命令执行操作由MigrateCommand来提供
 # migrate = Migrate(app, db) 不能省因为 MigrateCommand 需要用到
