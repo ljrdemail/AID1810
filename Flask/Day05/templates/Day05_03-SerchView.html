@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/07-filter-exer" method="post">
+    <p><input type="text" name="tiaojian" placeholder="请输入查询条件！">&nbsp<input type="submit" value="查询"></p>
+    <table border="1px solid black">
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>邮箱</th>
+        <th>操作</th>
+        {%for user in users %}
+        <tr>
+            <td>{{user.username}}</td>
+            <td>{{user.age}}</td>
+            <td>{{user.email}}</td>
+            <td><a href="#">删除</a>&nbsp<a href="#">修改</a></td>
+
+        </tr>
+        {%endfor%}
+    </table>
+
+</form>
+
+</body>
+</html>
