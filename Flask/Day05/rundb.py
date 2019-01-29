@@ -6,7 +6,7 @@ from flask_migrate import Migrate, MigrateCommand
 app = Flask(__name__)
 # 设置连库字符串
 app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:root@localhost:3306/flask"
-# 设置数据库的信号追踪
+# 设置数据库的信号追踪 会把你所有操作记录（操作日志） 浪费资源内存硬盘 所以关掉
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # 设置执行完视图函数后自动提交操作回数据库
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
@@ -22,6 +22,7 @@ migrate = Migrate(app, db)
 # 这句话不能删除 因为  MigrateCommand MigrateCommand要用
 # 为manager增加命令,允许做数据库的迁移操作
 # 为manager绑定一个叫 db 的子命令,该子命令执行操作由MigrateCommand来提供
+# migrate = Migrate(app, db) 不能省因为 MigrateCommand 需要用到
 manager.add_command('db', MigrateCommand)
 
 
