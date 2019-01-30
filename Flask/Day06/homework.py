@@ -33,7 +33,7 @@ def register_views():
     method = request.method
     # 判断是get请求还是post请求
     if method == "GET":
-        return render_template("Day05_01-register.html")
+        return render_template("Day06_01-register.html")
     else:
         # 声明一个变量 status 用来表示提交数据的状态
         status = 1
@@ -69,7 +69,7 @@ def register_views():
 @app.route("/05-queryall")
 def queryall_views():
     users = db.session.query(Users).all()
-    return render_template("Day05_02-queryall.html", users=users)
+    return render_template("Day06_02-queryall.html", users=users)
 
 
 if __name__ == '__main__':

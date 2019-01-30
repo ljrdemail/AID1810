@@ -45,7 +45,7 @@ def searchUser():
     users = db.session.query(Users).all()
     method = request.method
     if method == "GET":
-        return render_template("Day05_03-SerchView.html", users=users)
+        return render_template("Day06_03-SerchView.html", users=users)
     if method == "POST":
         # 接收前端传递过来的kw参数,如果没有则为''
         keywords = request.form.get("keywords")
@@ -67,7 +67,7 @@ def searchUser():
         #     # 为空
         #     users = db.session.query(Users).all()
 
-        return render_template("Day05_03-SerchView.html", users=users)
+        return render_template("Day06_03-SerchView.html", users=users)
 
 
 if __name__ == '__main__':
