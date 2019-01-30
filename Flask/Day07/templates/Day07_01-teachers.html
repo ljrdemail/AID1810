@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /**
+     * select 下拉选项发生更改时要调用的函数
+     * 参数 cid : 表示要查看的课程的id
+     * */
+    function loadTeacher(cid) {
+        //构建请求地址为 : /03-query-exer
+        var url = "/03-exec"
+        //如果cid的值>0,则向url后拼cid的值
+        if (cid > 0) {
+            url += "?cid=" + cid;
+        }
+        //向 url 发送一个请求
+        location.href = url;
+    }
+</script>
+
+<select id="course" onchange="loadTeacher(this.value)">
+    <option value="0">---所有---</option>
+    <!-- 从数据库中读取course的信息 -->
+    {% for course in courses %}
+    <option value="{{course.id}}"
+            {% if cid== course.id %}
+            selected
+            {% endif %}
+    >
+        {{course.cname}}
+    </option>
+    {% endfor %}
+</select>
+<table width="300" border="1">
+    <tr>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>课程</th>
+    </tr>
+    {% for tea in teachers %}
+    <tr>
+        <td>{{tea.tname}}</td>
+        <td>{{tea.tage}}</td>
+        <td>{{tea.course.cname}}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
