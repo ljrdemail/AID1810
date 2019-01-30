@@ -3,6 +3,7 @@ from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import func
+from flask import redirect
 
 app = Flask(__name__)
 
@@ -51,12 +52,48 @@ def groupby():
     result = db.session.query(func.avg(Users.age)).all()
     # 查询Users实体中所有的平均年龄 总年龄 最大年龄 最小年龄分别是多少
     result2 = db.session.query(func.avg(Users.age), func.sum(Users.age), func.max(Users.age), func.min(Users.age)).all()
-    result3 = db.session.query(func.count(Users.age)).group_by("isActive").all()
-    print(result3)
+
+    # 1 查询总年龄
+    result4 = db.session.query(func.sum(Users.age)).all()
+    # 2 查询总人数
+    result5 = db.session.query(func.count(Users.id)).all()
+    # 3 查询users表中所有人的平均年龄是多少
+    result6 = db.session.query(func.avg(Users.age)).all()
+    # 4 查询users 表中年龄大于18岁的人的平均年龄是多少
+    result7 = db.session.query(func.avg(Users.age)).filter(Users.age > 18).all()
+    # 5 查询users表中按 isactive分组后 每组的人数是多少
+    result8 = db.session.query(Users.isActive, func.count(Users.id)).group_by("isActive").all()
+    # 6 查询users表中按 isactive分组后 组内人数大于2人的组的人数
+    result9 = db.session.query(Users.isActive, func.count(Users.id)).group_by("isActive").having(
+        func.count(Users.id) > 2).all()
+    # 7 查询users表中年龄大于18岁的人按isactive分组后 组内人数大于2人的组的信息
+    result10 = db.session.query(Users.isActive, func.count(Users.id)).filter(Users.age > 18).group_by(
+        "isActive").having(
+        func.count(Users.id) > 2).all()
+
     print("平均年龄为:%.2f" % result[0])
     print("平均年龄为:%.2f,总年龄为：%.2f,最大年龄为：%.2f,最小年龄为:%.2f" % (result2[0][0], result2[0][1], result2[0][2], result2[0][3]))
-    print("记录条数为：%d" % result3[0])
+    print("总年龄为：%d" % result4[0])
+    print(result10)
+
     return "QueryOK"
+
+
+@app.route("/02-update")
+def update():
+    user = db.session.query(Users).filter_by(id=5).first()
+    user.age = 38;
+    db.session.add(user)
+    return "Update OK"
+
+
+@app.route("/03-delete")
+def delete():
+    user = db.session.query(Users).filter_by(id=5).first()
+
+    db.session.delete(user)
+    db.session.commit()
+    return "delete OK"
 
 
 if __name__ == '__main__':

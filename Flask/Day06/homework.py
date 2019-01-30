@@ -68,9 +68,17 @@ def register_views():
 # 目的:作业,查询,并将结果显示在模板上
 @app.route("/05-queryall")
 def queryall_views():
-    users = db.session.query(Users).all()
+    users = db.session.query(Users).filter(Users.isActive == 1).all()
     return render_template("Day06_02-queryall.html", users=users)
 
+
+@app.route("/06-delete")
+def delete():
+    kid = request.args.get("id")
+    deluser = db.session.query(Users).filter_by(id=kid).first()
+    deluser.isActive = 0
+    db.session.add(deluser)
+    return redirect("/05-queryall")
 
 if __name__ == '__main__':
     manager.run()
