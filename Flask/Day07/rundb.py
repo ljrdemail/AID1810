@@ -86,7 +86,7 @@ def groupby():
     result = db.session.query(func.avg(Users.age)).all()
     # 查询Users实体中所有的平均年龄 总年龄 最大年龄 最小年龄分别是多少
     result2 = db.session.query(func.avg(Users.age), func.sum(Users.age), func.max(Users.age), func.min(Users.age)).all()
-    # Users实体中,按isActive分组后每组人数
+    # Users实体中,按isActive分组后每组人数 不能单独用count(*) 前面必须有Users.isActive 否则不知道是哪个对象额
     result3 = db.session.query(Users.isActive, func.count('*')).group_by('isActive').all()
     # 1 查询总年龄
     result4 = db.session.query(func.sum(Users.age)).all()
@@ -115,8 +115,12 @@ def groupby():
 
 @app.route("/02-update")
 def update():
+    # 修改id为5的用户的年龄为100岁
+    # 1查
     user = db.session.query(Users).filter_by(id=5).first()
-    user.age = 38;
+    # 2改
+    user.age = 100;
+    # 3保存
     db.session.add(user)
     return "Update OK"
 
@@ -147,7 +151,7 @@ def deletelist():
     return "deletelist OK"
 
 
-# 目的 关联数据的插入 增加teacher时同时制定对应的 course
+# 目的:关联数据的插入,增加teacher时同时指定对应的course
 @app.route("/01-regtea")
 def regtea_views():
     # 声明一个teacher 的对象 通过course_id属性类关联对应的course
@@ -165,18 +169,18 @@ def regtea_views():
     teacher.tname = "王伟超"
     teacher.tage = 37
     teacher.course = course
-    # teacher.course_id=course.id #因为你告诉了teacher.course_id ref course.id
+    # teacher.course_id=course.id #因为你告诉了teacher.course_id ref course.id 所以可以关联
     # course_id = db.Column(db.Integer, db.ForeignKey("course.id"), nullable=True)  # 是表名不是类名
     db.session.add(teacher)
     return "Teacher注册成功"
 
 
-# 目的 一对多 关联属性 反向引用关系的相关查询
+# 目的:一对多,关联属性,反向引用关系的相关查询
 @app.route("/02-query")
 def query_views():
     # 查询 王伟超老师 的个人信息以及相应的课程信息
     tea = Teacher.query.filter_by(tname="王伟超").first()
-    print("tea.course的类型为:", type(tea.course))  # teacher中有course 是因为在关联属性的时候设定进去的
+    print("tea.course的类型为:", type(tea.course))  # teacher中有course 是因为在反向关联属性的时候设定进去的
     print("姓名 ：%s ,年龄: %s 所教课程:%s" % (tea.tname, tea.tage, tea.course.cname))
 
     # 查询爬虫课程以及对应的授课老师
@@ -184,7 +188,7 @@ def query_views():
     print("课程名称:" + course.cname)
     teas = course.teachers
     print(type(teas))  # AppenderBaseQuery 是一个query 可以进一步查询
-    # course.teachers 是针对course课程的对应的所有授课老师的一个查询对象（并非最终结果）
+    # course.teachers 是针对course课程的对应的所有授课老师的一个查询对象（并非最终结果 需要迭代查询）
     for t in teas.all():
         print("老师名称：", t.tname)
         print("老师年龄：", t.tage)
@@ -210,7 +214,6 @@ def queryexer_views():
         teachers = Teacher.query.all()
 
     return render_template('Day07_01-teachers.html', courses=courses, teachers=teachers, cid=int(cid))
-
 
 
 if __name__ == '__main__':
