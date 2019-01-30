@@ -192,7 +192,7 @@ def query_views():
 
 
 @app.route("/03-exec")
-def getteacher():
+def queryexer_views():
     # 查询Course实体中所有的数据
     courses = Course.query.all()
 
@@ -210,6 +210,7 @@ def getteacher():
         teachers = Teacher.query.all()
 
     return render_template('Day07_01-teachers.html', courses=courses, teachers=teachers, cid=int(cid))
+
 
 
 if __name__ == '__main__':
