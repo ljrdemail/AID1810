@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/02-oto-exer" method="post">
+    <p>
+        Wife姓名: <input type="text" name="wname" value="{{wname}}">
+    </p>
+    <p>
+        Wife年龄: <input type="number" name="wage">
+    </p>
+    <p>
+        Wife丈夫:
+        <select name="user">
+            {% for u in users %}
+            <option value="{{u.id}}">
+                {{u.username}}
+            </option>
+            {% endfor %}
+        </select>
+        <span>{{errMsg}}</span>
+    </p>
+    <p>
+        <button>注册</button>
+    </p>
+</form>
+</body>
+</html>
