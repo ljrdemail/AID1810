@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/07-mtm-exer" method="post">
+
+    <p>学员姓名:<input type="text" name="sname"></p>
+    <p>学员年龄:<input type="text" name="sage"></p>
+    <p>选择老师：
+        <select name="teachers" multiple>
+            {%for tea in teachers%}
+
+            <option value="{{tea.id}}">{{tea.tname}}</option>
+            {%endfor%}
+
+        </select>
+    </p>
+    <p><input type="submit" value="提交"></p>
+
+</form>
+
+</body>
+</html>
