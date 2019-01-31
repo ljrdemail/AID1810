@@ -49,11 +49,9 @@ def homework():
         uname = request.form.get("uname")
         passwd = request.form.get("passwd")
         isselect = request.form.get("isselect")
-
         if isselect == "on":
-            print("......")
             resp.set_cookie('uname', uname, 60 * 60 * 24 * 365)
-
+            return resp
         if uname == "admin" and passwd == "admin":
             return redirect("/index")
         else:
