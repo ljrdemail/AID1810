@@ -25,8 +25,8 @@ class Users(db.Model):
     isActive = db.Column(db.Boolean, default=True)
     # 增加属性:关联属性,针对Wife表的一对一关系的关联属性和反向引用关系属性
     wife = db.relationship(
-        "Wife",
-        backref="user",
+        "Wife",  # 对方是谁 wife都是那种类型
+        backref="user",  # wife 怎么找 user user给wife 添加属性user
         uselist=False  # 告诉系统是对象不是列表 因为一对一
     )
 
@@ -40,8 +40,7 @@ class Student(db.Model):
     sname = db.Column(db.String(30), nullable=False)
     sage = db.Column(db.Integer, nullable=False)
     isActive = db.Column(db.Boolean, nullable=False, default=True)
-    # 实现与Teaqcher 的关联关系(多对多，中间借助
-    # student_teacher关联表进行关联)
+    # 实现与Teaqcher 的关联关系(多对多，中间借助 student_teacher关联表进行关联)
     teachers = db.relationship(
         "Teacher",  # teachers每条记录都是Teacher类
         secondary="student_teacher",  # 经过那张表中转
@@ -188,6 +187,26 @@ def mtm_exer():
         for tea in list:
             stu.teachers.append(tea)
         return "注册成功"
+
+
+# /08-mtm-query
+# 目的 多对多的数据查询
+@app.route("/08-mtm-query")
+def mtm_query():
+    # 查询2号学院所选择的老师
+    stu = Student.query.filter_by(id=3).first()
+    print("学员姓名:%s" % stu.sname)
+    teachers = stu.teachers.all()
+    for tea in teachers:
+        print("老师姓名:%s" % tea.tname)
+    print("=========================")
+    # 查询1 号老师所教授的学员
+    teacher = Teacher.query.filter_by(id=4).first()
+    print("老师姓名：%s" % teacher.tname)
+    students = teacher.students.all()
+    for stu in students:
+        print("学员姓名:%s" % stu.sname)
+    return "查询成功"
 
 
 if __name__ == '__main__':
