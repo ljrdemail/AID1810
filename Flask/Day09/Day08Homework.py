@@ -32,7 +32,7 @@ def login_views():
 
         else:
             # 如果不正确则再回到login.html中
-            return render_template("/login.html", params=locals())
+            return render_template("/login.html", uname=uname, upwd=upwd, errMsg=errMsg)
 
 
 @app.route("/logout")
