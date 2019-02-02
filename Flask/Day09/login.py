@@ -8,14 +8,15 @@ app.config["SECRET_KEY"] = "aixieshaxiesha"
 def login():
     method = request.method
     if method == "GET":
-        # 先接收请求原始值，并保存在session中
-        # 去往login
+        # 获取请求原地址,并保存在session中
+
         url = request.headers.get("Referer", "/")
         session["url"] = url
         loginstatus = session.get("uname")
         if loginstatus:
             return redirect(url)
         else:
+            # cookies中有uname,从cookie中获取uname的值
             uname = request.cookies.get("uname")
             upwd = request.cookies.get("upwd")
             if uname:
@@ -33,6 +34,7 @@ def login():
 
 
     else:
+        # 接收登录信息
         uname = request.form.get("uname")
         upwd = request.form.get("upwd")
         isSaved = request.form.get("isSaved")
