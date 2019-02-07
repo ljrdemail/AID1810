@@ -9,7 +9,7 @@ print(x,"+",y,"=",z)
 global_dict={}
 exec(s,global_dict)
 print("global_dict=",global_dict)
-#把结果存入到global_dict 里面 x y z 不自在默认的外部环境
+#把结果存入到global_dict 里面 x y z 不存在默认的外部环境
 #print(global_dict['x'])
 for key in global_dict:
     print(key)
