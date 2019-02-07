@@ -39,7 +39,6 @@ def file_view():
             # 以上传的时间来作为上传的文件名-避免上传的资源重复
             # 格式:YYYYMMDDHHMMSSFFFFFF.扩展名
             # 1.根据时间拼成名称字符串
-            #
             ftime = datetime.datetime.now().strftime("%Y%m%d%H%M%S%f")
             # print('时间字符串:%s'%ftime)
             # 2.根据原有的文件名(uimg.filename)获取扩展名
