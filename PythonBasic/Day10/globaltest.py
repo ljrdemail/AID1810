@@ -9,7 +9,7 @@ def f1(lst):
 
 def f3(lst):
     print(id(L))
-    L.extend(lst) #可以 因为把列表拿来扩展 指向的地址不变 扩展的是列表
+    L.extend(lst) #可以 因为把列表拿来扩展 指向的地址不变 扩展的是列表 不算修改所以可以操作
     print(id(L))
 
 f1([4,5,6])

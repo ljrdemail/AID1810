@@ -8,7 +8,7 @@ def f1():
         v = 300
 
         def f3(v):
-            nonlocal v
+            nonlocal v# nonlocal不能修饰形参
             v = 400 #只修改了300 位400 只网上修改一层
 
 
