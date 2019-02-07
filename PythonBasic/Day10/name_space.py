@@ -1,12 +1,12 @@
-v = 100
+v = 100 #global
 
 
 def f1():
-    v = 200
+    v = 200#enclosure ±‰¡ø
     print("f1.v=", v)
 
     def f2():
-        v = 300
+        v = 300 #local
         print("f2.v=", v)
     f2()
 
