@@ -1,13 +1,13 @@
 def make_exception():
     print("开始.....")
     # 触发ValueError异常 给调用者
-    # raise ValueError  # ValueError 是错误类型
-    #raise ZeroDivisionError
+    raise ValueError  # ValueError 是错误类型
+    # raise ZeroDivisionError
     # raise ImportError
     #  def int(s):
-    # if not s.isdigit():
-    # raise ValueError #导入错误
-    print("结束......")
+    #   if not s.isdigit():
+    #   raise ValueError #导入错误
+    print("结束......")#raise后面的不会执行
 
 
 try:

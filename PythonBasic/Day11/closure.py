@@ -1,4 +1,4 @@
-# # 定义一些函数能实现求x的ncifang
+# # 定义一些函数能实现求x的n次方
 #
 # def pow2(x):
 #     return x ** 2
