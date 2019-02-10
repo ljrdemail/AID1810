@@ -1,5 +1,6 @@
+# -*- coding:utf-8 -*-
 import sys
 #print("ABCD",end='',flush=True)#sys.stdout.write("ABCD")
 print("ABCD",end='')#sys.stdout.write("ABCD")
-# 如果没有True 只有你输入东西之后才打印除ABCD  除非你ABCD\n 或end="\n"
+# 濡傛灉娌℃湁True 鍙湁浣犺緭鍏ヤ笢瑗夸箣鍚庢墠鎵撳嵃闄BCD  闄ら潪浣燗BCD\n 鎴杄nd="\n"
 s=sys.stdin.readline()

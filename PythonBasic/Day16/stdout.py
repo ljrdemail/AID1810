@@ -3,7 +3,7 @@ import sys
 
 # sys.stdout.write("你好")
 # sys.stdout.write("ABC")
-# sys.stdout.writelines(["abc","123"])
+#sys.stdout.writelines(["abc","123"]) #不会自动换行
 sys.stdout.close()  # 关闭之后就无法再往屏幕写了
 # sys.stdout.write("关闭个屁")
 # print("hello world") #关闭之后 print也个屁了 因为print 基于sts.stdout 因为默认打印到屏幕 file=sys.stdout
