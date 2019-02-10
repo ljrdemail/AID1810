@@ -1,4 +1,4 @@
-
+#º»∂¡”÷–¥∑Ω Ω
 f=open("filetest.txt",mode="r+")
 line=f.readline()
 print(line)
