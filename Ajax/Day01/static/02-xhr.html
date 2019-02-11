@@ -15,13 +15,13 @@
     }
 
     function ajaxFunction() {
-        1 //创建xhr对象
+        //1 创建xhr对象
         var xmlHttp = createXhr()
-        2 //创建请求
+        //2 创建请求
         var uname = document.getElementById("uname").value
         xmlHttp.open('get', "/02-server?uname=" + uname, true);
         // xmlHttp.open('get', "/01-server1", true);
-        3//设置回调函数
+        //3 设置回调函数
         xmlHttp.onreadystatechange = function () {
             // xmlHttp.onreadyStatechange = function () { 不会报错但是就是没结果 因为拼写错误
             //判断readystate为4 且status=200的时候再接收响应数据
@@ -33,7 +33,7 @@
                 }
             }
         }
-        4//发送请求
+        //4 发送请求
         xmlHttp.send()
     }
 
