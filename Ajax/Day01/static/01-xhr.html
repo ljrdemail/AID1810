@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h2>这是静态文件01-xhg.html</h2>
+<h2>该文件中不支持服务器端的内容</h2>
+{{unname}}
+<script>
+    // if (window.XMLHttpRequest) {
+    //     // alert("支持XMLHttpRequest")
+    //     var xhr=new XMLHttpRequest();
+    // } else {
+    //     // alert("不支持XMLHttpRequest")
+    //     var xhr=new ActiveXObject("Microsoft.XMLHTTP");
+    // }
+
+    function createXhr() {
+        if (window.XMLHttpRequest) {
+            var xhr = new XMLHttpRequest();
+            return xhr
+        } else {
+            var xhr = new ActiveXObject("Microsoft.XMLHTTP");
+            return xhr
+        }
+    }
+
+    // var res=createXhr()
+    // console.log(res)
+</script>
+</body>
+</html>
