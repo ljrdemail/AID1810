@@ -9,6 +9,7 @@
 <h2>这是静态文件01-xhg.html</h2>
 <h2>该文件中不支持服务器端的内容</h2>
 {{unname}}
+<script src="./js/common.js" type="text/javascript"></script>
 <script>
     // if (window.XMLHttpRequest) {
     //     // alert("支持XMLHttpRequest")
@@ -18,18 +19,19 @@
     //     var xhr=new ActiveXObject("Microsoft.XMLHTTP");
     // }
 
-    function createXhr() {
-        if (window.XMLHttpRequest) {
-            var xhr = new XMLHttpRequest();
-            return xhr
-        } else {
-            var xhr = new ActiveXObject("Microsoft.XMLHTTP");
-            return xhr
-        }
+    // function createXhr() {
+    //     if (window.XMLHttpRequest) {
+    //         var xhr = new XMLHttpRequest();
+    //         return xhr
+    //     } else {
+    //         var xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    //         return xhr
+    //     }
+    // }
+    window.onload = function () {
+        var res = createXhr()
+        console.log(res)
     }
-
-    // var res=createXhr()
-    // console.log(res)
 </script>
 </body>
 </html>
