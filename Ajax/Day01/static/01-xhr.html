@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
+<>
 
 <h2>这是静态文件01-xhg.html</h2>
 <h2>该文件中不支持服务器端的内容</h2>
@@ -28,10 +28,39 @@
     //         return xhr
     //     }
     // }
-    window.onload = function () {
-        var res = createXhr()
-        console.log(res)
+    // window.onload = function () {
+    //     var res = createXhr()
+    //     console.log(res)
+    // }
+
+    function ajaxFunction() {
+
+        //创建xhr对象
+        var xmlHttp = createXhr()
+        //创建请求
+        xmlHttp.open('get', "/01-server", true);
+        //设置回调函数
+        xmlHttp.onreadystatechange = function () {
+            //判断readystate为4 且status=200的时候再接收响应数据
+            if (xmlHttp.readyState == 4) {
+                if (xmlHttp.status == 200) {
+                    //将响应数据显示在#show元素中
+                    var result = xmlHttp.responseText;
+                    document.getElementById("show").innerText = result
+                }
+            }
+        }
+        xmlHttp.send()
     }
+
+
 </script>
+
+<br>
+<a href="/01-server">同步请求</a><br> <!-- 同步请求就是整个页面刷新-->
+<button onclick="ajaxFunction()">异步请求</button><!-- 异步请求就是整个页面刷新-->
+<div id="show"></div>
+
+
 </body>
 </html>
