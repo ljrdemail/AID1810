@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./js/jquery-3.3.1.js"></script>
+    <script src="./js/common.js" type="text/javascript"></script>
+    <script>
+        function btnClick() {
+            //创建xhr
+            var xhr = createXhr();
+            //创建请求 -open,post请求方式
+            xhr.open("post", "/03-server", true);
+            //设置标题头 post 专属
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            //设置回调函数
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200) {
+                        $("#show").html(xhr.responseText);
+                    }
+                }
+            }
+            //发送请求 send 有请求体
+            var uname = $("#uname").val()
+            var upwd = $("#upwd").val()
+            var data = "uname=" + uname + "&upwd=" + upwd
+            xhr.send(data)
+
+        }
+
+    </script>
+</head>
+<body>
+<p>用户名:<input type="text" id="uname"></p>
+<p>密码:<input type="password" id="upwd"></p>
+<p>
+    <button onclick="btnClick()">异步请求</button>
+</p>
+<div id="show"></div>
+
+</body>
+</html>

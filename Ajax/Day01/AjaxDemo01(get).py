@@ -16,7 +16,9 @@ def server01():
 
 @app.route("/02-server")
 def server02():
+    # 接收uname请求参数的值
     uname = request.args.get("uname")
+    #拼接响应字符串并响应
     return "欢迎：" + uname
 
 
