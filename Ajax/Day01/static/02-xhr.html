@@ -4,30 +4,11 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<>
 
-<h2>这是静态文件01-xhg.html</h2>
-<h2>该文件中不支持服务器端的内容</h2>
-{{unname}}
+
 <script src="./js/common.js" type="text/javascript"></script>
 <script>
-    // if (window.XMLHttpRequest) {
-    //     // alert("支持XMLHttpRequest")
-    //     var xhr=new XMLHttpRequest();
-    // } else {
-    //     // alert("不支持XMLHttpRequest")
-    //     var xhr=new ActiveXObject("Microsoft.XMLHTTP");
-    // }
 
-    // function createXhr() {
-    //     if (window.XMLHttpRequest) {
-    //         var xhr = new XMLHttpRequest();
-    //         return xhr
-    //     } else {
-    //         var xhr = new ActiveXObject("Microsoft.XMLHTTP");
-    //         return xhr
-    //     }
-    // }
     window.onload = function () {
         var res = createXhr()
         console.log(res)
@@ -37,8 +18,10 @@
 
         //创建xhr对象
         var xmlHttp = createXhr()
+
         //创建请求
-        xmlHttp.open('get', "/01-server", true);
+        var uname = document.getElementById("uname").value
+        xmlHttp.open('get', "/02-server?uname=" + uname, true);
         // xmlHttp.open('get', "/01-server1", true);
         //设置回调函数
         xmlHttp.onreadystatechange = function () {
@@ -60,8 +43,8 @@
 </script>
 
 <br>
-<a href="/01-server">同步请求</a><br> <!-- 同步请求就是整个页面刷新-->
-<button onclick="ajaxFunction()">异步请求</button><!-- 异步请求就是整个页面刷新-->
+<input type="text" name="uname" id="uname">
+<button onclick="ajaxFunction()">提交</button>
 <div id="show"></div>
 
 
