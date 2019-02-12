@@ -35,16 +35,25 @@
                         "gender": "男"
                     }
                 ];
+                //用for循环迭代
                 // for (var i = 0; i < arr.length; i++) {
                 //     console.log("姓名:" + arr[i].name)
                 //     console.log("年龄:" + arr[i].age)
                 //     console.log("性别:" + arr[i].gender)
                 // }
                 //换成$arr.each()来迭代数组
-                $(arr).each(function (i, obj) {
-                    console.log("下标：" + i + "姓名:" + obj.name)
-                    console.log("下标：" + i + "年龄:" + obj.age)
-                    console.log("下标：" + i + "性别:" + obj.gender)
+                // $(arr).each(function (i, obj) {
+                //     console.log("下标：" + i)
+                //     console.log("姓名:" + obj.name)
+                //     console.log("年龄:" + obj.age)
+                //     console.log("性别:" + obj.gender)
+                // })
+                //换成$.each()来迭代数组
+                $.each(arr, function (i, obj) {
+                    console.log("下标：" + i)
+                    console.log("姓名:" + obj.name)
+                    console.log("年龄:" + obj.age)
+                    console.log("性别:" + obj.gender)
                 })
             });
         });
