@@ -25,7 +25,7 @@ function checkUname() {
                 $("#uname-show").html("用户名称已存在");
                 ret = false;
             } else {
-                $("#uname-show").html("通过");
+                $("#uname-show").html("用户名称不存在，可以注册！");
             }
         }
     }
