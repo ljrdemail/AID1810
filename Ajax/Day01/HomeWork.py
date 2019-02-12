@@ -40,7 +40,8 @@ def index():
 @app.route("/user-query", methods=["GET", "POST"])
 def user_query():
     uname = request.args.get("uname")
-    res = db.session.query(Users.id, func.count('*')).filter(Users.username == uname)
+    res = db.session.query(Users.id, func.count('*')).filter(Users.username == uname).all()
+
     if res[0][1] == 1:
         return "用户已经存在，请重新输入用户名！"
     else:
@@ -56,8 +57,25 @@ def save_user():
     user.username = uname
     user.password = upwd
     user.email = uemail
-    db.session.add(user)
-    return "注册成功"
+    try:
+        db.session.add(user)
+        db.session.commit()
+        return "注册成功"
+    except Exception as ex:
+        print(ex)
+        return "注册失败,请联系管理员"
+
+
+@app.route("/listall", methods=["GET", "POST"])
+def listAll():
+    res = db.session.query(Users).all()
+    ret = ""
+    for r in res:
+        ret += (str(r.id) + "," + r.username + "," + r.password + "," + r.email + ";")
+
+        ret2 = ret[0:len(ret) - 1:1]
+
+    return ret2
 
 
 if __name__ == "__main__":

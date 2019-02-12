@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./js/jquery-3.3.1.js"></script>
+    <script src="./js/common.js" type="text/javascript"></script>
+    <script>
+        function showAll() {
+
+
+            //1 创建xhr对象
+            var xmlHttp = createXhr()
+            //2 创建请求
+
+            xmlHttp.open('get', "/listall", true);
+            // xmlHttp.open('get', "/01-server1", true);
+            //3 设置回调函数
+
+            xmlHttp.onreadystatechange = function () {
+                // xmlHttp.onreadyStatechange = function () { 不会报错但是就是没结果 因为拼写错误
+                //判断readystate为4 且status=200的时候再接收响应数据
+                if (xmlHttp.readyState == 4) {
+                    if (xmlHttp.status == 200) {
+                        //将响应数据显示在#show元素中
+                        var result = xmlHttp.responseText;
+                        console.log(result)
+                        document.getElementById("tb1").append("tr")
+
+                    }
+                }
+            }
+            //4 发送请求
+            xmlHttp.send()
+
+
+        }
+
+
+    </script>
+</head>
+<body>
+<button onclick="showAll()">显示全部</button>
+<table border="1px solid black" id="tb1">
+    <th>
+    <td>id</td>
+    <td>姓名</td>
+    <td>密码</td>
+    <td>邮箱</td>
+    </th>
+
+
+</table>
+
+</body>
+</html>
