@@ -88,7 +88,7 @@ def query_views():
 
 @app.route("/03-json")
 def json_views():
-    # 创建字典并转换成JSON字符串
+    # 创建字典并转换成JSON字符串 list tuple dict str 都可以序列化字节通过dumps 转换为json字符串
     # dic = {"name": "Uzumaki Naruto", "age": 16, "gender": "Male"}
     # list = [1, 2, 3, 4, 5]
     # tuple = (4, 5, 6, 7, 8)
@@ -98,6 +98,7 @@ def json_views():
     # # jsonStr = json.dumps(tuple)
     # # jsonStr = json.dumps(str2)
     # return jsonStr
+
     # 查询User表中所有的数据
     users = User.query.all()
     # jsonStr=json.dumps(users) #不能直接把对象放进去 因为user 不能serializable
