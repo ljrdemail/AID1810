@@ -72,9 +72,7 @@ def listAll():
     ret = ""
     for r in res:
         ret += (str(r.id) + "," + r.username + "," + r.password + "," + r.email + ";")
-
         ret2 = ret[0:len(ret) - 1:1]
-
     return ret2
 
 
