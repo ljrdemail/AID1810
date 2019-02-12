@@ -32,9 +32,16 @@
                         //将响应数据显示在#show元素中
                         var result = xmlHttp.responseText;
                         var line = result.split(";")
-                        var trs = document.getElementById("tb1").getElementsByTagName("tr");
-                        for (var r = 0; r < trs.length; r++) {
-                            document.getElementById("tb1").removeChild(opts[1]);
+
+                        var tbody1 = document.getElementById("tb1");
+                        //清空之前的数据
+                        var trs = tbody1.getElementsByTagName("tr");
+                        var len = trs.length;
+
+
+                        for (var r = 0; r < len; r++) {
+                            tbody1.removeChild(trs[0]);
+
                             //删除tr时，由于删除后，tr长度发生了变化，所以直接用for循环会有漏删的情况，可以由后向前删除                             ，可以避免这样的问题
                         }
                         for (var r = 0; r < line.length; r++) { //外层循环控制行数
@@ -56,7 +63,7 @@
                             //将tr挂载到table上
                             document.getElementById("tb1").appendChild(tr);
                         }
-                        //将创建好的整个table挂载到div上
+
                     }
                 }
             }
@@ -69,7 +76,6 @@
 </head>
 <body>
 <button onclick="showAll()">显示全部</button>
-
 <table id="tab1">
     <thead>
     <td>ID</td>

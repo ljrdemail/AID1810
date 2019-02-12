@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 # 指定数据库的连接配置
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:123456@localhost:3306/ajax"
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:root@localhost:3306/ajax"
 # 创建数据库实例
 db = SQLAlchemy(app)
 
@@ -65,6 +65,18 @@ def register_views():
         print(ex)
         return "注册失败,请联系管理员"
 
+
+@app.route('/02-query')
+def query_views():
+    users = User.query.all()
+    # 循环遍历users列表,取出每一块内容再拼成字符串进行响应
+    s = ""
+    for u in users:
+        s += str(u.id) + "-" + u.uname + "-" + u.upwd + "-" + u.uemail
+        s += "|"
+    # 去掉最后一个 |
+    s = s[:-1]
+    return s
 
 if __name__ == '__main__':
     app.run(debug=True)

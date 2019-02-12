@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/static/js/jquery-1.11.3.js"></script>
+    <script src="/static/js/02-query.js"></script>
+    <script>
+        $(function () {
+            $("#btnJSON").click(function () {
+                var obj = {
+                    "name": "wangwc",
+                    "age": 37,
+                    "gender": "男"
+                }
+                console.log(obj.name)
+            });
+        });
+
+
+    </script>
+</head>
+<body>
+<button id="btnJSON">测试JSON</button>
+</body>
+</html>
