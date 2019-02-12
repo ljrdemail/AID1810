@@ -32,7 +32,7 @@ class User(db.Model):
         return dic
 
 
-db.create_all()
+db.create_all()  # 没用migrate 所以用create_all
 
 
 @app.route('/')

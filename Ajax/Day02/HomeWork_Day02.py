@@ -46,11 +46,15 @@ def index():
 @app.route("/listuser")
 def list_user():
     uname = request.args.get("uname")
+    print("uname:" + uname)
     users = db.session.query(Users).filter(Users.username.like("%" + uname + "%")).all()
     l = []
     for u in users:
         l.append(u.to_dict())
-    return json.dumps(l)
+    if uname == "":
+        return json.dumps("")
+    else:
+        return json.dumps(l)
 
 
 if __name__ == "__main__":

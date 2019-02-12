@@ -6,7 +6,15 @@
     <script src="/static/js/common.js"></script>
     <script src="/static/js/jquery-1.11.3.js"></script>
     <style>
-     
+        #suggest {
+            width: 100px;
+            border: 1px solid black;
+            font-size: 14px;
+        }
+
+        p {
+            margin-bottom: 0px
+        }
 
     </style>
     <script>
@@ -19,12 +27,19 @@
                     var resptext = xhr.responseText
 
                     arr = JSON.parse(resptext)
-                    opstr = ""
-                    $.each(arr, function (i, obj) {
-                        opstr += "<option value='i'>" + obj.uname + "</option>"
+                    console.log(arr.length)
+                    divstr = ""
+                    if (arr.length != 0) {
 
-                    })
-                    document.getElementById("se1").innerHTML = opstr
+                        $.each(arr, function (i, obj) {
+
+                            divstr += "<div>" + obj.uname + "</div>"
+
+                        })
+
+                    }
+
+                    document.getElementById("suggest").innerHTML = divstr
 
 
                 }
@@ -37,7 +52,8 @@
 </head>
 <body>
 <p>输入用户名：<input type="text" name="uname" placeholder="请输入用户名！" onblur="listuser()" id="inp1"></p>
-<select id="se1"></select>
 
+<div id="suggest" style="display:block;position:relative;left:96px;width:171px"></div>
+<!--<select id="se1"></select>-->
 </body>
 </html>
