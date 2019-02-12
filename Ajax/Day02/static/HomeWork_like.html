@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/static/js/common.js"></script>
+    <script src="/static/js/jquery-1.11.3.js"></script>
+    <style>
+     
+
+    </style>
+    <script>
+        function listuser() {
+            var xhr = createXhr()
+            url = "/listuser?uname=" + document.getElementById("inp1").value
+            xhr.open("get", url, true)
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var resptext = xhr.responseText
+
+                    arr = JSON.parse(resptext)
+                    opstr = ""
+                    $.each(arr, function (i, obj) {
+                        opstr += "<option value='i'>" + obj.uname + "</option>"
+
+                    })
+                    document.getElementById("se1").innerHTML = opstr
+
+
+                }
+
+            }
+            xhr.send()
+        }
+
+    </script>
+</head>
+<body>
+<p>输入用户名：<input type="text" name="uname" placeholder="请输入用户名！" onblur="listuser()" id="inp1"></p>
+<select id="se1"></select>
+
+</body>
+</html>
