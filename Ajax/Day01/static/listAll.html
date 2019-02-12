@@ -19,16 +19,11 @@
     </style>
     <script>
         function showAll() {
-
-
             //1 创建xhr对象
             var xmlHttp = createXhr()
             //2 创建请求
-
             xmlHttp.open('get', "/listall", true);
-            // xmlHttp.open('get', "/01-server1", true);
             //3 设置回调函数
-
             xmlHttp.onreadystatechange = function () {
                 // xmlHttp.onreadyStatechange = function () { 不会报错但是就是没结果 因为拼写错误
                 //判断readystate为4 且status=200的时候再接收响应数据
@@ -36,19 +31,14 @@
                     if (xmlHttp.status == 200) {
                         //将响应数据显示在#show元素中
                         var result = xmlHttp.responseText;
-
                         var line = result.split(";")
                         var trs = document.getElementById("tb1").getElementsByTagName("tr");
                         for (var r = 0; r < trs.length; r++) {
                             document.getElementById("tb1").removeChild(opts[1]);
-
                         }
-
                         for (var r = 0; r < line.length; r++) { //外层循环控制行数
-
                             var tr = document.createElement("tr");
                             //创建table标签
-
                             var td_id = document.createElement("td");
                             td_id.innerHTML = line[r].split(",")[0];
                             var td_uname = document.createElement("td");
@@ -62,21 +52,15 @@
                             tr.appendChild(td_uname)
                             tr.appendChild(td_password)
                             tr.appendChild(td_email)
-
                             //将tr挂载到table上
                             document.getElementById("tb1").appendChild(tr);
-
                         }
                         //将创建好的整个table挂载到div上
-
-
                     }
                 }
             }
             //4 发送请求
             xmlHttp.send()
-
-
         }
 
 
