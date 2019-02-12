@@ -35,6 +35,7 @@
                         var trs = document.getElementById("tb1").getElementsByTagName("tr");
                         for (var r = 0; r < trs.length; r++) {
                             document.getElementById("tb1").removeChild(opts[1]);
+                            //删除tr时，由于删除后，tr长度发生了变化，所以直接用for循环会有漏删的情况，可以由后向前删除                             ，可以避免这样的问题
                         }
                         for (var r = 0; r < line.length; r++) { //外层循环控制行数
                             var tr = document.createElement("tr");
