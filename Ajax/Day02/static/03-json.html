@@ -8,12 +8,44 @@
     <script>
         $(function () {
             $("#btnJSON").click(function () {
-                var obj = {
-                    "name": "wangwc",
-                    "age": 37,
-                    "gender": "男"
-                }
-                console.log(obj.name)
+                // var obj = {
+                //     "name": "wangwc",
+                //     "age": 37,
+                //     "gender": "男"
+                // }
+                // console.log("姓名:" + obj.name)
+                // console.log("年龄:" + obj.age)
+                // console.log("性别:" + obj.gender)
+
+                var arr = [
+                    {
+                        "name": "王老师",
+                        "age": 37,
+                        "gender": "男"
+                    },
+                    {
+                        "name": "王夫人",
+                        "age": 48,
+                        "gender": "Unknown"
+                    }
+                    ,
+                    {
+                        "name": "李小超",
+                        "age": 28,
+                        "gender": "男"
+                    }
+                ];
+                // for (var i = 0; i < arr.length; i++) {
+                //     console.log("姓名:" + arr[i].name)
+                //     console.log("年龄:" + arr[i].age)
+                //     console.log("性别:" + arr[i].gender)
+                // }
+                //换成$arr.each()来迭代数组
+                $(arr).each(function (i, obj) {
+                    console.log("下标：" + i + "姓名:" + obj.name)
+                    console.log("下标：" + i + "年龄:" + obj.age)
+                    console.log("下标：" + i + "性别:" + obj.gender)
+                })
             });
         });
 
