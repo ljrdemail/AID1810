@@ -38,11 +38,14 @@ function registerUser() {
 
 
 
-        var uname = $("#uname").val();
-        var upwd = $("#upwd").val();
-        var uemail = $("#uemail").val();
-        console.log(upwd)
-        var params = "uname=" + uname + "&upwd=" + upwd + "&uemail=" + uemail;
+
+        var params =
+
+            {
+                "uname": $("#uname").val(),
+                "upwd": $("#upwd").val(),
+                "uemail": $("#uemail").val()
+            }
 
         $.post('/01-register', params, function (data) {
             alert(data);
