@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/static/js/common.js"></script>
+    <script src="/static/js/jquery-3.3.1.js"></script>
+
+    <script>
+        $(function () {
+            $("#btnClick").click(function () {
+                //$.get(url,data,callback,type)
+                $.get("/02-get", function (resText) {
+
+                    $.each(resText, function (i, obj) {
+                        console.log("用户名称:" + obj.uname)
+                        console.log("电子邮件:" + obj.uemail)
+                        console.log("密码:" + obj.upwd)
+                    })
+                }, "json") //如果没有 json 返回字符串 需要自己 parse
+            });
+
+        });
+
+    </script>
+</head>
+<body>
+<button id="btnClick">Ajax GET 请求</button>
+</body>
+</html>
