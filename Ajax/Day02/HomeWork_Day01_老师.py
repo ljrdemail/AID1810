@@ -58,7 +58,6 @@ def register_views():
     uname = request.form['uname']
     upwd = request.form['upwd']
     uemail = request.form['uemail']
-
     user = User()
     user.uname = uname
     user.upwd = upwd
