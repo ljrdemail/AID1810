@@ -66,10 +66,10 @@ def register_views():
     try:
         db.session.add(user)
         db.session.commit()
-        return "注册成功"
+        return "注册成功!"
     except Exception as ex:
         print(ex)
-        return "注册失败,请联系管理员"
+        return "注册失败,请联系管理员!"
 
 
 @app.route('/02-query')

@@ -35,18 +35,12 @@ function registerUser() {
          * 请求参数3: uemail
          * 返回值:插入成功或失败的结果
          * */
-
-
-
-
         var params =
-
             {
                 "uname": $("#uname").val(),
                 "upwd": $("#upwd").val(),
                 "uemail": $("#uemail").val()
             }
-
         $.post('/01-register', params, function (data) {
             alert(data);
         })
