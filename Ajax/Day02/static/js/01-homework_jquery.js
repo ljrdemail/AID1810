@@ -12,25 +12,15 @@ function checkUname() {
 
         //声明返回值,来表示验证结果,提供给调用者使用
     var ret = true;//表示用户名称不存在
-    //1.创建xhr对象
-    var xhr = createXhr();
-    //2.创建请求
     var uname = $("#uname").val();
-    var url = "/01-checkuname?uname=" + uname;
-    xhr.open('get', url, false); //这里设定false 因为register需要调用 要验证完之后才给register结果避免register中存在还能注册
-    //3.设置回调函数
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            if (xhr.responseText == "1") {
-                $("#uname-show").html("用户名称已存在");
-                ret = false;
-            } else {
-                $("#uname-show").html("用户名称不存在，可以注册！");
-            }
+    $.get("/01-checkuname", "uname=" + uname, function (data) {
+        if (data == 1) {
+            $("#uname-show").html("用户名称已存在");
+            ret = false;
+        } else {
+            $("#uname-show").html("用户名称不存在，可以注册！");
         }
-    }
-    //4.发送请求
-    xhr.send(null);
+    })
     return ret;
 }
 
