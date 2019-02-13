@@ -40,7 +40,7 @@ def hello_world():
     return 'Hello World!'
 
 
-@app.route('/01-checkuname')
+@app.route('/01-checkuname', methods=['POST', "GET"])
 def checkuname():
     # 接收前端传递过来的uname
     uname = request.args['uname']
@@ -53,7 +53,7 @@ def checkuname():
         return "0"
 
 
-@app.route('/01-register', methods=['POST'])
+@app.route('/01-register', methods=['POST', "GET"])
 def register_views():
     uname = request.form['uname']
     upwd = request.form['upwd']
