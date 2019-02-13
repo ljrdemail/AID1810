@@ -39,12 +39,12 @@ def index():
 
 @app.route('/05-server', methods=['POST', "GET"])
 def server05_views():
-    # return "成功获取ajax请求"
-    # return "console.log('成功获取ajax请求')"
-    # 如果想服务器只传数据，通过传JS 来调用process_resp
+    # return "成功获取ajax请求" # 无法处理跨域
+    # return "console.log('成功获取ajax请求')" #可以处理跨域 但是只能打印
+    # 如果想服务器只传数据，在前端通过传JS 来处理后台传过来的数据 通过后端回传JS 调用process_resp
     # return "process_resp('成功获取ajax请求2');"
-    # 如果process_resp 不像写死为process_resp
-    # 通过前台传过来
+    # 如果process_resp 不想写死为process_resp
+    # 处理方法叫什么通过前台传过来
     callbackfunc = request.args.get("callback")
     return callbackfunc + "('成功获取ajax请求3');"
 

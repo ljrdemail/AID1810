@@ -6,7 +6,7 @@
     <script src="/static/js/common.js"></script>
     <script src="/static/js/jquery-3.3.1.js"></script>
     <script>
-        //让服务器端响应的时候去调用这个函数 将响应的数据作为process_resp 的参数
+        //让服务器端响应的时候去调用这个函数 将响应的数据作为process_resp 的参数 而且名称可以在下面callback  定义 这里要和callback 定义的名称一致
         function dealResp(msg) {
             alert(msg)
 
@@ -31,7 +31,7 @@
             *  2 服务器端响应回 js代码文本
             * */
             $("#btnSend").click(function () {
-                // 1 动态创建script元素
+                // 1 动态创建<script>元素
                 var script = document.createElement("script")
                 //2 为script 元素设置属性 -type
                 script.type = "text/javascript";
@@ -40,7 +40,7 @@
                 //4 将script元素加载到 dom 树上即加载到网页中，也就是向src 的地址发送请求 并接收响应
                 var body = $("body")[0];//获取body 元素
                 body.append(script)//等同于向src发送请求
-                //动态添加script 是在点击的时候加 如果直接写静态 页面加载的时候就需要执行
+                //动态添加script 是为了在点击的时候加 如果直接写静态 页面加载的时候就执行
                 // 服务器端返回来的也必须是复合规范的JS脚本
 
 
@@ -48,7 +48,7 @@
 
             $("#btnJQ").click(function () {
                 $.ajax({
-                    "url": "http://127.0.0.1:5000/05-server",//不用传callback参数和名称 函数名称系统自己决定
+                    "url": "http://127.0.0.1:5000/05-server",//不用传callback参数和方法名称 函数名称系统自己决定
                     "type": "get",
                     "dataType": "jsonp",//jsonp=json with padding,
                     "success": function (data) {

@@ -39,7 +39,6 @@ def index():
 
 @app.route('/02-post', methods=['POST', "GET"])
 def register_views():
-    print("被调用")
     uname = request.form['uname']
     upwd = request.form['upwd']
     uemail = request.form['uemail']

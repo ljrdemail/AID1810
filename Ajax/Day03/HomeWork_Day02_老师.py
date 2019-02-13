@@ -45,10 +45,10 @@ def search_views():
     if uname != "":
         users = db.session.query(User.uname).filter(User.uname.like("%" + uname + "%")).all()
         # 处理结果
-        # 3 ["wangwc","rapwang"]
+        # users = [('wangwc',),('rap wang',)]
         l = []
         for s in users:
-            l.append(s[0])
+            l.append(s[0])  #每一个数一个元组s[0] 取元组的第一个元素 就是名称
         jsonStr = json.dumps(l)
         # 4 将结果转换为JSON格式字符串进行响应
         jsonStr = json.dumps(l)
