@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/static/js/common.js"></script>
+    <script src="/static/js/jquery-3.3.1.js"></script>
+    <script src="/static/js/01-search.js"></script>
+    <style>
+        #container {
+            position: relative;
+        }
+
+        #show {
+            position: absolute;
+            left: 80px;
+            top: 30px;
+            background: #ffffff;
+            width: 300px;
+            height: 150px;
+            border: 1px solid #000;
+            display: none
+        }
+
+        #uname {
+            width: 298px
+        }
+
+    </style>
+</head>
+<body>
+<div id="container">
+    用户名称：<input type="text" id="uname">
+    <div id="show"></div>
+</div>
+</body>
+</html>
