@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/static/js/jquery-3.3.1.js"></script>
+    <script>
+        window.onload = function () {
+            $.ajax({
+                "url": "/listprovinces",
+                "type": "get",
+                "async": true,
+                "dataType": "json",
+                "success": function (data) {
+                    optstr = "<option value=\"none\">--选择省份--</option>"
+                    for (i = 0; i < data.length; i++) {
+                        console.log(data[i])
+                        optstr += "<option value=" + data[i].id + ">" + data[i].pname + "</option>"
+                    }
+                    $("#s1").html(optstr)
+                }, "error": function () {
+                    alert("程序内部错误！")
+                }
+            })
+        }
+
+        function selectCity(thisobj) {
+            var pid = thisobj.value;
+            $.ajax({
+                "url": "/listcitys",
+                "type": "get",
+                "async": true,
+                "data": "pid=" + pid,
+                "dataType": "json",
+                "success": function (data) {
+                    optstr = "<option value=\"none\">--选择城市--</option>"
+                    for (i = 0; i < data.length; i++) {
+                        console.log(data[i])
+                        optstr += "<option value=" + data[i].id + ">" + data[i].cname + "</option>"
+                    }
+                    $("#s2").html(optstr)
+                }, "error": function () {
+                    alert("程序内部错误！")
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+<select id="s1" onchange="selectCity(this)">
+
+</select>
+<select id="s2">
+
+</select>
+
+</body>
+</html>
