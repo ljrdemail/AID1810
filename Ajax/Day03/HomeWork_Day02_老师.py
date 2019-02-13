@@ -42,16 +42,20 @@ def search_views():
     # 1 接收前端传递过来的用户名称-uname
     uname = request.args.get("uname", "")  # 如果不传 默认是空
     # 2 根据用户名称做模糊查询-like
-    users = db.session.query(User.uname).filter(User.uname.like("%" + uname + "%")).all()
-    # 处理结果
-    # 3 ["wangwc","rapwang"]
-    l = []
-    for s in users:
-        l.append(s[0])
-    jsonStr = json.dumps(l)
-    # 4 将结果转换为JSON格式字符串进行响应
-    jsonStr = json.dumps(l)
-    return jsonStr
+    if uname != "":
+        users = db.session.query(User.uname).filter(User.uname.like("%" + uname + "%")).all()
+        # 处理结果
+        # 3 ["wangwc","rapwang"]
+        l = []
+        for s in users:
+            l.append(s[0])
+        jsonStr = json.dumps(l)
+        # 4 将结果转换为JSON格式字符串进行响应
+        jsonStr = json.dumps(l)
+        return jsonStr
+    else:
+        return json.dumps("")
+
 
 
 if __name__ == '__main__':
