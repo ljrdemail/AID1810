@@ -1,13 +1,15 @@
 # 启动和管理项目的操作代码
 # 导入app 中的create_app 用于启动
-from app import create_app, db
+from app import *
 # 通过manager()管理项目 并增加数据迁移指令
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
 # 导入所有的实体类方便使用db指令做迁移
-from app.models import *
+from app import create_app, db
 
 # 调用create _app得到app
+
+
 app = create_app()
 # 创建Manager 实例用于托管app
 manager = Manager(app)
