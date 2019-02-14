@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/static/js/jquery-3.3.1.js"></script>
+    <script>
+        function dealResp(data) {
+            //非跨域必须要parse 跨域不用转 因为响应回来的没有“” 是一个{} 是一个对象 不是字符串如果后台返回加了“” 就要parse
+            console.log("航班号：" + data.flightNo)
+            console.log("出发:" + data.from);
+            console.log("到达:" + data.to)
+            console.log("到达时间:" + data.time)
+        }
+
+        $(function () {
+            $("#btnFlight").click(function () {
+                // 1 创建script
+                var script = document.createElement("script")
+                // 2 指定src,type
+                script.type = "text/javascript"
+                script.src = "http://127.0.0.1:5000/01-flight?callback=dealResp"
+                //3 挂在到dom 树上
+                var body = $("body")[0];
+                body.append(script)
+            });
+            $("#btnFlightJQ").click(function () {
+                $.ajax({
+                    "url": "http://127.0.0.1:5000/01-flight",//方法名不用写会自动去找success对应的函数处理
+                    "type": "get",
+                    "dataType": "jsonp",
+                    "success": function (data) {
+                        console.log("航班号：" + data.flightNo)
+                        console.log("出发:" + data.from);
+                        console.log("到达:" + data.to)
+                        console.log("到达时间:" + data.time)/**/
+                    }
+
+
+                })
+
+            });
+        })
+
+    </script>
+</head>
+<body>
+<button id="btnFlight">获取航班信息</button>
+<button id="btnFlightJQ">获取航班信息_JQ</button>
+</body>
+</html>
