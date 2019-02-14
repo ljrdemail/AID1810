@@ -37,7 +37,7 @@ class Topic(db.Model):
     __tablename__ = "topic"
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(200), nullable=False)
-    pub_date = db.Column(db.Datetime, nullable=False)
+    # pub_date = db.Column(db.DateTime, nullable=False)
     read_num = db.Column(db.Integer, default="NULL")
     content = db.Column(db.Text, nullable=False)
     image = db.Column(db.Text)
@@ -54,7 +54,7 @@ class Reply(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False, autoincrement=True)
     topic_id = db.Column(db.Integer, db.ForeignKey("topic.id"), nullable=False)
     content = db.Column(db.Text, nullable=False)
-    reply_time = db.Column(db.Datetime, default="NULL")
+    # reply_time = db.Column(db.Datetime, default="NULL")
 
 
 class Voke(db.Model):
