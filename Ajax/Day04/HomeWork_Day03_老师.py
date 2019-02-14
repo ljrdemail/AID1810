@@ -55,9 +55,7 @@ def province_views():
 @app.route("/02-city")
 def city_views():
     # 先获取前端传递过来的省份ID
-    print("我被调用")
     pid = request.args.get("pid")
-    print(pid)
     # 根据pid 获取对应的city 的信息
     cities = Citys.query.filter_by(pid=pid).all()
     l = []

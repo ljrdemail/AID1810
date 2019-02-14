@@ -26,7 +26,7 @@
                 }
 
             });
-            loadCity($("#selPro").val()); // 如果loadPro 是异步的话 加载不了 因为 pro加载完之后才有pid 需要把loadpro 改为同步
+            loadCity($("#selPro").val()); // 确保走到这里的时候省份已经加载完成 如果loadPro 是异步的话 加载不了 因为ajax请求和 loadCity 是同步进行的 但是能成功加载前提是省份加载完成
 
         }
 

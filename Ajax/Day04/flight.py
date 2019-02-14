@@ -23,7 +23,7 @@ def flights_view():
     # 准备数据
     dic = {"flightNo": "MH370", "from": "KLIA", "to": "PEK", "time": "6:30"}
     jsonStr = json.dumps(dic)
-    return cb + "(" + jsonStr + ");"
+    return cb + "(" + jsonStr + ");"  # 不用发JS过去 由于客户端是用 $.ajax 且为jsonp 类型 会有函数自动处理 你只需要发数据过去就好
 
 
 # 因为jsonStr没有“” 传递前端是一个对象而不是字符串 不需要在前端parse 如果“jsonStr”就要转
