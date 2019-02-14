@@ -8,8 +8,6 @@ from flask_script import Manager
 from app import create_app, db
 
 # 调用create _app得到app
-
-
 app = create_app()
 # 创建Manager 实例用于托管app
 manager = Manager(app)
