@@ -25,7 +25,6 @@ def create_app():
     # 将main蓝图与app 关联到一起 也就是让app 管理main
     from .main import main as main_blurprint  # 这里的main 指的是main=Blueprint("main",__name__)
     app.register_blueprint(main_blurprint)  # 注册给 app
+
+    # 返回创建好的程序实例app
     return app
-
-
-# 2 创建SQLAlchemy的应用实例（db）
