@@ -25,7 +25,7 @@ def create_app():
     # 将main蓝图与app 关联到一起 也就是让app 管理main
     from .main import main as main_blurprint  # 这里的main 指的是main=Blueprint("main",__name__)
     app.register_blueprint(main_blurprint)  # 注册给 app
-    # 将users蓝图与app 关联到一起 也就是让app 管理users
+    # 将users蓝图与app关联到一起(让app托管users)
     from .users import users as users_blurprint
     app.register_blueprint(users_blurprint)
 
