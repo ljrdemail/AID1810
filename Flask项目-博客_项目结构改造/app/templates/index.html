@@ -24,11 +24,18 @@
             <li><a href="index.html">网站首页</a></li>
             <li><a href="list.html">文章列表</a>
                 <ul class="sub-nav">
-                    <li><a href="list.html">Python</a></li>
-                    <li><a href="list.html">python Web</a></li>
-                    <li><a href="list.html">爬虫</a></li>
-                    <li><a href="list.html">人工智能</a></li>
-                    <li><a href="list.html">JS实例索引</a></li>
+                    <!--<li><a href="list.html">Python</a></li>-->
+                    <!--<li><a href="list.html">python Web</a></li>-->
+                    <!--<li><a href="list.html">爬虫</a></li>-->
+                    <!--<li><a href="list.html">人工智能</a></li>-->
+                    <!--<li><a href="list.html">JS实例索引</a></li>-->
+                    <!-- 循环遍历categories-->
+                    {%for cate in params.categories%}
+                    <li>
+                        <a href="/list?id={{cate.id}}">{{cate.cate_name}}
+                        </a>
+                    </li>
+                    {%endfor%}
                 </ul>
             </li>
             <li><a href="photo.html">我的相册</a>
