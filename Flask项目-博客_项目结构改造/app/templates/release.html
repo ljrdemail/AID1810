@@ -76,7 +76,7 @@
         <p class="n1">表发博客</p>
     </h1>
     <div class="infosbox">
-        <form action="#" method="post">
+        <form action="/release" method="post" enctype="multipart/form-data">
             <br>
             <p>
                 <input class="comment_input" id="author" maxlength="50" name="author" required="required" size="25"
@@ -90,10 +90,25 @@
                 <input name="list" type="radio" value="2">公开博客
                 <input name="list" type="radio" value="3">其他博客
             </p>
+            <p>
+                <select name="category">
+                    {% for cate in params.categories%}
+                    <option value="{{cate.id}}">{{cate.cate_name}}</option>
+                    {% endfor %}
+                </select>
+
+            </p>
+            <p>
+                <input type="file" name="image">上传图片
+            </p>
 
             <br>
 
-            <div id="editor" style="margin-left: 12px;margin-right: 12px"></div>
+            <!--<div id="editor" style="margin-left: 12px;margin-right: 12px"></div>-->
+            <p>
+                <textarea name="content" cols="103" rows="10"></textarea>
+
+            </p>
             <br>
             <p>
                 <input id="id_article" name="article" type="hidden" value="1">
@@ -137,12 +152,7 @@
     <p>Design by <a href=# target="_blank">皮爷の博客</a> <a href="#">备XXXXXXXX号-1</a></p>
 </footer>
 <a href="#" class="cd-top">Top</a>
-<script>
-    var E = window.wangEditor
-    var editor = new E('#editor')
-    // 或者 var editor = new E( document.getElementById('editor') )
-    editor.create()
-</script>
+
 </body>
 
 </html>

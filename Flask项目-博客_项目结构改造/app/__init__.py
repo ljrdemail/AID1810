@@ -17,7 +17,7 @@ def create_app():
     app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     # 配置session所需要的SECURET_KEY
-    app.config["SECURET_KEY"] = "ljrdemail5266790"  # 随便写用于密码加密
+    app.config['SECRET_KEY'] = 'suinibiao'  # 随便写用于密码加密
     # 关联db 以及 app
     db.init_app(app)  # 指定db 用哪个App初始化
     # 返回创建好的程序实例app
@@ -25,6 +25,9 @@ def create_app():
     # 将main蓝图与app 关联到一起 也就是让app 管理main
     from .main import main as main_blurprint  # 这里的main 指的是main=Blueprint("main",__name__)
     app.register_blueprint(main_blurprint)  # 注册给 app
+    # 将users蓝图与app 关联到一起 也就是让app 管理users
+    from .users import users as users_blurprint
+    app.register_blueprint(users_blurprint)
 
     # 返回创建好的程序实例app
     return app

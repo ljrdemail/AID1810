@@ -45,9 +45,18 @@
             <li><a href="about.html">关于我</a></li>
             <li><a href="release.html">发表博客</a></li>
         </nav>
+
+
     </div>
-    <a href="login.html" id="login" target="_blank">登录</a>
+    {% if params.user %}
+    <a id="login">
+        欢迎:{{params.user.uname}}
+    </a>
+    <a href="/logout" id="register">退出</a>
+    {% else %}
+    <a href="/login" id="login" target="_blank">登录</a>
     <a href="register.html" id="register" target="_blank">注册</a>
+    {% endif %}
     <!--menu end-->
     <!--mnav begin-->
     <div id="mnav">
