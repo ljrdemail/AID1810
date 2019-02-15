@@ -2,63 +2,87 @@
 from . import db
 
 
-# 创建实体类
-# 创建BlogType实体类 ->blogtype
+# 创建BlogType实体类 -> blogtype表
 class BlogType(db.Model):
     __tablename__ = "blogtype"
     id = db.Column(db.Integer, primary_key=True)
-    type_name = db.Column(db.String(20), nullable=False)
-    topics = db.relationship("Topic", backref="blogtype", lazy="dynamic")
+    type_name = db.Column(
+        db.String(20), nullable=False)
+    # 增加关联关系以及反向引用关系属性-针对Topic
+    topics = db.relationship("Topic", backref="blogType", lazy="dynamic")
 
 
-# 创建Category实体类 ->category
+#创建Category实体类 -> category
 class Category(db.Model):
     __tablename__ = "category"
     id = db.Column(db.Integer, primary_key=True)
-    cate_name = db.Column(db.String(50), nullable=False)
+    cate_name = db.Column(
+        db.String(50), nullable=False
+    )
+    # 增加关联属性．．．　－　Topic
     topics = db.relationship("Topic", backref="category", lazy="dynamic")
 
 
+#创建User类-user表
 class User(db.Model):
     __tablename__ = "user"
-    id = db.Column(db.Integer, primary_key=True)
+    ID = db.Column(db.Integer, primary_key=True)
     loginname = db.Column(db.String(50), nullable=False)
     uname = db.Column(db.String(30), nullable=False)
     email = db.Column(db.String(200), nullable=False)
-    url = db.Column(db.String(200), default="NULL")
+    url = db.Column(db.String(200))
     upwd = db.Column(db.String(30), nullable=False)
-    is_author = db.Column(db.Integer, default=0)
-    topics = db.relationship("Topic", backref="user", lazy="dynamic")
-    replys = db.relationship("Reply", backref="user", lazy="dynamic")
-    vokes = db.relationship("Voke", backref="user", lazy="dynamic")
+    is_author = db.Column(db.Boolean, default=False)
+    # 关联属性-Topic
+    topics = db.relationship("Topic", backref='user', lazy="dynamic")
+    # 关联属性-Reply
+    replies = db.relationship("Reply", backref="user", lazy="dynamic")
+    # 关联属性 - 与Topic之间的多对多
+    voke_topics = db.relationship(
+        "Topic",
+        secondary="voke",
+        lazy="dynamic",
+        backref=db.backref(
+            "voke_users",
+            lazy='dynamic'
+        )
+    )
 
 
+#创建Topic类-topic
 class Topic(db.Model):
     __tablename__ = "topic"
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(200), nullable=False)
     pub_date = db.Column(db.DateTime, nullable=False)
-    read_num = db.Column(db.Integer, default="NULL")
+    read_num = db.Column(db.Integer, default=0)
     content = db.Column(db.Text, nullable=False)
-    image = db.Column(db.Text)
-    blogtype_id = db.Column(db.Integer, db.ForeignKey("blogtype.id"), default="NULL")
-    category_id = db.Column(db.Integer, db.ForeignKey("category.id"), default="NULL")
-    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), default="NULL")
-    vokes = db.relationship("Voke", backref="topic", lazy="dynamic")
-    replay = db.relationship("Reply", backref="topic", uselist=False)
+    images = db.Column(db.Text)
+    # 关系:一(BlogType)对多(Topic)关系
+    blogtype_id = db.Column(db.Integer, db.ForeignKey('blogtype.id'))
+    # 关系:一(Category)对多(Topic)关系
+    category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
+    # 关系:一(User)对多(Topic)关系
+    user_id = db.Column(db.Integer, db.ForeignKey('user.ID'))
+    # 关联属性-reply
+    replies = db.relationship("Reply", backref="topic", lazy="dynamic")
 
 
+#创建Reply类-reply
 class Reply(db.Model):
     __tablename__ = "reply"
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False, autoincrement=True)
-    topic_id = db.Column(db.Integer, db.ForeignKey("topic.id"), nullable=False)
     content = db.Column(db.Text, nullable=False)
-    reply_time = db.Column(db.DateTime, default="NULL")
+    reply_time = db.Column(db.DateTime)
+    # 一(User)对多(Reply)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.ID'))
+    # 一(Topic)对多(Reply)
+    topic_id = db.Column(db.Integer, db.ForeignKey('topic.id'))
 
 
+#创建Voke - 表voke
 class Voke(db.Model):
     __tablename__ = "voke"
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
-    topic_id = db.Column(db.Integer, db.ForeignKey("topic.id"), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.ID'))
+    topic_id = db.Column(db.Integer, db.ForeignKey('topic.id'))
