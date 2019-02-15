@@ -39,26 +39,15 @@ def release_views():
         if request.files:
             try:
                 image = request.files["image"]
-                # 以上传的时间来作为上传的文件名-避免上传的资源重复
-                # 格式:YYYYMMDDHHMMSSFFFFFF.扩展名
-                # 1.根据时间拼成名称字符串
                 ftime = datetime.datetime.now().strftime("%Y%m%d%H%M%S%f")
-                # print('时间字符串:%s'%ftime)
-                # 2.根据原有的文件名(uimg.filename)获取扩展名
                 ext = image.filename.split(".")[-1]
-                # 3.将ftime.ext拼接到一起
-                # filename=ftime+"."+houzhui
                 filename = ftime + "." + ext
-                # uimg.save("static/" + filename)
-                # 使用绝对路径上传 /home/tarena/.../static/xx.ext
-                basedir = os.path.dirname(__file__)  # 返回 run.py所在的路径
-                # 拼完整的保存路径
-                # uploadpath = os.path.join(basedir, "..\\", "static", "upload", filename)
+                basedir = os.path.dirname(__file__)
+                # uploadpath = os.path.join(basedir, "..\\", "static", "upload", filename) 我的版本
                 currentpath = os.path.dirname(os.path.dirname(__file__))  # 老师版本 得到app这一层 然后自己拼static upload
                 uploadpath = os.path.join(currentpath, "static", "upload", filename)
                 image.save(uploadpath)
                 dest = "/upload/" + filename
-
             except Exception as e:
                 print(e)
                 return "上传失败！"
