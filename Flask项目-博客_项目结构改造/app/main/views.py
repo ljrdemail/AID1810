@@ -1,6 +1,6 @@
 # 处理与博客相关的路由和视图
 from . import main
-from flask import render_template, session, request
+from flask import render_template, session, request, redirect
 from ..models import *
 from .. import db
 import datetime
@@ -25,7 +25,6 @@ def main_index():
 def release_views():
     if request.method == "GET":
         # 权限验证 判断是否有用户登录一级登录者的身份是否为作者 如果没有权限的话则从哪来回哪去
-
         # 查询category 的信息
         categories = Category.query.all()
         return render_template("release.html", params=locals())
@@ -33,9 +32,10 @@ def release_views():
         title = request.form.get("author")
         blogtype = request.form.get("list")
         category = request.form.get("category")
-
         content = request.form.get("content")
         dest = ""
+        userid = session.get("id")
+
         if request.files:
             try:
                 image = request.files["image"]
@@ -45,24 +45,23 @@ def release_views():
                 ftime = datetime.datetime.now().strftime("%Y%m%d%H%M%S%f")
                 # print('时间字符串:%s'%ftime)
                 # 2.根据原有的文件名(uimg.filename)获取扩展名
-                houzhui = image.filename.split(".")[-1]
+                ext = image.filename.split(".")[-1]
                 # 3.将ftime.ext拼接到一起
                 # filename=ftime+"."+houzhui
-                filename = ftime + "." + houzhui
+                filename = ftime + "." + ext
                 # uimg.save("static/" + filename)
                 # 使用绝对路径上传 /home/tarena/.../static/xx.ext
                 basedir = os.path.dirname(__file__)  # 返回 run.py所在的路径
-
                 # 拼完整的保存路径
-                uploadpath = os.path.join(basedir, "..\\", "static", "upload", filename)  # 每层目录用逗号分隔
-                print(uploadpath)
+                # uploadpath = os.path.join(basedir, "..\\", "static", "upload", filename)
+                currentpath = os.path.dirname(os.path.dirname(__file__))  # 老师版本 得到app这一层 然后自己拼static upload
+                uploadpath = os.path.join(currentpath, "static", "upload", filename)
                 image.save(uploadpath)
                 dest = "/upload/" + filename
 
             except Exception as e:
                 print(e)
                 return "上传失败！"
-        print(dest)
         topic = Topic()
         topic.title = title
         topic.pub_date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -70,6 +69,7 @@ def release_views():
         topic.images = dest
         topic.blogtype_id = blogtype
         topic.category_id = category
+        topic.user_id = userid
         db.session.add(topic)
         db.session.commit()
-        return "保存成功"
+        return redirect("/")
