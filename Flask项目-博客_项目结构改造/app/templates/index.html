@@ -81,13 +81,14 @@
     <div class="picsbox">
         <div class="banner">
             <div id="banner" class="fader">
-                <li class="slide"><a href="info.html" target="_blank"><img src="/static/images/banner01.jpg"><span
-                        class="imginfo">爬虫微课5小时
-                python学习路线!</span></a></li>
-                <li class="slide"><a href="info.html" target="_blank"><img src="/static/images/banner02.jpg"><span
-                        class="imginfo">干货|如何优雅的在手机上进行Python编程</span></a></li>
-                <li class="slide"><a href="info.html" target="_blank"><img src="/static/images/banner03.jpg"><span
-                        class="imginfo">python-win10下使用定时任务执行程序</span></a></li>
+                {%for topic in params.topics[0:3]%}
+                <li class="slide"><a href="info?id={{topic.id}}" target="_blank"><img
+                        src="/static/{{topic.images}}"><span
+                        class="imginfo">{{topic.title}}</span></a></li>
+
+                {% endfor %}
+
+
                 <div class="fader_controls">
                     <div class="page prev" data-target="prev">&lsaquo;</div>
                     <div class="page next" data-target="next">&rsaquo;</div>
@@ -97,15 +98,14 @@
             </div>
         </div>
         <!--banner end-->
+
         <div class="toppic">
-            <li><a href="info.html" target="_blank"> <i><img src="/static/images/toppic01.jpg"></i>
-                <h2>linux升级py3,安装pip,svn</h2>
-                <span>Linux</span>
+            {%for topic in params.topics[3:5] %}
+            <li><a href="info?id={{topic.id}}" target="_blank"> <i><img src="/static/{{topic.images}}"></i>
+                <h2>{{topic.title}}</h2>
+                <span>{{topic.category.cate_name}}</span>
             </a></li>
-            <li><a href="info.html" target="_blank"> <i><img src="/static/images/zd01.jpg"></i>
-                <h2>精通Python编程——Python深入浅出教程</h2>
-                <span>python</span>
-            </a></li>
+            {% endfor %}
         </div>
     </div>
     {% endblock %}
