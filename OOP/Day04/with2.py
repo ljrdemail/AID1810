@@ -2,7 +2,7 @@
 # 此示例示意用with语句和try-finally 来保证文件的正确关闭
 
 try:
-  with open("day19.txt") as fr:  # 读出文件流赋值给fr
+    with open("day19.txt") as fr:  # 读出文件流赋值给fr open 实现了 __enter__ __exit__ __del__
 
      s = fr.read()
      100/0

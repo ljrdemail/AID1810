@@ -22,3 +22,6 @@ print(v)
 
 s.set_score(99999)
 print(s.get_score())#m没有改变
+
+s.set_score(99)
+print(s.get_score())  # m改变了
