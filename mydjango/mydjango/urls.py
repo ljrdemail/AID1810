@@ -22,5 +22,5 @@ urlpatterns = [
     # 访问路径是show/的时候交给show() 函数去处理
     url(r'^show/$', Views.show),  # show不用加() 加了就是调用
     url(r'^$', Views.index),
-    url(r'^show_01/$', Views.show_01),  # 最后的/你不加系统也会给你加 但是建议自己写上
+    url(r'^show_01/$', Views.show_01),  # 最后的/你不加系统也会给你加 但是建议自己写上  
 ]
