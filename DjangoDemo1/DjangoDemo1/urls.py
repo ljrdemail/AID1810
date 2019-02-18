@@ -16,10 +16,12 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
-
 urlpatterns = [
     url('admin/', admin.site.urls),
     # 判断访问路径是否为music/开头的
-    url(r'^music/', include("music.urls"))  # 注意music/后没有$ 余下的交给music目录下的urls.py进一步处理
+    url(r'^music/', include("music.urls")),  # 注意music/后没有$ 余下的交给music目录下的urls.py进一步处理
+    url(r'^index/', include("index.urls")),  # 注意index/后没有$ 余下的交给index目录下的urls.py进一步处理
+    url(r'^sport/', include("sport.urls")),  # 注意sport/后没有$ 余下的交给sport目录下的urls.py进一步处理
+    url(r'^news/', include("news.urls")),  # 注意news/后没有$ 余下的交给news目录下的urls.py进一步处理
 
 ]

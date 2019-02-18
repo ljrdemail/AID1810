@@ -4,3 +4,7 @@ from django.http import HttpResponse
 
 def show_01(request):
     return HttpResponse("这是music应用中的show01访问路径")
+
+
+def index(request):
+    return HttpResponse("这是music应用中的首页")
