@@ -3,7 +3,8 @@ from django.http import HttpResponse
 
 # Create your views here.
 
-
+# 主路由:url(r'^index/',include("index.urls")),
+# 应用的路由:url(r'^index/$',views.index),
 def index(request):
     return HttpResponse("这是index应用中的首页")
 

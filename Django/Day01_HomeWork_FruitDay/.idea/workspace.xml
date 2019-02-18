@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a3f99c5e-335d-4b27-b0e1-172fa450361f" name="Default Changelist" comment="" />
+    <list default="true" id="a3f99c5e-335d-4b27-b0e1-172fa450361f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Day01/Day01/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Day01/Day01/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Day01/index/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Day01/index/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Day01/index/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Day01/index/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Day01/music/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Day01/music/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../mydjango/mydjango/Views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../mydjango/mydjango/Views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../mydjango/mydjango/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../mydjango/mydjango/urls.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
