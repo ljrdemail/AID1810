@@ -14,8 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
-from django.contrib import admin
+from django.contrib import admin  # django 默认的后台管理包
+from . import Views
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^admin/', admin.site.urls),  # 以admin/开始的请求会交给admin.site.urls 来处理 ^ 以什么开始 r 取消转义
+    # 访问路径是show/的时候交给show() 函数去处理
+    url(r'^show/$', Views.show),  #show不用加() 加了就是调用
 ]
