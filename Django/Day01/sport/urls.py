@@ -6,6 +6,7 @@ from . import views
 urlpatterns = [
     # 判断请求路径是否为show01
 
-    url(r'^index$', views.index),
+    url(r'^index/$', views.index),
+    url(r'^$', views.index),
 
 ]

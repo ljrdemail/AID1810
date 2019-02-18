@@ -23,5 +23,7 @@ urlpatterns = [
     url(r'^index/', include("index.urls")),  # 注意index/后没有$ 余下的交给index目录下的urls.py进一步处理
     url(r'^sport/', include("sport.urls")),  # 注意sport/后没有$ 余下的交给sport目录下的urls.py进一步处理
     url(r'^news/', include("news.urls")),  # 注意news/后没有$ 余下的交给news目录下的urls.py进一步处理
+    # url(r'^\w+/', include("index.urls")),  # 注意index/后没有$ 余下的交给index目录下的urls.py进一步处理
+    url(r'^', include("index.urls")),  # 如果什么都不输入交给index来处理
 
 ]
