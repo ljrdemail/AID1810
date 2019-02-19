@@ -10,7 +10,10 @@ def index(request):
 
 
 def temp(request):
-    # t = loader.get_template("01-temp.html")
-    # html = t.render()
-    # return HttpResponse(html)
-    return render(request, "01-temp.html")
+    t = loader.get_template("01-temp.html")
+    html = t.render()
+    return HttpResponse(html)
+
+
+def renderTemp(request):
+    return render(request, "02-temp.html")
