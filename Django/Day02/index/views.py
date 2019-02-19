@@ -52,3 +52,11 @@ def parent(request):
 def child(request):
     list = ["旋涡鸣人", "小樱", "卡卡西", "佐助"]
     return render(request, "06-child.html", locals())
+
+
+def auth(request):
+    return HttpResponse("<h1>07-fruit/admin/user/manager/auth/login</h1>")
+
+
+def birthday(request, year, month, day):
+    return HttpResponse("生日为:%s年%s月%s日" % (year, month, day))
