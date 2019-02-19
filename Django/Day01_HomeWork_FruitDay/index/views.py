@@ -1,16 +1,21 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 
 
 # Create your views here.
 
 
 def index(request):
-    return HttpResponse("这是index应用中的首页")
+    return render(request, "index.html")
 
 
 def login(request):
-    return HttpResponse("这是index应用中的login访问路径")
+    return render(request, "login.html")
 
 
 def register(request):
     return HttpResponse("这是index应用中的register访问路径")
+
+
+def cart(request):
+    return render(request, "cart.html")

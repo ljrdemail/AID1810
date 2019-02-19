@@ -113,4 +113,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
+# 设置静态文件的访问路径
 STATIC_URL = '/static/'
+# 设置静态文件的存储路径
+# 跟STATIC_URL 叫什么没关系 两个名称可以不一致 上面可以叫jintai 访问的时候/jingtai/***.html
+# 就往STATICFILES_DIRS 目录下找
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)

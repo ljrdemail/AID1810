@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+    <script src="{% static 'js/jquery-3.3.1.js' %}"></script>
+    <!-- 如果你要在外部文件中用jquery 引入的时候jquery 在前面-->
+    <script src="{% static 'js/cart.js' %}"></script>
+</head>
+<body>
+<div id="container">
+    <!-- 导航-->
+    <div id="nav">
+        <!--左侧导航 -->
+
+
+        <!-- 右侧导航-->
+        <ul class="rightNav">
+            <li>
+                <a href="">[ 登录 ]</a>
+                <a href="">[ 注册有惊喜 ]</a>
+            </li>
+            <li>
+                <a href="">果园公告</a>
+            </li>
+            <li>
+                <a href="">券卡兑换</a>
+            </li>
+            <li class="lastiten">
+                <a href="">手机果园</a>
+            </li>
+        </ul>
+        <!--左侧导航-->
+
+        <ul class="leftNav">
+            <li>
+                <span>上海</span><i></i>
+
+            </li>
+            <li>满百包邮(环交内)</li>
+            <li><a href="">星夜达</a></li>
+
+
+        </ul>
+
+
+    </div>
+
+    <!-- 横幅banner-->
+    <div id="banner">
+
+        <img src="{% static 'images/banner1.jpg'%}">
+    </div>
+    <!-- 推荐-->
+    <div id="commend">
+        <a href="">
+            <image src="{% static 'images/芒果.jpg'%}"/>
+        </a>
+        <a href="">
+            <image src="{% static 'images/奇异果.jpg'%}"/>
+        </a>
+        <a href="">
+            <image src="{% static 'images/蛇果.jpg'%}"/>
+        </a>
+        <a href="">
+            <image class="lastImg" src="{% static 'images/红提.jpg'%}"/>
+        </a>
+
+    </div>
+    <!-- 主体-->
+    <div id="main">
+        <!-- 上方标题栏-->
+        <div class="title">
+            <p class="check-box">
+                <input type="checkbox" name="checkAll" id="checkAll">
+                全选
+            </p>
+            <p class="goods">商品</p>
+            <p class="price">单价</p>
+            <p class="count">数量</p>
+            <p class="sum">小计</p>
+            <p class="action">操作</p>
+        </div>
+
+        <!--下方商品记录-->
+        <div class="content">
+            <div class="g-item">
+                <p class="check-box">
+                    <input type="checkbox" name="check" id="check1">
+                    <img src="{% static 'images/深情厚意.jpg'%}">
+                </p>
+                <p class="goods">深情厚意水果果篮</p>
+                <p class="price">&yen;188</p>
+                <p class="count"><a href="javascript:void(0)" class="minus">-</a><input type="text" value="1"><a
+                        href="javascript:void(0)" class="add">+</a></p>
+                <p class="sum">
+                    <b>&yen;188</b>
+                </p>
+                <p class="action">移除</p>
+            </div>
+
+            <div class="g-item">
+                <p class="check-box">
+                    <input type="checkbox" name="check" id="check2">
+                    <img src="{% static 'images/深情厚意.jpg'%}">
+                </p>
+                <p class="goods">深情厚意水果果篮</p>
+                <p class="price">&yen;188</p>
+                <p class="count"><a href="javascript:void(0)" class="minus">-</a><input type="text" value="1"><a
+                        href="javascript:void(0)" class="add">+</a></p>
+                <p class="sum">
+                    <b>&yen;188</b>
+                </p>
+                <p class="action">移除</p>
+            </div>
+
+            <div class="g-item">
+                <p class="check-box">
+                    <input type="checkbox" name="check" id="check">
+                    <img src="{% static 'images/深情厚意.jpg'%}">
+                </p>
+                <p class="goods">深情厚意水果果篮</p>
+                <p class="price">&yen;188</p>
+                <p class="count"><a href="javascript:void(0)" class="minus">-</a><input type="text" value="1"><a
+                        href="javascript:void(0)" class="add">+</a></p>
+                <p class="sum">
+                    <b>&yen;188</b>
+                </p>
+                <p class="action">移除</p>
+            </div>
+        </div>
+    </div>
+    <!-- 底部-->
+    <div id="cart-toolbar">
+        <div class="right-toolbar">
+            <p class="submit-count">
+                已选择<span></span>件商品
+            </p>
+            <p class="submit-price">共计：<span></span></p>
+            <p class="submit-btn">去结算</p>
+        </div>
+
+    </div>
+
+
+</div>
+
+</body>
+</html>

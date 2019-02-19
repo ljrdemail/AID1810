@@ -38,3 +38,7 @@ def params(request):
     p.name = "王伟超"
     p.age = 37
     return render(request, "03-params.html", locals())
+
+
+def static(request):
+    return render(request, "04-static.html")

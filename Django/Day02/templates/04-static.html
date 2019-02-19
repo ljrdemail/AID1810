@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img {
+            width: 500px
+        }
+
+    </style>
+</head>
+<body>
+
+
+<img src="/static/images/b04.jpg">
+
+
+<img src="http://localhost:8000/static/images/b04.jpg">
+
+<h2>使用静态标签，好处是如果在settings中修改静态文件访问路径的时候这个还可以用 写死的就个屁</h2>
+{% load static %}
+<img src="{% static 'images/b04.jpg' %}">
+<br/>
+
+
+</body>
+</html>

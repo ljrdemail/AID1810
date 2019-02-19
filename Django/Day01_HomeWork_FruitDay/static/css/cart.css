@@ -1,0 +1,295 @@
+/*清除默认样式*/
+
+body, h1, h2, h3, h4, h5, h6, p, ul, ol {
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/*页面基础样式*/
+
+body {
+    font: 12px "微软雅黑", "黑体";
+    color: #9a9a9a;
+
+}
+
+a {
+    text-decoration: none;
+    color: #9a9a9a;
+}
+
+a:hover {
+
+    color: #64a131
+}
+
+/*页面的整体宽度和居中效果*/
+#container {
+
+    width: 990px;
+    margin: 0 auto;
+}
+
+#nav {
+    background: #eee;
+    height: 30px;
+
+
+}
+
+/*右侧导航*/
+#nav .rightNav {
+    float: right;
+}
+
+#nav .rightNav > li {
+    /*不用kine-height 是因为border 也会同步变长*/
+    margin-top: 7px;
+    float: left;
+
+    border-right: 1px solid black; /*通过边框模拟导航项之间的分隔符，只能通过边距调整垂直显示位置 不能显示line-height*/
+    text-align: center;
+    padding: 0 10px;
+}
+
+#nav .rightNav > li.lastiten { /*要拷贝是因为组合优先级由于单写 class*/
+    padding-right: 0; /*不能取消所有边距 因为要跟前面的留 20px*/
+    margin-right: 0; /*靠边*/
+    border: none;
+
+
+}
+
+#nav .leftNav {
+
+    float: left;
+    line-height: 30px;
+
+}
+
+#nav .leftNav > li {
+    float: left;
+    text-align: center;
+    padding-left: 10px;
+
+
+}
+
+/*三角标*/
+#nav .leftNav > li > i {
+
+    display: inline-block;
+    width: 0;
+    height: 0; /* 清掉宽度是为了 做成三角形 否则梯形*/
+    border: 6px solid transparent;
+    border-top: 6px solid black;
+    /*调整位置 下移*/
+    position: relative;
+    top: 5px;
+
+}
+
+#banner {
+    /*调整上下边距 产生空行*/
+    margin: 15px 0;
+
+
+}
+
+#banner img {
+    width: 990px;
+    height: 207px;
+    /*设定宽度是为了不管放什么图片都卡死宽度 保持页面*/
+
+
+}
+
+#commend {
+    font-size: 0px; /*去掉换行产生的空行*/
+    height: 112px; /*设定宽度是为了不管放什么图片都卡死宽度 保持页面*/
+
+}
+
+#commend img {
+
+    width: 240px;
+    margin-right: 10px;
+}
+
+#commend .lastImg {
+    margin: 0
+
+}
+
+/*主体*/
+#main {
+
+    margin: 25px 0;
+    /*避免遮挡 结算栏*/
+    padding-bottom: 50px;
+}
+
+#main .title {
+
+    background: #f3f3f3;
+    border: 1px solid #e9e9e9;
+    height: 32px /*浮起来之后不合并*/
+}
+
+#main .title > p {
+    float: left;
+    /*水平居中*/
+    line-height: 32px;
+
+}
+
+#main .check-box {
+    width: 132px;
+
+}
+
+#main .goods {
+    width: 378px;
+    /*默认左对齐*/
+
+}
+
+#main .price {
+    width: 160px;
+    text-align: center;
+
+}
+
+#main .count {
+    width: 80px;
+    text-align: center;
+
+}
+
+#main .sum {
+    width: 140px;
+    text-align: center;
+
+}
+
+#main .action {
+    width: 85px;
+    text-align: center;
+
+}
+
+#main #checkAll {
+
+    vertical-align: middle;
+}
+
+/*商品记录*/
+
+#main .g-item {
+    border-top: 2px solid #999; /*上下边框*/
+    border-bottom: 1px solid #999; /*上下边框*/
+    padding: 10px 0; /*边框和图片间距*/
+    margin-top: 25px; /*内容和标题间距*/
+    /*清除浮动 因为p 要上浮*/
+    overflow: hidden;
+}
+
+
+#main .g-item p {
+    /*内容左浮*/
+    float: left;
+}
+
+#main .g-item img {
+    /*定死宽度*/
+    width: 80px;
+    height: 80px;
+
+}
+
+/*#main .g-item  .check-box>input {*/
+#main .check-box [name=check] {
+    /*选择框上对齐*/
+    vertical-align: top;
+}
+
+/*数量*/
+#main .count a { /*14:13*/
+    /*需要浮起来是因为 变为块元素可以调整宽高*/
+    float: left;
+    width: 16px;
+    height: 18px;
+    text-align: center;
+    line-height: 18px; /*和行高设为一致*/
+    border: 1px solid #cacbcb;
+    padding: 1px 0; /*为了和input对齐*/
+
+}
+
+#main .count input {
+    /*需要浮起来是因为 变为块元素可以调整宽高*/
+    float: left;
+    width: 42px;
+    height: 18px;
+    border-left: 0px;
+    border-right: 0px;
+    text-align: center;
+    border-top: 1px solid #cacbcb;
+    border-bottom: 1px solid #cacbcb;
+    padding: 1px;
+    font-size: 12px; /*确保字体和整个网页一致 默认 13.3*/
+
+
+}
+
+/*底部工具栏*/
+
+#cart-toolbar {
+    /*固定在底部 bottom 0*/
+    position: fixed;
+    bottom: 0;
+    height: 50px;
+    line-height: 50px; /*居中对齐*/
+    /* 文档脱流之后 不再具有默认宽度 而是根据内容决定 所以要手动设定*/
+    width: 990px;
+    background: #fff;
+
+}
+
+#cart-toolbar .right-toolbar {
+    /*靠右浮动*/
+    float: right;
+
+}
+
+#cart-toolbar p {
+    /*文字浮起向左排*/
+    float: left;
+
+}
+
+#cart-toolbar span {
+    font-weight: bold;
+    color: #e4393c;
+    font-size: 16px;
+    margin: 0 10px; /*调整商品数量和两边文字的间隔*/
+
+}
+
+#cart-toolbar .submit-btn {
+    width: 80px;
+    height: 50px;
+    text-align: center;
+    font-weigh: bold;
+    background-color: #e4393c;
+    color: #fff;
+    font-size: 20px;
+
+}
+
+#cart-toolbar .submit-price {
+    /*调整商品金额和两边文字的间隔*/
+    margin: 0 10px;
+}

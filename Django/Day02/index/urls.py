@@ -10,5 +10,6 @@ urlpatterns = [
     url(r'^01-temp/$', views.temp),
     url(r'^02-temp/$', views.render_Temp),
     url(r'^03-params/$', views.params),
+    url(r'^04-static/$', views.static),
 
 ]
