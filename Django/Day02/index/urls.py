@@ -8,7 +8,7 @@ urlpatterns = [
 
     url(r'^$', views.index),
     url(r'^01-temp/$', views.temp),
-    url(r'^02-temp/$', views.renderTemp),
-
+    url(r'^02-temp/$', views.render_Temp),
+    url(r'^03-params/$', views.params),
 
 ]
