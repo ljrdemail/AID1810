@@ -13,17 +13,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-
 from django.conf.urls import url, include
 from django.contrib import admin
-from django.http import HttpResponse
-
-
-def views(request):
-    return HttpResponse("首页")
-
 
 urlpatterns = [
     url('admin/', admin.site.urls),
-    url("index/$", views.index)
+    url(r'^index/', include("index.urls")),  # 注意index/后没有$ 余下的交给index目录下的urls.py进一步处理
+    url(r'^', include("index.urls")),  # 如果什么都不输入交给index来处理
+
 ]
