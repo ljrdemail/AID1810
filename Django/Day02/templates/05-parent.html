@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>这是parent.html中的内容</h2>
+
+<h2>
+    {% block content %}
+    这是parent中允许被子模板修改的内容
+    {% endblock %}
+</h2>
+<ul>
+    {% for name in list %}
+    <li>{{ name }}</li>
+    {% endfor %}
+
+</ul>
+
+</body>
+</html>

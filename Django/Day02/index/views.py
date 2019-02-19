@@ -42,3 +42,13 @@ def params(request):
 
 def static(request):
     return render(request, "04-static.html")
+
+
+def parent(request):
+    list = ["孙悟空", "猪八戒", "沙僧", "唐僧"]
+    return render(request, "05-parent.html", locals())
+
+
+def child(request):
+    list = ["旋涡鸣人", "小樱", "卡卡西", "佐助"]
+    return render(request, "06-child.html", locals())
