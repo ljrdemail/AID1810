@@ -18,8 +18,11 @@ def index(request):
 
 
 def temp(request):
+    # 1.通过loader加载模板
     t = loader.get_template("01-temp.html")
+    # 2.将模板转换成字符串
     html = t.render()
+    # 3.通过HttpResponse进行响应
     return HttpResponse(html)
 
 
