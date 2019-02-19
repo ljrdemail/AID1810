@@ -14,7 +14,7 @@ def login(request):
 
 
 def register(request):
-    return HttpResponse("这是index应用中的register访问路径")
+    return render(request, "register.html")
 
 
 def cart(request):
