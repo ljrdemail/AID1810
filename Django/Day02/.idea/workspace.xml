@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a3f99c5e-335d-4b27-b0e1-172fa450361f" name="Default Changelist" comment="" />
+    <list default="true" id="c59051a2-d749-4a40-86eb-15dc6d8164f7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/Day02.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/AID1810.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/AID1810.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Day01_HomeWork_FruitDay/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Day01_HomeWork_FruitDay/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,33 +20,22 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://D:/自动化测试R3-Python/Day01-2018-03-11/A_string.py">
+        <entry file="file://$PROJECT_DIR$/Day02/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-690" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://D:/自动化测试R3-Python/Day01-2018-03-11/B_if_bool_or_and_not.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-990" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://D:/自动化测试R3-Python/Day01-2018-03-11/C_while.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="12" column="32" lean-forward="true" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+            <state relative-caret-position="207">
+              <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://D:/自动化测试R3-Python/Day01-2018-03-11/D_list_for.py">
+        <entry file="file://$PROJECT_DIR$/Day02/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="244">
+              <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
+              <folding>
+                <element signature="e#630#671#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -47,24 +45,48 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Day02/settings.py" />
+        <option value="$PROJECT_DIR$/Day02/urls.py" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="width" value="955" />
     <option name="height" value="629" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Day02" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Day02" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Day02" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Day02" type="462c0819:PsiDirectoryNode" />
+              <item name="Day02" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope" />
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="D:/Selenium" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
@@ -82,8 +104,8 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="Day01_HomeWork_FruitDay" type="Python.DjangoServer" factoryName="Django server">
-      <module name="Day01_HomeWork_FruitDay" />
+    <configuration name="Day02" type="Python.DjangoServer" factoryName="Django server">
+      <module name="Day02" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -111,20 +133,21 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a3f99c5e-335d-4b27-b0e1-172fa450361f" name="Default Changelist" comment="" />
-      <created>1550483860893</created>
+      <changelist id="c59051a2-d749-4a40-86eb-15dc6d8164f7" name="Default Changelist" comment="" />
+      <created>1550537926764</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1550483860893</updated>
-      <workItem from="1550483862360" duration="3032000" />
+      <updated>1550537926764</updated>
+      <workItem from="1550537928142" duration="287000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3032000" />
+    <option name="totallyTimeSpent" value="287000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
@@ -133,7 +156,7 @@
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Python Console" />
-      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.32884097" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -153,45 +176,20 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Day01_HomeWork_FruitDay/settings.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://D:/Python+人工智能笔记1810/框架/Django/Day01/DjangoDemo01/DjangoDemo01/settings.py">
+    <entry file="file://$PROJECT_DIR$/Day02/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-759" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Day01_HomeWork_FruitDay/urls.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://D:/Python+人工智能笔记1810/框架/Django/Day01/DjangoDemo01/DjangoDemo01/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="25" column="2" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="2" />
+        <state relative-caret-position="207">
+          <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/自动化测试R3-Python/Day01-2018-03-11/A_string.py">
+    <entry file="file://$PROJECT_DIR$/Day02/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-690" />
-      </provider>
-    </entry>
-    <entry file="file://D:/自动化测试R3-Python/Day01-2018-03-11/B_if_bool_or_and_not.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-990" />
-      </provider>
-    </entry>
-    <entry file="file://D:/自动化测试R3-Python/Day01-2018-03-11/C_while.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="12" column="32" lean-forward="true" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/自动化测试R3-Python/Day01-2018-03-11/D_list_for.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="244">
+          <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
+          <folding>
+            <element signature="e#630#671#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
