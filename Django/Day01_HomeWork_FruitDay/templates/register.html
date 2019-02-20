@@ -10,24 +10,24 @@
 {%endblock%}
 
 {%block anchor%}
-<a href="">会员登录&gt</a>
+<a href="/login">会员登录&gt</a>
 {%endblock%}
 
 
 {%block form%}
-<form action="login.py" method="post" enctype="multipart/form-data">
+<form action="" method="post" enctype="multipart/form-data">
     <div class="form-line">
         <p>手机号</p>
         <input type="text" name="uphone" maxlength="11" class="uinput" placeholder="请输入手机号">
     </div>
     <div class="form-line">
         <p>密码</p>
-        <input type="password" name="upwd" maxlength="11" class="uinput" placeholder="请输入6-20位号码字符">
+        <input type="password" name="upwd" maxlength="11" class="uinput" placeholder="请输入密码">
     </div>
 
     <div class="form-line">
         <p>确认密码</p>
-        <input type="password" name="upwd2" maxlength="11" class="uinput" placeholder="请再次输入密码">
+        <input type="password" id="upwd" maxlength="11" class="uinput" placeholder="请再次输入密码">
     </div>
 
     <div class="form-line">
@@ -45,7 +45,7 @@
         <p></p>
         <div>
             <input type="submit" value="注册" class="loginBtn btn">
-            <a href="" class="registBtn btn">会员登录</a>
+            <a href="/login" class="registBtn btn">会员登录</a>
         </div>
 
     </div>
