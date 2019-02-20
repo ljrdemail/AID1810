@@ -44,7 +44,7 @@ h2 {
 #main .right {
     /*让悬浮后靠右 并调整上下左右距离*/
     float: right;
-    margin-top: 10px;
+    margin-top: 8px;
     margin-right: 40px;
 
 }
