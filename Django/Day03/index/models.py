@@ -16,3 +16,14 @@ class Publisher(models.Model):
     city = models.CharField(max_length=20)
     country = models.CharField(max_length=20)
     website = models.URLField()  # Django帮你封装 底层还是varchar
+
+
+class Author(models.Model):
+    name = models.CharField(max_length=100, null=False, unique=True, db_index=True)
+    age = models.IntegerField()
+    email = models.EmailField(max_length=254, null=True)
+
+
+class Book(models.Model):
+    title = models.CharField(max_length=100, null=False, unique=True, db_index=True)
+    publicate_date = models.DateField(null=True, db_index=True)
