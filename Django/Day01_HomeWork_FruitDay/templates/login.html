@@ -4,20 +4,27 @@
     <meta charset="UTF-8">
     <title>Title</title>
     {%load static%}
+    {%block css%}
     <link rel="stylesheet" href="{% static 'css/login.css' %}" type="text/css">
+    {%endblock%}
 </head>
 <body>
 <div id="container">
     <!-- 加这个主要让宽度统一设定为990px-->
     <!--- 顶部标题-->
+    {%block title%}
     <h2>会员登录</h2>
+    {%endblock%}
     <!--- 2 主题-->
     <div id="main">
         <div class="left">
             <img src="{% static 'images/huiyuan.jpg'%}">
+            {%block anchor%}
             <a href="">会员注册&gt</a>
+            {%endblock%}
         </div>
         <div class="right">
+            {%block form%}
             <form action="login.py" method="post" enctype="multipart/form-data">
                 <div class="form-line">
                     <p>手机号</p>
@@ -44,11 +51,9 @@
                         <input type="submit" value="登录" class="loginBtn btn">
                         <a href="" class="registBtn btn">会员注册</a>
                     </div>
-
                 </div>
-
-
             </form>
+            {%endblock%}
         </div>
 
     </div>

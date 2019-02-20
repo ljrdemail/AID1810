@@ -1,65 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    {%load static%}
-    <link rel="stylesheet" href="{% static 'css/register.css' %}" type="text/css">
-</head>
-<body>
-<div id="container">
-    <!-- 加这个主要让宽度统一设定为990px-->
-    <!--- 顶部标题-->
-    <h2>注册会员</h2>
-    <!--- 2 主题-->
-    <div id="main">
-        <div class="left">
-            <img src="{% static 'images/huiyuan.jpg'%}">
-            <a href="">会员登录&gt</a>
-        </div>
-        <div class="right">
-            <form action="login.py" method="post" enctype="multipart/form-data">
-                <div class="form-line">
-                    <p>手机号</p>
-                    <input type="text" name="uphone" maxlength="11" class="uinput" placeholder="请输入手机号">
-                </div>
-                <div class="form-line">
-                    <p>密码</p>
-                    <input type="password" name="upwd" maxlength="11" class="uinput" placeholder="请输入6-20位号码字符">
-                </div>
-
-                <div class="form-line">
-                    <p>确认密码</p>
-                    <input type="password" name="upwd2" maxlength="11" class="uinput" placeholder="请再次输入密码">
-                </div>
-
-                <div class="form-line">
-                    <p>用户名</p>
-                    <input type="text" name="uname" maxlength="11" class="uinput" placeholder="请输入用户名">
-                </div>
-
-                <div class="form-line">
-                    <p>邮箱</p>
-                    <input type="email" name="uemail" maxlength="11" class="uinput" placeholder="请输入邮箱">
-                </div>
-
-                <div class="form-line">
-                    <!-- P用来占位跟上面保持一致-->
-                    <p></p>
-                    <div>
-                        <input type="submit" value="注册" class="loginBtn btn">
-                        <a href="" class="registBtn btn">会员登录</a>
-                    </div>
-
-                </div>
+{%extends 'login.html' %}
+{%load static%}
+{%block css%}
+<link rel="stylesheet" href="{% static 'css/register.css' %}" type="text/css">
+{%endblock%}
 
 
-            </form>
+{%block title%}
+<h2>注册会员</h2>
+{%endblock%}
+
+{%block anchor%}
+<a href="">会员登录&gt</a>
+{%endblock%}
+
+
+{%block form%}
+<form action="login.py" method="post" enctype="multipart/form-data">
+    <div class="form-line">
+        <p>手机号</p>
+        <input type="text" name="uphone" maxlength="11" class="uinput" placeholder="请输入手机号">
+    </div>
+    <div class="form-line">
+        <p>密码</p>
+        <input type="password" name="upwd" maxlength="11" class="uinput" placeholder="请输入6-20位号码字符">
+    </div>
+
+    <div class="form-line">
+        <p>确认密码</p>
+        <input type="password" name="upwd2" maxlength="11" class="uinput" placeholder="请再次输入密码">
+    </div>
+
+    <div class="form-line">
+        <p>用户名</p>
+        <input type="text" name="uname" maxlength="11" class="uinput" placeholder="请输入用户名">
+    </div>
+
+    <div class="form-line">
+        <p>邮箱</p>
+        <input type="email" name="uemail" maxlength="11" class="uinput" placeholder="请输入邮箱">
+    </div>
+
+    <div class="form-line">
+        <!-- P用来占位跟上面保持一致-->
+        <p></p>
+        <div>
+            <input type="submit" value="注册" class="loginBtn btn">
+            <a href="" class="registBtn btn">会员登录</a>
         </div>
 
     </div>
-</div>
 
 
-</body>
-</html>
+</form>
+{%endblock%}
+
+
+
