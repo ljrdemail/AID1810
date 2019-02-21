@@ -18,6 +18,4 @@ urlpatterns = [
     url(r'^12-queryall/$', views.interfacequery),
     url(r'^delete_exec/(\d+)/$', views.setisActive),
 
-
-
 ]

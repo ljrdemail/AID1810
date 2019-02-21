@@ -4,7 +4,8 @@ from django.shortcuts import render
 from .models import *
 from django.db.models import Sum, Avg, Count, Max, Min
 from django.shortcuts import redirect
-from django.db.models import F
+from django.db.models import F, Q
+from django.db import connection
 
 # Create your views here.
 
@@ -21,6 +22,13 @@ def query_filter(request):
     print(authors)
     print(authors2)  # 对象可以迭代访问
     print(authors.query)  # 打印SQL
+    author3 = Author.objects.filter(Q(id=1) | Q(age__gte=80))
+    print(author3.query)
+    author4 = Author.objects.raw("select * from index_author")
+    for au in author4:
+        print(au.name, au.age, au.email)
+
+
     return HttpResponse("Query OK")
 
 
@@ -94,10 +102,19 @@ def query_group_exec(request):
 
 
 def update_single(request):
-    lijiarui = Author.objects.get(name="lijiarui")
+    lijiarui = Author.objects.get(name="lijiarui2")
     lijiarui.email = "ljrdemail@sina.com"
     lijiarui.save()
+    doSQL()
+
+
     return HttpResponse("Update OK")
+
+
+def doSQL():
+    with connection.cursor() as cursor:
+        cursor.execute("update index_author set isActive=1")
+
 
 
 def update_mutiply(request):
