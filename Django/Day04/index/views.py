@@ -3,7 +3,8 @@ from django.template import loader
 from django.shortcuts import render
 from .models import *
 from django.db.models import Sum, Avg, Count, Max, Min
-
+from django.shortcuts import redirect
+from django.db.models import F
 
 # Create your views here.
 
@@ -82,12 +83,43 @@ def query_group_exec(request):
     print(result)
     # 2 查询每个时间点所发布的书籍的数量
     result2 = Book.objects.values('publicate_date').annotate(count=Count('id')).values('publicate_date', 'count')
-    print(result2)
+    print(result２)
     # 3 查询1986(不包含)年之后出版的图书的数量
     result3 = Book.objects.filter(publicate_date__year__gt=1986).aggregate(count=Count('id'))
-    print(result3)
+    print(result３)
     # 4 查询Publisher中City 为北京的出版社的数量
     result4 = Publisher.objects.filter(city__exact='北京').aggregate(count=Count('id')).having(count__gt=2)
-    print(result4)
-
+    print(result４)
     return HttpResponse("Query OK")
+
+
+def update_single(request):
+    lijiarui = Author.objects.get(name="lijiarui")
+    lijiarui.email = "ljrdemail@sina.com"
+    lijiarui.save()
+    return HttpResponse("Update OK")
+
+
+def update_mutiply(request):
+    Author.objects.filter(isActive=False).update(isActive=True)
+    Author.objects.filter(isActive=True).update(age=F('age') + 10)
+    return HttpResponse("Update OK")
+
+
+def delete_views(request):
+    Author.objects.filter(isActive=False).delete()
+    Author.objects.get(id=6).delete()
+    return HttpResponse("delete OK")
+
+
+def interfacequery(request):
+    authors = Author.objects.filter(isActive=True)
+
+    return render(request, "01-query_views.html", locals())
+
+
+def setisActive(request, id):
+    authordel = Author.objects.get(id=id)
+    authordel.isActive = False
+    authordel.save()
+    return redirect("/12-queryall")

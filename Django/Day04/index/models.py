@@ -1,6 +1,5 @@
 from django.db import models
 
-
 # Create your models here.
 
 # 创建一个实体类 -Publisher 表示出版社信息
@@ -18,13 +17,11 @@ class Publisher(models.Model):
     country = models.CharField(max_length=20)
     website = models.URLField()  # Django帮你封装 底层还是varchar
 
-
 class Author(models.Model):
     name = models.CharField(max_length=100, null=False, unique=True, db_index=True)
     age = models.IntegerField()
     email = models.EmailField(max_length=254, null=True)
     isActive = models.BooleanField(default=True)
-
 
 class Book(models.Model):
     title = models.CharField(max_length=100, null=False, unique=True, db_index=True)

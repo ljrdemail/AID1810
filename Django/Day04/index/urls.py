@@ -12,5 +12,12 @@ urlpatterns = [
     url(r'^06-query-get/$', views.query_get),
     url(r'^07-query-group/$', views.query_group),
     url(r'^08-query-group_exec/$', views.query_group_exec),
+    url(r'^09-update_single/$', views.update_single),
+    url(r'^10-update_mutiply/$', views.update_mutiply),
+    url(r'^11-delete/$', views.delete_views),
+    url(r'^12-queryall/$', views.interfacequery),
+    url(r'^delete_exec/(\d+)/$', views.setisActive),
+
+
 
 ]
