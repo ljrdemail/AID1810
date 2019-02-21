@@ -6,6 +6,7 @@
       <excludeFolder url="file://$MODULE_DIR$/Django/Day01_HomeWork_FruitDay/venv" />
       <excludeFolder url="file://$MODULE_DIR$/Django/Day02/venv" />
       <excludeFolder url="file://$MODULE_DIR$/Django/Day03/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/Django/Day04/venv" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.7" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
